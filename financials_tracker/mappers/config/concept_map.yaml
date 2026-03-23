@@ -92,7 +92,8 @@ cash_flow:
 
   depreciation_amortization:
     - DepreciationDepletionAndAmortization
-
+    - Depreciation
+    
   stock_based_compensation:
     - ShareBasedCompensation
 

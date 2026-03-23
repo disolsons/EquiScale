@@ -2,9 +2,10 @@ from typing import Any
 
 import pandas as pd
 from financials_tracker.mappers.concept_map_helper import ConceptMapHelper
-from financials_tracker.validators.utils.validator_utils import get_period_columns, has_historical_raw_format, normalize_raw_tag, to_python_scalar
+from financials_tracker.validators.base_validator import BaseValidator
+from financials_tracker.validators.utils.validator_utils import get_period_columns, has_historical_raw_format, normalize_raw_tag, safe_scalar, to_python_scalar
 
-class StatementMappingDetailValidator:
+class StatementMappingDetailValidator(BaseValidator):
     """
     Mapping detail validator for mapped statement concepts.
     """
@@ -78,11 +79,11 @@ class StatementMappingDetailValidator:
             details[normalized_concept] = {
                 "raw_tag": raw_tag,
                 "label": raw_df.loc[raw_tag, "label"] if "label" in raw_df.columns else None,
-                "is_total": self._safe_scalar(raw_df, raw_tag, "is_total"),
-                "is_abstract": self._safe_scalar(raw_df, raw_tag, "is_abstract"),
-                "depth": self._safe_scalar(raw_df, raw_tag, "depth"),
-                "section": self._safe_scalar(raw_df, raw_tag, "section"),
-                "confidence": self._safe_scalar(raw_df, raw_tag, "confidence"),
+                "is_total": safe_scalar(df=raw_df, row_key=raw_tag, col_name="is_total"),
+                "is_abstract": safe_scalar(df=raw_df, row_key=raw_tag, col_name="is_abstract"),
+                "depth": safe_scalar(df=raw_df, row_key=raw_tag, col_name="depth"),
+                "section": safe_scalar(df=raw_df, row_key=raw_tag, col_name="section"),
+                "confidence": safe_scalar(df=raw_df, row_key=raw_tag, col_name="confidence"),
                 "non_null_periods": int(values.notna().sum()) if not values.empty else 0,
             }
 
@@ -119,8 +120,4 @@ class StatementMappingDetailValidator:
 
         return details
 
-    def _safe_scalar(self, df: pd.DataFrame, row_key: Any, col_name: str) -> Any:
-        if col_name not in df.columns:
-            return None
-        return to_python_scalar(df.loc[row_key, col_name])
 

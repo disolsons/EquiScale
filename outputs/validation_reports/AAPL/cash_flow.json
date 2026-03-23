@@ -1,0 +1,415 @@
+{
+  "statement_type": "cash_flow",
+  "coverage": {
+    "statement_type": "cash_flow",
+    "expected_concepts_count": 6,
+    "mapped_concepts_count": 6,
+    "coverage_ratio": 1.0,
+    "mapped_concepts": [
+      "capital_expenditures",
+      "depreciation_amortization",
+      "dividends_paid",
+      "operating_cash_flow",
+      "share_repurchases",
+      "stock_based_compensation"
+    ],
+    "missing_concepts": [],
+    "non_null_period_counts": {
+      "share_repurchases": 3,
+      "stock_based_compensation": 3,
+      "dividends_paid": 3,
+      "depreciation_amortization": 3,
+      "capital_expenditures": 3,
+      "operating_cash_flow": 3
+    }
+  },
+  "mapping_detail": {
+    "statement_type": "cash_flow",
+    "details": {
+      "depreciation_amortization": {
+        "raw_tag": "DepreciationDepletionAndAmortization",
+        "label": "Depreciation, Depletion and Amortization",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 2,
+        "section": null,
+        "confidence": 0.38368580060422963,
+        "non_null_periods": 3
+      },
+      "stock_based_compensation": {
+        "raw_tag": "ShareBasedCompensation",
+        "label": "Share-based Payment Arrangement, Noncash Expense",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 2,
+        "section": null,
+        "confidence": 0.6676737160120846,
+        "non_null_periods": 3
+      },
+      "operating_cash_flow": {
+        "raw_tag": "NetCashProvidedByUsedInOperatingActivities",
+        "label": "Net Cash Provided by (Used in) Operating Activities",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.8851963746223565,
+        "non_null_periods": 3
+      },
+      "capital_expenditures": {
+        "raw_tag": "PaymentsToAcquirePropertyPlantAndEquipment",
+        "label": "Payments to Acquire Property, Plant, and Equipment",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.513595166163142,
+        "non_null_periods": 3
+      },
+      "share_repurchases": {
+        "raw_tag": "PaymentsForRepurchaseOfCommonStock",
+        "label": "Payments for Repurchase of Common Stock",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.5861027190332326,
+        "non_null_periods": 3
+      },
+      "dividends_paid": {
+        "raw_tag": "PaymentsOfDividends",
+        "label": "Payments of Dividends",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": "Additional",
+        "confidence": 0.5,
+        "non_null_periods": 3
+      }
+    }
+  },
+  "reconciliation": {
+    "statement_type": "cash_flow",
+    "checks": {}
+  },
+  "unmapped_tags": {
+    "statement_type": "cash_flow",
+    "total_raw_rows": 40,
+    "mapped_raw_tags": [
+      "Depreciation",
+      "DepreciationDepletionAndAmortization",
+      "NetCashProvidedByUsedInOperatingActivities",
+      "PaymentsForRepurchaseOfCommonStock",
+      "PaymentsOfDividends",
+      "PaymentsToAcquirePropertyPlantAndEquipment",
+      "ShareBasedCompensation"
+    ],
+    "ignored_raw_tags": [
+      "AdditionalItems",
+      "NetCashProvidedByUsedInOperatingActivitiesAbstract",
+      "SupplementalCashFlowInformationAbstract"
+    ],
+    "unmapped_raw_tags": [
+      {
+        "raw_tag": "AdjustmentsToReconcileNetIncomeLossToCashProvidedByUsedInOperatingActivitiesAbstract",
+        "label": "Adjustments to reconcile net income to net cash provided by operating activities:",
+        "is_total": false,
+        "is_abstract": true,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.7794561933534743,
+        "non_null_periods": 0
+      },
+      {
+        "raw_tag": "IncreaseDecreaseInOperatingCapitalAbstract",
+        "label": "Changes in operating assets and liabilities:",
+        "is_total": false,
+        "is_abstract": true,
+        "depth": 2,
+        "section": null,
+        "confidence": 0.7129909365558912,
+        "non_null_periods": 0
+      },
+      {
+        "raw_tag": "IncreaseDecreaseInAccountsReceivable",
+        "label": "Increase (Decrease) in Accounts Receivable",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 3,
+        "section": null,
+        "confidence": 0.4108761329305136,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "IncreaseDecreaseInInventories",
+        "label": "Increase (Decrease) in Inventories",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 3,
+        "section": null,
+        "confidence": 0.37462235649546827,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "IncreaseDecreaseInAccountsPayable",
+        "label": "Increase (Decrease) in Accounts Payable",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 3,
+        "section": null,
+        "confidence": 0.311178247734139,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "NetCashProvidedByUsedInInvestingActivitiesAbstract",
+        "label": "Cash flows from investing activities:",
+        "is_total": false,
+        "is_abstract": true,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.7522658610271903,
+        "non_null_periods": 0
+      },
+      {
+        "raw_tag": "NetCashProvidedByUsedInInvestingActivities",
+        "label": "Net Cash Provided by (Used in) Investing Activities",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.851963746223565,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "PaymentsForProceedsFromOtherInvestingActivities",
+        "label": "Payments for (Proceeds from) Other Investing Activities",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.3776435045317221,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "NetCashProvidedByUsedInFinancingActivitiesAbstract",
+        "label": "Cash flows from financing activities:",
+        "is_total": false,
+        "is_abstract": true,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.7854984894259819,
+        "non_null_periods": 0
+      },
+      {
+        "raw_tag": "PaymentsRelatedToTaxWithholdingForShareBasedCompensation",
+        "label": "Payment, Tax Withholding, Share-based Payment Arrangement",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.32326283987915405,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "NetCashProvidedByUsedInFinancingActivities",
+        "label": "Net Cash Provided by (Used in) Financing Activities",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.8942598187311178,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "PaymentsOfDividendsCommonStock",
+        "label": "Dividends paid",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.37462235649546827,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "ProceedsFromPaymentsForOtherFinancingActivities",
+        "label": "Proceeds from (Payments for) Other Financing Activities",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.3504531722054381,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "RepaymentsOfLongTermDebt",
+        "label": "Repayments of Long-term Debt",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.30513595166163143,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect",
+        "label": "Cash, Cash Equivalents, Restricted Cash and Restricted Cash Equivalents, Period Increase (Decrease), Including Exchange Rate Effect",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.797583081570997,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+        "label": "Cash, Cash Equivalents, Restricted Cash and Restricted Cash Equivalents",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.7885196374622356,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "InterestPaidNet",
+        "label": "Interest Paid, Excluding Capitalized Interest, Operating Activities",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.5830815709969789,
+        "non_null_periods": 1
+      },
+      {
+        "raw_tag": "IncomeTaxesPaidNet",
+        "label": "Income Taxes Paid, Net",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.37462235649546827,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "CashFlowNoncashInvestingAndFinancingActivitiesDisclosureAbstract",
+        "label": "Noncash investing and financing activities:",
+        "is_total": false,
+        "is_abstract": true,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.2985,
+        "non_null_periods": 0
+      },
+      {
+        "raw_tag": "CapitalExpendituresIncurredButNotYetPaid",
+        "label": "Purchases of property and equipment, accrued but unpaid",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.2687,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "AllocatedShareBasedCompensationExpense",
+        "label": "Share-based Payment Arrangement, Expense",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": "Additional",
+        "confidence": 0.5,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "DividendsPaid",
+        "label": "Payments of Dividends",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": "Additional",
+        "confidence": 0.5,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "GeneralAndAdministrativeExpense",
+        "label": "General and Administrative Expense",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": "Additional",
+        "confidence": 0.5,
+        "non_null_periods": 1
+      },
+      {
+        "raw_tag": "IncomeTaxExpenseBenefit",
+        "label": "Income Tax Expense (Benefit)",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": "Additional",
+        "confidence": 0.5,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "NetIncomeLoss",
+        "label": "Net Income (Loss) Attributable to Parent",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 1,
+        "section": "Additional",
+        "confidence": 0.5,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "NonoperatingIncomeExpense",
+        "label": "Nonoperating Income (Expense)",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": "Additional",
+        "confidence": 0.5,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "OperatingExpenses",
+        "label": "Operating Expenses",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": "Additional",
+        "confidence": 0.5,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "OtherNonoperatingIncomeExpense",
+        "label": "Other Nonoperating Income (Expense)",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": "Additional",
+        "confidence": 0.5,
+        "non_null_periods": 1
+      },
+      {
+        "raw_tag": "ProceedsFromIssuanceOfLongTermDebt",
+        "label": "Proceeds from Issuance of Long-term Debt",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": "Additional",
+        "confidence": 0.5,
+        "non_null_periods": 3
+      },
+      {
+        "raw_tag": "ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
+        "label": "Proceeds from Maturities, Prepayments and Calls of Debt Securities, Available-for-sale",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": "Additional",
+        "confidence": 0.5,
+        "non_null_periods": 3
+      }
+    ]
+  }
+}

@@ -93,7 +93,7 @@ def test_validate_statement_combines_metrics():
         {"FY 2024": [100.0]}, index=["gross_profit"]
     )
 
-    result = engine.validate_statement(raw_df, mapped_df, "income_statement")
+    result = engine.validate(raw_df, mapped_df, "income_statement")
 
     assert result["statement_type"] == "income_statement"
     assert "coverage" in result

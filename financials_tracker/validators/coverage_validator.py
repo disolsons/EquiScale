@@ -2,10 +2,11 @@ from typing import Any
 
 import pandas as pd
 from financials_tracker.mappers.concept_map_helper import ConceptMapHelper
+from financials_tracker.validators.base_validator import BaseValidator
 from financials_tracker.validators.utils.validator_utils import get_period_columns
 
 
-class StatementCoverageValidator:
+class StatementCoverageValidator(BaseValidator):
     """
     Coverage validator for mapped statement concepts.
     """

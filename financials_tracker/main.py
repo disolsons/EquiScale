@@ -4,14 +4,15 @@ from financials_tracker.mappers.concept_map_helper import ConceptMapHelper
 from financials_tracker.clients.edgar.edgar_client import EdgarClient
 from financials_tracker.mappers.statement_mapper import StatementMapper   
 from financials_tracker.validators.statement_validation_engine import StatementValidationEngine
-from financials_tracker.validators.validation_report_helper import save_validation_report
+from financials_tracker.validators.utils.ignored_tags_helper import IgnoredTagsHelper
+from financials_tracker.validators.utils.validation_report_utils import save_validation_report
 
 def main():
 
-    ticker = "TSLA"
-    helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
-    client = EdgarClient(concept_helper=helper, ticker=ticker)
-    mapper = StatementMapper(helper)
+    ticker = "AAPL"
+    concept_map_helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
+    client = EdgarClient(concept_helper=concept_map_helper, ticker=ticker)
+    mapper = StatementMapper(concept_map_helper)
 
     income_raw = client.fetch_income_statement(period_mode="history", years=3, annual=True)
     balance_raw = client.fetch_balance_sheet(period_mode="history", years=3, annual=True)
@@ -27,10 +28,11 @@ def main():
         cash_flow=cash_df,
     )
     
-    validator = StatementValidationEngine(helper)
+    ignored_tags_helper = IgnoredTagsHelper("financials_tracker/validators/config/ignored_tags.yaml")
+    validator = StatementValidationEngine(concept_map_helper, ignored_tags_helper)
     statement_type="balance_sheet"
 
-    report = validator.validate_statement(
+    report = validator.validate(
         raw_df=balance_raw,
         mapped_df=balance_df,
         statement_type=statement_type,

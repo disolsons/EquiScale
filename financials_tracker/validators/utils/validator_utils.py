@@ -12,6 +12,11 @@ def relative_difference(a: float, b: float) -> float:
     denominator = max(abs(a), abs(b), 1e-12)
     return abs(a - b) / denominator
 
+def safe_scalar(df: pd.DataFrame, row_key: Any, col_name: str) -> Any:
+    if col_name not in df.columns:
+        return None
+    return to_python_scalar(df.loc[row_key, col_name])
+
 def to_python_scalar(value: Any) -> Any:
     """
     Convert a NumPy scalar to a native Python scalar, handling NaNs appropriately.

@@ -2,10 +2,11 @@ from typing import Any
 
 import pandas as pd
 
+from financials_tracker.validators.base_validator import BaseValidator
 from financials_tracker.validators.utils.validator_utils import get_period_columns, relative_difference, to_python_scalar
 
 
-class StatementReconciliationValidator:
+class StatementReconciliationValidator(BaseValidator):
     """Reconciliation validator for mapped financial statements."""
 
     def validate(
