@@ -1,0 +1,17 @@
+income_statement:
+  - OperatingExpensesAbstract
+  - NonoperatingIncomeExpenseAbstract
+  - AdditionalItems
+
+balance_sheet:
+  - AssetsAbstract
+  - AssetsCurrentAbstract
+  - LiabilitiesAndStockholdersEquityAbstract
+  - StockholdersEquityAbstract
+  - LiabilitiesCurrentAbstract
+  - AdditionalItems
+
+cash_flow:
+  - NetCashProvidedByUsedInOperatingActivitiesAbstract
+  - SupplementalCashFlowInformationAbstract
+  - AdditionalItems

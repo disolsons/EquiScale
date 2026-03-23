@@ -75,6 +75,12 @@ balance_sheet:
   shareholder_equity:
     - StockholdersEquity
     - StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest
+  
+  total_liabilities_and_equity:
+    - LiabilitiesAndStockholdersEquity
+    - LiabilitiesAndEquity
+    - LiabilitiesAndPartnersCapital
+    - LiabilitiesAndShareholdersEquity
 
 
 cash_flow:
@@ -86,7 +92,8 @@ cash_flow:
 
   depreciation_amortization:
     - DepreciationDepletionAndAmortization
-
+    - Depreciation
+    
   stock_based_compensation:
     - ShareBasedCompensation
 
