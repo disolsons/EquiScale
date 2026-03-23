@@ -1,0 +1,97 @@
+income_statement:
+  revenue:
+    - RevenueFromContractWithCustomerExcludingAssessedTax
+    - SalesRevenueNet
+    - Revenues
+
+  cost_of_revenue:
+    - CostOfRevenue
+    - CostOfGoodsAndServicesSold
+    - CostOfSales
+
+  gross_profit:
+    - GrossProfit
+
+  research_and_development:
+    - ResearchAndDevelopmentExpense
+
+  selling_general_admin:
+    - SellingGeneralAndAdministrativeExpense
+
+  operating_expense:
+    - OperatingExpenses
+
+  operating_income:
+    - OperatingIncomeLoss
+
+  interest_expense:
+    - InterestExpense
+
+  pretax_income:
+    - IncomeBeforeIncomeTaxes
+
+  income_tax_expense:
+    - IncomeTaxExpenseBenefit
+
+  net_income:
+    - NetIncomeLoss
+
+  diluted_eps:
+    - EarningsPerShareDiluted
+
+  diluted_shares:
+    - WeightedAverageNumberOfDilutedSharesOutstanding
+
+
+balance_sheet:
+  cash_and_equivalents:
+    - CashAndCashEquivalentsAtCarryingValue
+
+  accounts_receivable:
+    - AccountsReceivableNetCurrent
+
+  inventory:
+    - InventoryNet
+
+  total_current_assets:
+    - AssetsCurrent
+
+  total_assets:
+    - Assets
+
+  accounts_payable:
+    - AccountsPayableCurrent
+
+  total_current_liabilities:
+    - LiabilitiesCurrent
+
+  long_term_debt:
+    - LongTermDebtNoncurrent
+    - LongTermDebt
+
+  total_liabilities:
+    - Liabilities
+
+  shareholder_equity:
+    - StockholdersEquity
+    - StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest
+
+
+cash_flow:
+  operating_cash_flow:
+    - NetCashProvidedByUsedInOperatingActivities
+
+  capital_expenditures:
+    - PaymentsToAcquirePropertyPlantAndEquipment
+
+  depreciation_amortization:
+    - DepreciationDepletionAndAmortization
+
+  stock_based_compensation:
+    - ShareBasedCompensation
+
+  dividends_paid:
+    - PaymentsOfDividends
+
+  share_repurchases:
+    - PaymentsForRepurchaseOfCommonStock
