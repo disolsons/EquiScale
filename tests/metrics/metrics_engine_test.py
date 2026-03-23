@@ -1,7 +1,7 @@
 import pandas as pd
 
-from financials_tracker.analytics.financial_dataset import FinancialDataset
-from financials_tracker.analytics.metrics_engine import MetricsEngine
+from financials_tracker.metrics.financial_dataset import FinancialDataset
+from financials_tracker.metrics.metrics_engine import MetricsEngine
 
 
 def build_test_dataset():

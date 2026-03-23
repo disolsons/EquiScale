@@ -20,17 +20,17 @@
     ],
     "missing_concepts": [],
     "non_null_period_counts": {
-      "total_liabilities_and_equity": 3,
-      "total_current_liabilities": 3,
+      "total_assets": 3,
       "shareholder_equity": 3,
       "cash_and_equivalents": 3,
       "total_current_assets": 3,
-      "accounts_receivable": 3,
       "accounts_payable": 3,
-      "total_assets": 3,
-      "inventory": 3,
+      "total_current_liabilities": 3,
+      "total_liabilities": 3,
       "long_term_debt": 3,
-      "total_liabilities": 3
+      "accounts_receivable": 3,
+      "inventory": 3,
+      "total_liabilities_and_equity": 3
     }
   },
   "mapping_detail": {

@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 class MetricsCalculator:
     @staticmethod
     def divide(numerator: pd.Series | None, denominator: pd.Series | None) -> pd.Series | None:
