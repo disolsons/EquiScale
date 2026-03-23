@@ -114,7 +114,36 @@ class MetricsEngine:
         for metric_name in metric_names:
             results[metric_name] = self._calculate_metric(metric_name)
 
-        return pd.DataFrame(results).T
+    # Collect all period columns from any Series result
+        all_columns = set()
+        for value in results.values():
+            if isinstance(value, pd.Series):
+                all_columns.update(value.index.tolist())
+
+        # If every metric returned None, return an empty DataFrame
+        # with the metric names as index
+        if not all_columns:
+            empty_df = pd.DataFrame(index=metric_names)
+            empty_df.index.name = "metric"
+            return empty_df
+
+        all_columns = sorted(all_columns)
+
+        normalized_results = {}
+        for metric_name, value in results.items():
+            if isinstance(value, pd.Series):
+                normalized_results[metric_name] = value.reindex(all_columns)
+            else:
+                normalized_results[metric_name] = pd.Series(
+                    [None] * len(all_columns),
+                    index=all_columns
+                )
+
+        result_df = pd.DataFrame(normalized_results).T
+        result_df.index.name = "metric"
+        
+        return result_df
+    
 
     def _calculate_metric(self, metric_name, visited=None) -> pd.Series | None:
         #Prevent circular dependencies in cascading metrics.

@@ -148,17 +148,17 @@ def run_for_ticker(
     save_dataframe(cash_mapped, ticker_dir / "mapped" / "cash_flow.csv")
 
     # --- Validation reports ---
-    income_validation = validator.validate_statement(
+    income_validation = validator.validate(
         raw_df=income_raw,
         mapped_df=income_mapped,
         statement_type="income_statement",
     )
-    balance_validation = validator.validate_statement(
+    balance_validation = validator.validate(
         raw_df=balance_raw,
         mapped_df=balance_mapped,
         statement_type="balance_sheet",
     )
-    cash_validation = validator.validate_statement(
+    cash_validation = validator.validate(
         raw_df=cash_raw,
         mapped_df=cash_mapped,
         statement_type="cash_flow",
