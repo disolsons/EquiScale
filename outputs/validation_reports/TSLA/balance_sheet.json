@@ -1,0 +1,184 @@
+{
+  "statement_type": "balance_sheet",
+  "coverage": {
+    "statement_type": "balance_sheet",
+    "expected_concepts_count": 11,
+    "mapped_concepts_count": 11,
+    "coverage_ratio": 1.0,
+    "mapped_concepts": [
+      "accounts_payable",
+      "accounts_receivable",
+      "cash_and_equivalents",
+      "inventory",
+      "long_term_debt",
+      "shareholder_equity",
+      "total_assets",
+      "total_current_assets",
+      "total_current_liabilities",
+      "total_liabilities",
+      "total_liabilities_and_equity"
+    ],
+    "missing_concepts": [],
+    "non_null_period_counts": {
+      "total_current_assets": 3,
+      "long_term_debt": 3,
+      "shareholder_equity": 3,
+      "total_current_liabilities": 3,
+      "total_assets": 3,
+      "total_liabilities": 3,
+      "inventory": 3,
+      "total_liabilities_and_equity": 3,
+      "cash_and_equivalents": 3,
+      "accounts_payable": 3,
+      "accounts_receivable": 3
+    }
+  },
+  "mapping_detail": {
+    "statement_type": "balance_sheet",
+    "details": {
+      "total_assets": {
+        "raw_tag": "Assets",
+        "label": "Assets",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.9003021148036254,
+        "non_null_periods": 3
+      },
+      "cash_and_equivalents": {
+        "raw_tag": "CashAndCashEquivalentsAtCarryingValue",
+        "label": "Cash and Cash Equivalents, at Carrying Value",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 2,
+        "section": null,
+        "confidence": 0.7280966767371602,
+        "non_null_periods": 3
+      },
+      "accounts_receivable": {
+        "raw_tag": "AccountsReceivableNetCurrent",
+        "label": "Accounts Receivable, after Allowance for Credit Loss, Current",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 2,
+        "section": null,
+        "confidence": 0.43202416918429004,
+        "non_null_periods": 3
+      },
+      "inventory": {
+        "raw_tag": "InventoryNet",
+        "label": "Inventory, Net",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 2,
+        "section": null,
+        "confidence": 0.38972809667673713,
+        "non_null_periods": 3
+      },
+      "total_current_assets": {
+        "raw_tag": "AssetsCurrent",
+        "label": "Assets, Current",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 2,
+        "section": null,
+        "confidence": 0.5921450151057401,
+        "non_null_periods": 3
+      },
+      "total_liabilities": {
+        "raw_tag": "Liabilities",
+        "label": "Liabilities",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.7280966767371602,
+        "non_null_periods": 3
+      },
+      "shareholder_equity": {
+        "raw_tag": "StockholdersEquity",
+        "label": "Stockholders' Equity Attributable to Parent",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 2,
+        "section": null,
+        "confidence": 0.8157099697885196,
+        "non_null_periods": 3
+      },
+      "total_liabilities_and_equity": {
+        "raw_tag": "LiabilitiesAndStockholdersEquity",
+        "label": "Liabilities and Equity",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.8882175226586103,
+        "non_null_periods": 3
+      },
+      "total_current_liabilities": {
+        "raw_tag": "LiabilitiesCurrent",
+        "label": "Liabilities, Current",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 2,
+        "section": null,
+        "confidence": 0.5921450151057401,
+        "non_null_periods": 3
+      },
+      "accounts_payable": {
+        "raw_tag": "AccountsPayableCurrent",
+        "label": "Accounts Payable, Current",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 2,
+        "section": null,
+        "confidence": 0.4652567975830816,
+        "non_null_periods": 3
+      },
+      "long_term_debt": {
+        "raw_tag": "LongTermDebtNoncurrent",
+        "label": "Long Term Debt",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.3382,
+        "non_null_periods": 3
+      }
+    }
+  },
+  "reconciliation": {
+    "statement_type": "balance_sheet",
+    "checks": {
+      "balance_sheet_equation_check": {
+        "passed": true,
+        "max_relative_difference": 0.0,
+        "by_period": {
+          "FY 2025": {
+            "left": 137806000000.0,
+            "expected": 137806000000.0,
+            "difference": 0.0,
+            "relative_difference": 0.0,
+            "passed": true
+          },
+          "FY 2024": {
+            "left": 122070000000.0,
+            "expected": 122070000000.0,
+            "difference": 0.0,
+            "relative_difference": 0.0,
+            "passed": true
+          },
+          "FY 2023": {
+            "left": 106618000000.0,
+            "expected": 106618000000.0,
+            "difference": 0.0,
+            "relative_difference": 0.0,
+            "passed": true
+          }
+        },
+        "method": "total_assets_vs_total_liabilities_and_equity"
+      }
+    }
+  }
+}

@@ -7,8 +7,10 @@ from financials_tracker.validators.statement_validation_engine import StatementV
 from financials_tracker.validators.validation_report_helper import save_validation_report
 
 def main():
+
+    ticker = "TSLA"
     helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
-    client = EdgarClient(concept_helper=helper, ticker="TSLA")
+    client = EdgarClient(concept_helper=helper, ticker=ticker)
     mapper = StatementMapper(helper)
 
     income_raw = client.fetch_income_statement(period_mode="history", years=3, annual=True)
@@ -26,13 +28,17 @@ def main():
     )
     
     validator = StatementValidationEngine(helper)
+    statement_type="balance_sheet"
 
     report = validator.validate_statement(
-        raw_df=income_raw,
-        mapped_df=income_df,
-        statement_type="income_statement",
+        raw_df=balance_raw,
+        mapped_df=balance_df,
+        statement_type=statement_type,
     )
-    save_validation_report(report,"outputs/validation_reports/TSLA_income_statement_report.json")
+    save_validation_report(
+        report,
+        f"outputs/validation_reports/{ticker}/{statement_type}.json"
+    )
     # engine = MetricsEngine(dataset)
 
     # profitability = engine.calculate_profitability_metrics()
