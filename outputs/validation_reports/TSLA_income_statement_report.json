@@ -1,0 +1,186 @@
+{
+  "statement_type": "income_statement",
+  "coverage": {
+    "statement_type": "income_statement",
+    "expected_concepts_count": 13,
+    "mapped_concepts_count": 11,
+    "coverage_ratio": 0.8461538461538461,
+    "mapped_concepts": [
+      "cost_of_revenue",
+      "diluted_eps",
+      "gross_profit",
+      "income_tax_expense",
+      "interest_expense",
+      "net_income",
+      "operating_expense",
+      "operating_income",
+      "research_and_development",
+      "revenue",
+      "selling_general_admin"
+    ],
+    "missing_concepts": [
+      "diluted_shares",
+      "pretax_income"
+    ],
+    "non_null_period_counts": {
+      "selling_general_admin": 3,
+      "operating_expense": 3,
+      "income_tax_expense": 3,
+      "research_and_development": 3,
+      "interest_expense": 1,
+      "revenue": 3,
+      "cost_of_revenue": 3,
+      "operating_income": 3,
+      "net_income": 3,
+      "gross_profit": 3,
+      "diluted_eps": 3
+    }
+  },
+  "mapping_detail": {
+    "statement_type": "income_statement",
+    "details": {
+      "revenue": {
+        "raw_tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+        "label": "Total Revenue",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.95,
+        "non_null_periods": 3
+      },
+      "cost_of_revenue": {
+        "raw_tag": "CostOfRevenue",
+        "label": "Cost of Revenue",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.3088,
+        "non_null_periods": 3
+      },
+      "gross_profit": {
+        "raw_tag": "GrossProfit",
+        "label": "Gross Profit",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.7206,
+        "non_null_periods": 3
+      },
+      "research_and_development": {
+        "raw_tag": "ResearchAndDevelopmentExpense",
+        "label": "Research and Development Expense",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.3529,
+        "non_null_periods": 3
+      },
+      "operating_expense": {
+        "raw_tag": "OperatingExpenses",
+        "label": "Operating Expenses",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.4265,
+        "non_null_periods": 3
+      },
+      "selling_general_admin": {
+        "raw_tag": "SellingGeneralAndAdministrativeExpense",
+        "label": "Selling, General and Administrative Expense",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.3716012084592145,
+        "non_null_periods": 3
+      },
+      "operating_income": {
+        "raw_tag": "OperatingIncomeLoss",
+        "label": "Operating Income (Loss)",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.5709969788519638,
+        "non_null_periods": 3
+      },
+      "income_tax_expense": {
+        "raw_tag": "IncomeTaxExpenseBenefit",
+        "label": "Income Tax Expense (Benefit)",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.8006042296072508,
+        "non_null_periods": 3
+      },
+      "net_income": {
+        "raw_tag": "NetIncomeLoss",
+        "label": "Net Income (Loss) Attributable to Parent",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.7764350453172205,
+        "non_null_periods": 3
+      },
+      "diluted_eps": {
+        "raw_tag": "EarningsPerShareDiluted",
+        "label": "Earnings Per Share, Diluted",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.8368580060422961,
+        "non_null_periods": 3
+      },
+      "interest_expense": {
+        "raw_tag": "InterestExpense",
+        "label": "Interest Expense",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.2059,
+        "non_null_periods": 1
+      }
+    }
+  },
+  "reconciliation": {
+    "statement_type": "income_statement",
+    "checks": {
+      "gross_profit_check": {
+        "passed": true,
+        "max_relative_difference": 0.0,
+        "by_period": {
+          "FY 2025": {
+            "left": 17094000000.0,
+            "expected": 17094000000.0,
+            "difference": 0.0,
+            "relative_difference": 0.0,
+            "passed": true
+          },
+          "FY 2024": {
+            "left": 17450000000.0,
+            "expected": 17450000000.0,
+            "difference": 0.0,
+            "relative_difference": 0.0,
+            "passed": true
+          },
+          "FY 2023": {
+            "left": 17660000000.0,
+            "expected": 17660000000.0,
+            "difference": 0.0,
+            "relative_difference": 0.0,
+            "passed": true
+          }
+        }
+      }
+    }
+  }
+}

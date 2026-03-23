@@ -101,4 +101,4 @@ cash_flow = client.fetch_cash_flow(
         annual=True
 )
 ```
-- [Back to Index](./README.md)
+- [Back to Index](../README.md)

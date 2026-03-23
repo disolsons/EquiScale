@@ -1,7 +1,7 @@
 import pandas as pd
 
-from financials_tracker.metrics.financial_dataset import FinancialDataset
-from financials_tracker.metrics.metrics_engine import MetricsEngine
+from financials_tracker.analytics.financial_dataset import FinancialDataset
+from financials_tracker.analytics.metrics_engine import MetricsEngine
 
 
 def build_test_dataset():
@@ -141,7 +141,7 @@ def test_calculate_metric_dependency_free_cash_flow_margin():
     dataset = build_test_dataset()
     engine = MetricsEngine(dataset)
 
-    result = engine.calculate_metric("free_cash_flow_margin")
+    result = engine._calculate_metric("free_cash_flow_margin")
 
     assert result is not None
     assert result["FY 2023"] == 0.20
