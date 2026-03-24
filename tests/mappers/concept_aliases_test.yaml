@@ -1,0 +1,16 @@
+income_statement:
+  revenue:
+    - revenue
+    - net sales
+
+  income_before_tax:
+    - income before tax
+    - before income taxes
+
+cash_flow:
+  capital_expenditures:
+    - capital expenditures
+    - acquire property plant and equipment
+
+  operating_cash_flow:
+    - net cash from operating activities

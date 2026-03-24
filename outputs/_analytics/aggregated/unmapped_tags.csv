@@ -69,7 +69,6 @@ cash_flow,ProfitLoss,1,1,TSLA,"Net Income (Loss), Including Portion Attributable
 cash_flow,RepaymentsOfLongTermDebt,1,1,AAPL,Repayments of Long-term Debt,3,3.0,False,False,1,,0.30513595166163143
 cash_flow,UnrealizedGainLossOnInvestments,1,1,TSLA,Unrealized Gain (Loss) on Investments,3,3.0,False,False,1,Additional,0.5
 income_statement,EarningsPerShareBasic,3,3,"AAPL, NVDA, TSLA","Earnings Per Share, Basic",3,3.0,False,False,0,,0.8459214501510574
-income_statement,IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest,3,3,"AAPL, NVDA, TSLA","Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest",3,3.0,False,True,0,,0.6827794561933535
 income_statement,OtherNonoperatingIncomeExpense,3,3,"AAPL, NVDA, TSLA",Other Nonoperating Income (Expense),3,2.3333333333333335,False,False,0,,0.4259818731117824
 income_statement,CommonStockDividendsPerShareDeclared,2,2,"AAPL, NVDA","Common Stock, Dividends, Per Share, Declared",3,3.0,False,False,1,Additional,0.5
 income_statement,CurrentIncomeTaxExpenseBenefit,2,2,"NVDA, TSLA",Current Income Tax Expense (Benefit),3,3.0,False,False,1,Additional,0.5

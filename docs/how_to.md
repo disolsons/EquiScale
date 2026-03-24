@@ -10,6 +10,17 @@ poetry init
 ```
 poetry install
 ```
+# Add new depenencies (during development): 
+```
+poetry add $(package-name)
+```
+
+# Initialize SQLite DB:
+```
+poetry run python -m financials_tracker.cli.init_db
+```
+The db will be created under `data`
+
 # Run the project: 
 ```
 poetry run python -m financials_tracker.cli.run_pipeline --tickers TSLA

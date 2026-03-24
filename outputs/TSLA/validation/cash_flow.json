@@ -16,10 +16,10 @@
       "share_repurchases"
     ],
     "non_null_period_counts": {
-      "operating_cash_flow": 3,
-      "depreciation_amortization": 3,
+      "stock_based_compensation": 3,
       "capital_expenditures": 3,
-      "stock_based_compensation": 3
+      "operating_cash_flow": 3,
+      "depreciation_amortization": 3
     }
   },
   "mapping_detail": {

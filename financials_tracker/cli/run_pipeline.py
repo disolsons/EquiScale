@@ -12,7 +12,11 @@ from financials_tracker.metrics.financial_dataset import FinancialDataset
 from financials_tracker.metrics.metrics_engine import MetricsEngine
 from financials_tracker.validators.utils.ignored_tags_helper import IgnoredTagsHelper
 from financials_tracker.validators.statement_validation_engine import StatementValidationEngine
-
+from financials_tracker.storage.db_setup import get_session_factory
+from financials_tracker.storage.repositories import (
+    replace_unmapped_tags_for_statement,
+    upsert_mapping_validations,
+)
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
@@ -186,6 +190,22 @@ def run_for_ticker(
     save_dataframe(cash_flow_metrics, ticker_dir / "metrics" / "cash_flow.csv")
     save_dataframe(balance_sheet_metrics, ticker_dir / "metrics" / "balance_sheet.csv")
 
+    SessionFactory = get_session_factory()
+    session = SessionFactory()
+
+    # --- Persist to SQLite ---
+    try:
+        upsert_mapping_validations(session, ticker, "income_statement", income_validation)
+        upsert_mapping_validations(session, ticker, "balance_sheet", balance_validation)
+        upsert_mapping_validations(session, ticker, "cash_flow", cash_validation)
+
+        replace_unmapped_tags_for_statement(session, ticker, "income_statement", income_validation)
+        replace_unmapped_tags_for_statement(session, ticker, "balance_sheet", balance_validation)
+        replace_unmapped_tags_for_statement(session, ticker, "cash_flow", cash_validation)
+
+        session.commit()
+    finally:
+        session.close()
     print(f"Finished {ticker}.")
 
 
