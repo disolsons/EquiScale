@@ -2,12 +2,16 @@
   "statement_type": "cash_flow",
   "coverage": {
     "statement_type": "cash_flow",
-    "expected_concepts_count": 6,
-    "mapped_concepts_count": 5,
-    "coverage_ratio": 0.8333333333333334,
+    "expected_concepts_count": 10,
+    "mapped_concepts_count": 9,
+    "coverage_ratio": 0.9,
     "mapped_concepts": [
       "depreciation_amortization",
       "dividends_paid",
+      "income_taxes_paid",
+      "interest_paid",
+      "net_cash_from_financing",
+      "net_cash_from_investing",
       "operating_cash_flow",
       "share_repurchases",
       "stock_based_compensation"
@@ -16,11 +20,15 @@
       "capital_expenditures"
     ],
     "non_null_period_counts": {
-      "stock_based_compensation": 3,
-      "operating_cash_flow": 3,
-      "depreciation_amortization": 3,
       "dividends_paid": 3,
-      "share_repurchases": 3
+      "interest_paid": 2,
+      "income_taxes_paid": 3,
+      "net_cash_from_financing": 3,
+      "net_cash_from_investing": 3,
+      "operating_cash_flow": 3,
+      "share_repurchases": 3,
+      "stock_based_compensation": 3,
+      "depreciation_amortization": 3
     }
   },
   "mapping_detail": {
@@ -56,6 +64,16 @@
         "confidence": 0.8851963746223565,
         "non_null_periods": 3
       },
+      "net_cash_from_investing": {
+        "raw_tag": "NetCashProvidedByUsedInInvestingActivities",
+        "label": "Net Cash Provided by (Used in) Investing Activities",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.851963746223565,
+        "non_null_periods": 3
+      },
       "share_repurchases": {
         "raw_tag": "PaymentsForRepurchaseOfCommonStock",
         "label": "Payments for Repurchase of Common Stock",
@@ -66,14 +84,44 @@
         "confidence": 0.5861027190332326,
         "non_null_periods": 3
       },
+      "net_cash_from_financing": {
+        "raw_tag": "NetCashProvidedByUsedInFinancingActivities",
+        "label": "Net Cash Provided by (Used in) Financing Activities",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.8942598187311178,
+        "non_null_periods": 3
+      },
       "dividends_paid": {
-        "raw_tag": "PaymentsOfDividends",
-        "label": "Payments of Dividends",
+        "raw_tag": "PaymentsOfDividendsCommonStock",
+        "label": "Dividends paid",
         "is_total": false,
         "is_abstract": false,
         "depth": 1,
-        "section": "Additional",
-        "confidence": 0.5,
+        "section": null,
+        "confidence": 0.37462235649546827,
+        "non_null_periods": 3
+      },
+      "interest_paid": {
+        "raw_tag": "InterestPaidNet",
+        "label": "Interest Paid, Excluding Capitalized Interest, Operating Activities",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.5830815709969789,
+        "non_null_periods": 2
+      },
+      "income_taxes_paid": {
+        "raw_tag": "IncomeTaxesPaidNet",
+        "label": "Income Taxes Paid, Net",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.37462235649546827,
         "non_null_periods": 3
       }
     }
@@ -86,11 +134,18 @@
     "statement_type": "cash_flow",
     "total_raw_rows": 43,
     "mapped_raw_tags": [
+      "AllocatedShareBasedCompensationExpense",
       "Depreciation",
       "DepreciationDepletionAndAmortization",
+      "DividendsPaid",
+      "IncomeTaxesPaidNet",
+      "InterestPaidNet",
+      "NetCashProvidedByUsedInFinancingActivities",
+      "NetCashProvidedByUsedInInvestingActivities",
       "NetCashProvidedByUsedInOperatingActivities",
       "PaymentsForRepurchaseOfCommonStock",
       "PaymentsOfDividends",
+      "PaymentsOfDividendsCommonStock",
       "ShareBasedCompensation"
     ],
     "ignored_raw_tags": [
@@ -180,16 +235,6 @@
         "non_null_periods": 3
       },
       {
-        "raw_tag": "NetCashProvidedByUsedInInvestingActivities",
-        "label": "Net Cash Provided by (Used in) Investing Activities",
-        "is_total": true,
-        "is_abstract": false,
-        "depth": 1,
-        "section": null,
-        "confidence": 0.851963746223565,
-        "non_null_periods": 3
-      },
-      {
         "raw_tag": "PaymentsForProceedsFromOtherInvestingActivities",
         "label": "Payments for (Proceeds from) Other Investing Activities",
         "is_total": false,
@@ -217,26 +262,6 @@
         "depth": 1,
         "section": null,
         "confidence": 0.32326283987915405,
-        "non_null_periods": 3
-      },
-      {
-        "raw_tag": "NetCashProvidedByUsedInFinancingActivities",
-        "label": "Net Cash Provided by (Used in) Financing Activities",
-        "is_total": true,
-        "is_abstract": false,
-        "depth": 1,
-        "section": null,
-        "confidence": 0.8942598187311178,
-        "non_null_periods": 3
-      },
-      {
-        "raw_tag": "PaymentsOfDividendsCommonStock",
-        "label": "Dividends paid",
-        "is_total": false,
-        "is_abstract": false,
-        "depth": 1,
-        "section": null,
-        "confidence": 0.37462235649546827,
         "non_null_periods": 3
       },
       {
@@ -270,48 +295,8 @@
         "non_null_periods": 3
       },
       {
-        "raw_tag": "InterestPaidNet",
-        "label": "Interest Paid, Excluding Capitalized Interest, Operating Activities",
-        "is_total": false,
-        "is_abstract": false,
-        "depth": 1,
-        "section": null,
-        "confidence": 0.5830815709969789,
-        "non_null_periods": 2
-      },
-      {
-        "raw_tag": "IncomeTaxesPaidNet",
-        "label": "Income Taxes Paid, Net",
-        "is_total": false,
-        "is_abstract": false,
-        "depth": 1,
-        "section": null,
-        "confidence": 0.37462235649546827,
-        "non_null_periods": 3
-      },
-      {
-        "raw_tag": "AllocatedShareBasedCompensationExpense",
-        "label": "Share-based Payment Arrangement, Expense",
-        "is_total": false,
-        "is_abstract": false,
-        "depth": 1,
-        "section": "Additional",
-        "confidence": 0.5,
-        "non_null_periods": 3
-      },
-      {
         "raw_tag": "AmortizationOfIntangibleAssets",
         "label": "Amortization of Intangible Assets",
-        "is_total": false,
-        "is_abstract": false,
-        "depth": 1,
-        "section": "Additional",
-        "confidence": 0.5,
-        "non_null_periods": 3
-      },
-      {
-        "raw_tag": "DividendsPaid",
-        "label": "Payments of Dividends",
         "is_total": false,
         "is_abstract": false,
         "depth": 1,

@@ -2,12 +2,16 @@
   "statement_type": "cash_flow",
   "coverage": {
     "statement_type": "cash_flow",
-    "expected_concepts_count": 6,
-    "mapped_concepts_count": 4,
-    "coverage_ratio": 0.6666666666666666,
+    "expected_concepts_count": 10,
+    "mapped_concepts_count": 8,
+    "coverage_ratio": 0.8,
     "mapped_concepts": [
       "capital_expenditures",
       "depreciation_amortization",
+      "income_taxes_paid",
+      "interest_paid",
+      "net_cash_from_financing",
+      "net_cash_from_investing",
       "operating_cash_flow",
       "stock_based_compensation"
     ],
@@ -16,9 +20,13 @@
       "share_repurchases"
     ],
     "non_null_period_counts": {
-      "stock_based_compensation": 3,
-      "capital_expenditures": 3,
+      "interest_paid": 3,
+      "income_taxes_paid": 1,
+      "net_cash_from_financing": 3,
+      "net_cash_from_investing": 3,
       "operating_cash_flow": 3,
+      "capital_expenditures": 3,
+      "stock_based_compensation": 3,
       "depreciation_amortization": 3
     }
   },
@@ -55,6 +63,16 @@
         "confidence": 0.8851963746223565,
         "non_null_periods": 3
       },
+      "net_cash_from_investing": {
+        "raw_tag": "NetCashProvidedByUsedInInvestingActivities",
+        "label": "Net Cash Provided by (Used in) Investing Activities",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.851963746223565,
+        "non_null_periods": 3
+      },
       "capital_expenditures": {
         "raw_tag": "PaymentsToAcquirePropertyPlantAndEquipment",
         "label": "Payments to Acquire Property, Plant, and Equipment",
@@ -64,6 +82,36 @@
         "section": null,
         "confidence": 0.513595166163142,
         "non_null_periods": 3
+      },
+      "net_cash_from_financing": {
+        "raw_tag": "NetCashProvidedByUsedInFinancingActivities",
+        "label": "Net Cash Provided by (Used in) Financing Activities",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.8942598187311178,
+        "non_null_periods": 3
+      },
+      "interest_paid": {
+        "raw_tag": "InterestPaidNet",
+        "label": "Interest Paid, Excluding Capitalized Interest, Operating Activities",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.5830815709969789,
+        "non_null_periods": 3
+      },
+      "income_taxes_paid": {
+        "raw_tag": "IncomeTaxesPaidNet",
+        "label": "Income Taxes Paid, Net",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 1,
+        "section": null,
+        "confidence": 0.37462235649546827,
+        "non_null_periods": 1
       }
     }
   },
@@ -75,7 +123,12 @@
     "statement_type": "cash_flow",
     "total_raw_rows": 38,
     "mapped_raw_tags": [
+      "AllocatedShareBasedCompensationExpense",
       "Depreciation",
+      "IncomeTaxesPaidNet",
+      "InterestPaidNet",
+      "NetCashProvidedByUsedInFinancingActivities",
+      "NetCashProvidedByUsedInInvestingActivities",
       "NetCashProvidedByUsedInOperatingActivities",
       "PaymentsToAcquirePropertyPlantAndEquipment",
       "ShareBasedCompensation"
@@ -167,16 +220,6 @@
         "non_null_periods": 3
       },
       {
-        "raw_tag": "NetCashProvidedByUsedInInvestingActivities",
-        "label": "Net Cash Provided by (Used in) Investing Activities",
-        "is_total": true,
-        "is_abstract": false,
-        "depth": 1,
-        "section": null,
-        "confidence": 0.851963746223565,
-        "non_null_periods": 3
-      },
-      {
         "raw_tag": "NetCashProvidedByUsedInFinancingActivitiesAbstract",
         "label": "Cash flows from financing activities:",
         "is_total": false,
@@ -187,16 +230,6 @@
         "non_null_periods": 0
       },
       {
-        "raw_tag": "NetCashProvidedByUsedInFinancingActivities",
-        "label": "Net Cash Provided by (Used in) Financing Activities",
-        "is_total": true,
-        "is_abstract": false,
-        "depth": 1,
-        "section": null,
-        "confidence": 0.8942598187311178,
-        "non_null_periods": 3
-      },
-      {
         "raw_tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect",
         "label": "Cash, Cash Equivalents, Restricted Cash and Restricted Cash Equivalents, Period Increase (Decrease), Including Exchange Rate Effect",
         "is_total": true,
@@ -204,36 +237,6 @@
         "depth": 0,
         "section": null,
         "confidence": 0.797583081570997,
-        "non_null_periods": 3
-      },
-      {
-        "raw_tag": "InterestPaidNet",
-        "label": "Interest Paid, Excluding Capitalized Interest, Operating Activities",
-        "is_total": false,
-        "is_abstract": false,
-        "depth": 1,
-        "section": null,
-        "confidence": 0.5830815709969789,
-        "non_null_periods": 3
-      },
-      {
-        "raw_tag": "IncomeTaxesPaidNet",
-        "label": "Income Taxes Paid, Net",
-        "is_total": false,
-        "is_abstract": false,
-        "depth": 1,
-        "section": null,
-        "confidence": 0.37462235649546827,
-        "non_null_periods": 1
-      },
-      {
-        "raw_tag": "AllocatedShareBasedCompensationExpense",
-        "label": "Share-based Payment Arrangement, Expense",
-        "is_total": false,
-        "is_abstract": false,
-        "depth": 1,
-        "section": "Additional",
-        "confidence": 0.5,
         "non_null_periods": 3
       },
       {

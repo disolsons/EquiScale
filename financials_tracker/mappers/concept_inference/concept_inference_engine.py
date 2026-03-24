@@ -1,15 +1,10 @@
 import re
 from dataclasses import dataclass
-from difflib import SequenceMatcher
 from financials_tracker.mappers.concept_inference.concept_aliases_helper import ConceptAliasesHelper
-
-@dataclass
-class ConceptSuggestion:
-    suggested_concept: str | None
-    suggestion_confidence: float
-    suggestion_type: str
-    suggestion_reason: list[str]
-
+from financials_tracker.mappers.concept_inference.fuzzy_concept_matcher import FuzzyConceptMatcher
+from financials_tracker.mappers.concept_inference.ignore_patterns_helper import IgnorePatternsHelper
+from financials_tracker.mappers.concept_inference.semantic_conflicts_helper import SemanticConflictsHelper
+from financials_tracker.mappers.concept_inference.model.concept_suggestion import ConceptSuggestion
 
 class ConceptInferenceEngine:
     """
@@ -43,8 +38,13 @@ class ConceptInferenceEngine:
         - explainable (clear reasoning for each suggestion)
         - extensible (can be augmented with ML/LLM in the future)
     """
-    def __init__(self, concept_aliases_helper: ConceptAliasesHelper):
+    def __init__(self, concept_aliases_helper: ConceptAliasesHelper, ignore_patterns_helper: IgnorePatternsHelper, 
+                 semantic_conflicts_helper: SemanticConflictsHelper, fuzzy_matcher: FuzzyConceptMatcher):
+        
         self.concept_aliases_helper = concept_aliases_helper
+        self.ignore_patterns_helper = ignore_patterns_helper
+        self.semantic_conflicts_helper = semantic_conflicts_helper
+        self.fuzzy_matcher = fuzzy_matcher
 
     def suggest_concept(
         self,
@@ -94,12 +94,23 @@ class ConceptInferenceEngine:
 
         normalized_tag = self._normalize_text(raw_tag)
         normalized_label = self._normalize_text(label)
-        combined_text = f"{normalized_tag} {normalized_label}".strip()
+        
 
-        ignore_result = self._check_ignore_candidate(raw_tag, label, combined_text)
+        text_candidates = []
+        if normalized_tag:
+            text_candidates.append(normalized_tag)
+
+        if normalized_label and normalized_label not in text_candidates:
+            text_candidates.append(normalized_label)
+
+        combined_text = f"{normalized_tag} {normalized_label}".strip()
+        if combined_text and combined_text not in text_candidates:
+            text_candidates.append(combined_text)
+
+        ignore_result = self._check_ignore_candidate(raw_tag, text_candidates)
         if ignore_result is not None:
             return ignore_result.__dict__
-
+        
         statement_aliases = self.concept_aliases_helper.get_statement_aliases(statement_type)
         if not statement_aliases:
             return ConceptSuggestion(
@@ -113,7 +124,7 @@ class ConceptInferenceEngine:
         if keyword_match is not None:
             return keyword_match.__dict__
 
-        fuzzy_match = self._fuzzy_match(statement_aliases, combined_text)
+        fuzzy_match = self.fuzzy_matcher.match(text_candidates, statement_aliases)        
         if fuzzy_match is not None:
             return fuzzy_match.__dict__
 
@@ -127,8 +138,7 @@ class ConceptInferenceEngine:
     def _check_ignore_candidate(
         self,
         raw_tag: str,
-        label: str,
-        combined_text: str,
+        text_candidates: list[str],
     ) -> ConceptSuggestion | None:
         """
             Identify tags that are likely structural or non-analytical and should be ignored.
@@ -144,23 +154,25 @@ class ConceptInferenceEngine:
                 Returns an "ignore_candidate" suggestion if applicable, otherwise None.
         """
         reasons = []
+        ignore_suffixes = self.ignore_patterns_helper.get_ignore_suffixes()
+        ignore_contains = self.ignore_patterns_helper.get_ignore_contains()
+        header_phrases = self.ignore_patterns_helper.get_header_phrases()
+        combined_text = " ".join(text_candidates)
 
-        if raw_tag.endswith("Abstract"):
-            reasons.append("raw tag ends with Abstract")
+         # Ignore tags with known structural suffixes, e.g. "...Abstract"
+        if any(raw_tag.endswith(suffix) for suffix in ignore_suffixes):
+            reasons.append("raw tag ends with ignored structural suffix")
 
-        if "abstract" in combined_text:
-            reasons.append("text contains abstract")
+        # Ignore rows whose normalized text contains known ignore markers
+        matched_contains = [phrase for phrase in ignore_contains if phrase in combined_text]
+        for phrase in matched_contains:
+            reasons.append(f"text contains ignored marker: '{phrase}'")
 
-        header_phrases = [
-            "cash flows from operating activities",
-            "cash flows from investing activities",
-            "cash flows from financing activities",
-            "supplemental cash flow information",
-            "adjustments to reconcile",
-            "changes in operating assets and liabilities",
-        ]
-        if any(phrase in combined_text for phrase in header_phrases):
-            reasons.append("looks like section header / presentation row")
+        # Ignore rows that look like section headers or presentation wrappers
+        matched_headers = [phrase for phrase in header_phrases if phrase in combined_text]
+        for phrase in matched_headers:
+            reasons.append(f"looks like section header: '{phrase}'")
+       
 
         if reasons:
             return ConceptSuggestion(
@@ -169,13 +181,12 @@ class ConceptInferenceEngine:
                 suggestion_type="ignore_candidate",
                 suggestion_reason=reasons,
             )
-
         return None
 
     def _keyword_match(
         self,
-        keywords_for_statement: dict[str, list[str]],
-        combined_text: str,
+        aliases_for_statement: dict[str, list[str]],
+        text_candidates: list[str]
     ) -> ConceptSuggestion | None:
         """
             Attempt to match the tag/label text to known concept aliases using keyword matching.
@@ -194,20 +205,26 @@ class ConceptInferenceEngine:
                 A suggestion if a match is found, otherwise None.
         """
         best_concept = None
-        best_hits = []
+        best_hits: list[str] = []
         best_score = 0.0
 
-        for concept, aliases in keywords_for_statement.items():
-            hits = []
+        for concept, aliases in aliases_for_statement.items():
+            hits: list[str] = []
+
             for alias in aliases:
                 normalized_alias = self._normalize_text(alias)
-                if normalized_alias and normalized_alias in combined_text:
-                    hits.append(alias)
+                if not normalized_alias:
+                    continue
+
+                for candidate_text in text_candidates:
+                    if normalized_alias in candidate_text:
+                        hits.append(alias)
+                        break
 
             if hits:
-                #Confidence starts from a baseline (0.65) and increases with the number of keyword matches, 
-                #capped below 1.0 to reflect heuristic uncertainty.
-                score = min(0.99, 0.65 + 0.1 * len(hits))
+                # Confidence starts at a baseline and increases with additional alias hits.
+                score = min(0.99, 0.65 + 0.10 * len(hits))
+
                 if score > best_score:
                     best_concept = concept
                     best_hits = hits
@@ -218,63 +235,11 @@ class ConceptInferenceEngine:
 
         return ConceptSuggestion(
             suggested_concept=best_concept,
-            suggestion_confidence=best_score,
+            suggestion_confidence=round(best_score, 3),
             suggestion_type="existing_concept",
             suggestion_reason=[f"keyword match: {hit}" for hit in best_hits],
         )
 
-    def _fuzzy_match(
-        self,
-        keywords_for_statement: dict[str, list[str]],
-        combined_text: str,
-    ) -> ConceptSuggestion | None:
-        
-        """
-            Attempt to infer a concept using approximate string similarity.
-
-            This method compares the normalized input text with:
-            - concept names
-            - concept keyword aliases
-
-            using a sequence similarity metric.
-
-            Used as a fallback when keyword matching fails.
-
-            Returns
-            -------
-            ConceptSuggestion | None
-                A suggestion if similarity exceeds threshold, otherwise None.
-        """
-        best_concept = None
-        best_alias = None
-        best_ratio = 0.0
-
-        for concept, aliases in keywords_for_statement.items():
-            candidates = [concept] + aliases
-            for candidate in candidates:
-                normalized_candidate = self._normalize_text(candidate)
-                if not normalized_candidate:
-                    continue
-                # computes the delta between the input text and candidate, giving a score between 0 and 1. 
-                # TODO: How can we avoid high score for oposite meanings (e.g, "operating loss before tax" vs "operating income before tax")?
-                #  Maybe we can add a penalty for certain negative keywords like "loss", "expense", "decrease", etc.?
-                ratio = SequenceMatcher(None, combined_text, normalized_candidate).ratio()
-                if ratio > best_ratio:
-                    best_ratio = ratio
-                    best_concept = concept
-                    best_alias = candidate
-
-        if best_concept is None or best_ratio < 0.55:
-            return None
-
-        suggestion_type = "existing_concept" if best_ratio >= 0.7 else "unknown"
-
-        return ConceptSuggestion(
-            suggested_concept=best_concept if suggestion_type == "existing_concept" else None,
-            suggestion_confidence=round(best_ratio, 3),
-            suggestion_type=suggestion_type if suggestion_type == "existing_concept" else "new_concept_candidate",
-            suggestion_reason=[f"fuzzy match to '{best_alias}' with ratio={best_ratio:.3f}"],
-        )
 
     @staticmethod
     def _normalize_text(value: str) -> str:

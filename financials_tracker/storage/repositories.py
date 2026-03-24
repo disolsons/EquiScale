@@ -1,12 +1,12 @@
 import json
 from typing import Any
-
 from sqlalchemy.orm import Session
 
 from financials_tracker.storage.models import (
     AggregatedUnmappedTag,
     UnmappedTag,
     MappingValidations,
+    TagSuggestion
 )
 
 
@@ -98,3 +98,44 @@ def replace_aggregated_unmapped_tags(session: Session, rows: list[dict[str, Any]
                 avg_confidence=row.get("avg_confidence"),
             )
         )
+
+def upsert_tag_suggestion(
+    session,
+    statement_type: str,
+    raw_tag: str,
+    suggestion: dict,
+    )-> None:
+    payload = {
+        "statement_type": statement_type,
+        "raw_tag": raw_tag,
+        "suggested_concept": suggestion.get("suggested_concept"),
+        "suggestion_type": suggestion.get("suggestion_type"),
+        "suggestion_confidence": suggestion.get("suggestion_confidence", 0.0),
+        "suggestion_reason": json.dumps(suggestion.get("suggestion_reason", [])),
+        "source": "concept_inference_engine",
+        "ticker_count": suggestion.get("ticker_count"),
+        "priority_score": suggestion.get("priority_score"),
+        "priority_bucket": suggestion.get("priority_bucket"),
+    }
+
+    existing = (
+        session.query(TagSuggestion)
+        .filter_by(statement_type=statement_type, raw_tag=raw_tag)
+        .one_or_none()
+    )
+
+    if existing:
+        for key, value in payload.items():
+            setattr(existing, key, value)
+    else:
+        session.add(TagSuggestion(**payload))
+
+
+def delete_all_tag_suggestions(session) -> None:
+    """
+    Remove all previously generated tag suggestions.
+
+    This keeps the suggestions table in sync with the latest inference run
+    instead of accumulating stale rows across runs.
+    """
+    session.query(TagSuggestion).delete()

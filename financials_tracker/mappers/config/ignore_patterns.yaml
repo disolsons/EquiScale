@@ -1,0 +1,13 @@
+header_phrases:
+  - cash flows from operating activities
+  - cash flows from investing activities
+  - cash flows from financing activities
+  - supplemental cash flow information
+  - adjustments to reconcile
+  - changes in operating assets and liabilities
+
+ignore_suffixes:
+  - Abstract
+
+ignore_contains:
+  - abstract

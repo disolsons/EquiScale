@@ -90,3 +90,29 @@ class AggregatedUnmappedTag(Base):
             name="uq_aggregated_unmapped_statement_rawtag",
         ),
     )
+
+
+
+class TagSuggestion(Base):
+    __tablename__ = "tag_suggestions"
+
+    id = Column(Integer, primary_key=True)
+    statement_type = Column(String, nullable=False, index=True)
+    raw_tag = Column(String, nullable=False, index=True)
+
+    suggested_concept = Column(String, nullable=True)
+    suggestion_type = Column(String, nullable=False)
+    suggestion_confidence = Column(Float, nullable=False)
+    suggestion_reason = Column(Text, nullable=True)
+    ticker_count = Column(Integer, nullable=True)
+    priority_score = Column(Float, nullable=True)
+    priority_bucket = Column(String, nullable=True)
+    source = Column(String, nullable=False, default="concept_inference_engine")
+
+    __table_args__ = (
+        UniqueConstraint(
+            "statement_type",
+            "raw_tag",
+            name="uq_tag_suggestion_statement_rawtag",
+        ),
+    )

@@ -2,19 +2,20 @@
   "statement_type": "income_statement",
   "coverage": {
     "statement_type": "income_statement",
-    "expected_concepts_count": 13,
-    "mapped_concepts_count": 12,
-    "coverage_ratio": 0.9230769230769231,
+    "expected_concepts_count": 14,
+    "mapped_concepts_count": 13,
+    "coverage_ratio": 0.9285714285714286,
     "mapped_concepts": [
+      "basic_eps",
       "cost_of_revenue",
       "diluted_eps",
       "gross_profit",
+      "income_before_tax",
       "income_tax_expense",
       "interest_expense",
       "net_income",
       "operating_expense",
       "operating_income",
-      "pretax_income",
       "research_and_development",
       "revenue",
       "selling_general_admin"
@@ -24,17 +25,18 @@
     ],
     "non_null_period_counts": {
       "operating_expense": 3,
-      "selling_general_admin": 3,
-      "interest_expense": 1,
-      "research_and_development": 3,
-      "gross_profit": 3,
-      "cost_of_revenue": 3,
-      "diluted_eps": 3,
-      "pretax_income": 3,
-      "operating_income": 3,
-      "net_income": 3,
       "revenue": 3,
-      "income_tax_expense": 3
+      "income_tax_expense": 3,
+      "diluted_eps": 3,
+      "cost_of_revenue": 3,
+      "net_income": 3,
+      "income_before_tax": 3,
+      "basic_eps": 3,
+      "gross_profit": 3,
+      "interest_expense": 1,
+      "selling_general_admin": 3,
+      "operating_income": 3,
+      "research_and_development": 3
     }
   },
   "mapping_detail": {
@@ -110,7 +112,7 @@
         "confidence": 0.5709969788519638,
         "non_null_periods": 3
       },
-      "pretax_income": {
+      "income_before_tax": {
         "raw_tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
         "label": "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest",
         "is_total": true,
@@ -138,6 +140,16 @@
         "depth": 0,
         "section": null,
         "confidence": 0.7764350453172205,
+        "non_null_periods": 3
+      },
+      "basic_eps": {
+        "raw_tag": "EarningsPerShareBasic",
+        "label": "Earnings Per Share, Basic",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.8459214501510574,
         "non_null_periods": 3
       },
       "diluted_eps": {
@@ -199,6 +211,7 @@
     "total_raw_rows": 21,
     "mapped_raw_tags": [
       "CostOfGoodsAndServicesSold",
+      "EarningsPerShareBasic",
       "EarningsPerShareDiluted",
       "GrossProfit",
       "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
@@ -246,16 +259,6 @@
         "section": null,
         "confidence": 0.4259818731117825,
         "non_null_periods": 1
-      },
-      {
-        "raw_tag": "EarningsPerShareBasic",
-        "label": "Earnings Per Share, Basic",
-        "is_total": false,
-        "is_abstract": false,
-        "depth": 0,
-        "section": null,
-        "confidence": 0.8459214501510574,
-        "non_null_periods": 3
       },
       {
         "raw_tag": "NonoperatingIncomeExpense",

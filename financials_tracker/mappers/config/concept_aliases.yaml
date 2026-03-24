@@ -64,6 +64,10 @@ income_statement:
     - weighted average diluted shares outstanding
     - diluted shares outstanding
 
+  basic_eps:
+    - basic earnings per share
+    - earnings per share basic
+    - basic eps
 
 balance_sheet:
   cash_and_equivalents:
@@ -95,6 +99,7 @@ balance_sheet:
   long_term_debt:
     - long term debt
     - long-term debt
+    - current maturities of long term debt
 
   total_liabilities:
     - liabilities
@@ -111,6 +116,41 @@ balance_sheet:
     - liabilities and shareholders equity
     - liabilities and partners capital
 
+  property_plant_equipment:
+    - property plant and equipment
+    - property plant equipment
+    - pp&e
+    - ppe
+
+  retained_earnings:
+    - retained earnings
+    - accumulated deficit
+
+  accumulated_other_comprehensive_income:
+    - accumulated other comprehensive income
+    - accumulated other comprehensive loss
+    - aoci
+
+  other_assets_noncurrent:
+    - other assets noncurrent
+    - noncurrent other assets
+
+  other_liabilities_noncurrent:
+    - other liabilities noncurrent
+    - noncurrent other liabilities
+
+  operating_lease_right_of_use_asset:
+    - operating lease right of use asset
+    - right of use asset
+    - rou asset
+
+  operating_lease_liability_current:
+    - operating lease liability current
+    - current operating lease liability
+
+  operating_lease_liability_noncurrent:
+    - operating lease liability noncurrent
+    - noncurrent operating lease liability
 
 cash_flow:
   operating_cash_flow:
@@ -137,8 +177,31 @@ cash_flow:
   dividends_paid:
     - dividends paid
     - payments of dividends
+    - common stock dividends
 
   share_repurchases:
     - share repurchases
     - repurchase of common stock
     - stock buybacks
+  
+  interest_paid:
+    - interest paid
+    - interest paid net
+    - interest paid excluding capitalized interest
+
+  income_taxes_paid:
+    - income taxes paid
+    - taxes paid
+    - income taxes paid net
+
+  net_cash_from_investing:
+    - net cash from investing activities
+    - net cash provided by used in investing activities
+    - investing activities
+
+  net_cash_from_financing:
+    - net cash from financing activities
+    - net cash provided by used in financing activities
+    - financing activities
+  
+

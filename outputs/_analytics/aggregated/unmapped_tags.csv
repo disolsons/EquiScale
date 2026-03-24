@@ -1,16 +1,7 @@
 statement_type,raw_tag,count,ticker_count,tickers,example_labels,max_non_null_periods,avg_non_null_periods,is_abstract_values,is_total_values,depth_values,section_values,avg_confidence
-balance_sheet,AccumulatedOtherComprehensiveIncomeLossNetOfTax,3,3,"AAPL, NVDA, TSLA","Accumulated Other Comprehensive Income (Loss), Net of Tax",3,3.0,False,False,2,,0.7552870090634441
-balance_sheet,OperatingLeaseLiabilityCurrent,3,3,"AAPL, NVDA, TSLA","Operating Lease, Liability, Current",3,3.0,False,False,2,,0.31419939577039274
-balance_sheet,OperatingLeaseLiabilityNoncurrent,3,3,"AAPL, NVDA, TSLA","Operating Lease, Liability, Noncurrent",3,3.0,False,False,1,,0.39274924471299094
-balance_sheet,OperatingLeaseRightOfUseAsset,3,3,"AAPL, NVDA, TSLA","Operating Lease, Right-of-Use Asset",3,3.0,False,False,1,,0.459214501510574
-balance_sheet,OtherAssetsNoncurrent,3,3,"AAPL, NVDA, TSLA","Other Assets, Noncurrent",3,3.0,False,False,1,,0.5438066465256798
-balance_sheet,OtherLiabilitiesNoncurrent,3,3,"AAPL, NVDA, TSLA","Other Liabilities, Noncurrent",3,3.0,False,False,1,,0.486404833836858
-balance_sheet,PropertyPlantAndEquipmentNet,3,3,"AAPL, NVDA, TSLA","Property, Plant and Equipment, Net",3,2.6666666666666665,False,True,1,,0.540785498489426
-balance_sheet,RetainedEarningsAccumulatedDeficit,3,3,"AAPL, NVDA, TSLA",Retained Earnings (Accumulated Deficit),3,3.0,False,False,2,,0.8368580060422962
 balance_sheet,CommonStockValue,2,2,"NVDA, TSLA","Common Stock, Value, Issued",3,3.0,False,False,2,,0.770392749244713
 balance_sheet,Goodwill,2,2,"NVDA, TSLA",Goodwill,3,3.0,False,False,1,,0.5649546827794562
 balance_sheet,IntangibleAssetsNetExcludingGoodwill,2,2,"NVDA, TSLA","Intangible Assets, Net (Excluding Goodwill)",3,3.0,False,False,1,,0.40483383685800606
-balance_sheet,LongTermDebtCurrent,2,2,"AAPL, NVDA","Long-term Debt, Current Maturities",3,3.0,False,False,1,Additional,0.5
 balance_sheet,PrepaidExpenseAndOtherAssetsCurrent,2,2,"NVDA, TSLA","Prepaid Expense and Other Assets, Current",3,3.0,False,False,2,,0.32326283987915405
 balance_sheet,AccruedLiabilitiesCurrent,1,1,NVDA,"Accrued Liabilities, Current",3,3.0,False,True,2,,0.5526
 balance_sheet,AdditionalPaidInCapital,1,1,NVDA,Additional Paid in Capital,3,3.0,False,False,2,,0.4471299093655589
@@ -22,24 +13,18 @@ balance_sheet,PreferredStockValue,1,1,TSLA,"Preferred Stock, Value, Issued",3,3.
 balance_sheet,RedeemableNoncontrollingInterestEquityCarryingAmount,1,1,TSLA,"Redeemable Noncontrolling Interest, Equity, Carrying Amount",3,3.0,False,False,1,Additional,0.5
 balance_sheet,ShortTermInvestments,1,1,TSLA,Short-term Investments,3,3.0,False,False,1,Additional,0.5
 cash_flow,AdjustmentsToReconcileNetIncomeLossToCashProvidedByUsedInOperatingActivitiesAbstract,3,3,"AAPL, NVDA, TSLA",Adjustments to reconcile net income to net cash provided by operating activities:,0,0.0,True,False,1,,0.7794561933534743
-cash_flow,AllocatedShareBasedCompensationExpense,3,3,"AAPL, NVDA, TSLA","Share-based Payment Arrangement, Expense",3,3.0,False,False,1,Additional,0.5
 cash_flow,CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect,3,3,"AAPL, NVDA, TSLA","Cash, Cash Equivalents, Restricted Cash and Restricted Cash Equivalents, Period Increase (Decrease), Including Exchange Rate Effect",3,3.0,False,True,0,,0.797583081570997
 cash_flow,IncomeTaxExpenseBenefit,3,3,"AAPL, NVDA, TSLA",Income Tax Expense (Benefit),3,3.0,False,False,1,Additional,0.5
-cash_flow,IncomeTaxesPaidNet,3,3,"AAPL, NVDA, TSLA","Income Taxes Paid, Net",3,2.3333333333333335,False,False,1,,0.37462235649546827
 cash_flow,IncreaseDecreaseInAccountsReceivable,3,3,"AAPL, NVDA, TSLA",Increase (Decrease) in Accounts Receivable,3,3.0,False,False,3,,0.41087613293051356
 cash_flow,IncreaseDecreaseInInventories,3,3,"AAPL, NVDA, TSLA",Increase (Decrease) in Inventories,3,3.0,False,False,3,,0.37462235649546827
 cash_flow,IncreaseDecreaseInOperatingCapitalAbstract,3,3,"AAPL, NVDA, TSLA",Changes in operating assets and liabilities:,0,0.0,True,False,2,,0.7129909365558912
-cash_flow,InterestPaidNet,3,3,"AAPL, NVDA, TSLA","Interest Paid, Excluding Capitalized Interest, Operating Activities",3,2.0,False,False,1,,0.5830815709969789
-cash_flow,NetCashProvidedByUsedInFinancingActivities,3,3,"AAPL, NVDA, TSLA",Net Cash Provided by (Used in) Financing Activities,3,3.0,False,True,1,,0.8942598187311178
 cash_flow,NetCashProvidedByUsedInFinancingActivitiesAbstract,3,3,"AAPL, NVDA, TSLA",Cash flows from financing activities:,0,0.0,True,False,0,,0.7854984894259819
-cash_flow,NetCashProvidedByUsedInInvestingActivities,3,3,"AAPL, NVDA, TSLA",Net Cash Provided by (Used in) Investing Activities,3,3.0,False,True,1,,0.8519637462235649
 cash_flow,NetCashProvidedByUsedInInvestingActivitiesAbstract,3,3,"AAPL, NVDA, TSLA",Cash flows from investing activities:,0,0.0,True,False,0,,0.7522658610271903
 cash_flow,NetIncomeLoss,3,3,"AAPL, NVDA, TSLA",Net Income (Loss) Attributable to Parent,3,3.0,False,True,1,Additional,0.5
 cash_flow,OperatingExpenses,3,3,"AAPL, NVDA, TSLA",Operating Expenses,3,3.0,False,False,1,Additional,0.5
 cash_flow,OtherNonoperatingIncomeExpense,3,3,"AAPL, NVDA, TSLA",Other Nonoperating Income (Expense),3,2.3333333333333335,False,False,1,Additional,0.5
 cash_flow,CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents,2,2,"AAPL, NVDA","Cash, Cash Equivalents, Restricted Cash and Restricted Cash Equivalents",3,3.0,False,False,0,,0.7885196374622356
 cash_flow,DeferredIncomeTaxExpenseBenefit,2,2,"NVDA, TSLA",Deferred Income Tax Expense (Benefit),3,3.0,False,False,2,,0.3776435045317221
-cash_flow,DividendsPaid,2,2,"AAPL, NVDA",Payments of Dividends,3,3.0,False,False,1,Additional,0.5
 cash_flow,Goodwill,2,2,"NVDA, TSLA",Goodwill,3,3.0,False,False,1,Additional,0.5
 cash_flow,GoodwillImpairmentLoss,2,2,"NVDA, TSLA","Goodwill, Impairment Loss",3,3.0,False,False,1,Additional,0.5
 cash_flow,IncreaseDecreaseInAccountsPayable,2,2,"AAPL, NVDA",Increase (Decrease) in Accounts Payable,3,3.0,False,False,3,,0.311178247734139
@@ -48,7 +33,6 @@ cash_flow,InventoryWriteDown,2,2,"NVDA, TSLA",Inventory Write-down,3,3.0,False,F
 cash_flow,InvestmentIncomeInterest,2,2,"NVDA, TSLA","Investment Income, Interest",3,3.0,False,False,1,Additional,0.5
 cash_flow,NonoperatingIncomeExpense,2,2,"AAPL, NVDA",Nonoperating Income (Expense),3,3.0,False,False,1,Additional,0.5
 cash_flow,PaymentsForProceedsFromOtherInvestingActivities,2,2,"AAPL, NVDA",Payments for (Proceeds from) Other Investing Activities,3,3.0,False,False,1,,0.3776435045317221
-cash_flow,PaymentsOfDividendsCommonStock,2,2,"AAPL, NVDA",Dividends paid,3,3.0,False,False,1,,0.37462235649546827
 cash_flow,PaymentsRelatedToTaxWithholdingForShareBasedCompensation,2,2,"AAPL, NVDA","Payment, Tax Withholding, Share-based Payment Arrangement",3,3.0,False,False,1,,0.32326283987915405
 cash_flow,PaymentsToAcquireBusinessesNetOfCashAcquired,2,2,"NVDA, TSLA","Payments to Acquire Businesses, Net of Cash Acquired",3,3.0,False,False,1,,0.3776435045317221
 cash_flow,ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities,2,2,"AAPL, NVDA","Proceeds from Maturities, Prepayments and Calls of Debt Securities, Available-for-sale",3,3.0,False,False,1,Additional,0.5
@@ -68,7 +52,6 @@ cash_flow,ProceedsFromMinorityShareholders,1,1,TSLA,Proceeds from Noncontrolling
 cash_flow,ProfitLoss,1,1,TSLA,"Net Income (Loss), Including Portion Attributable to Noncontrolling Interest",3,3.0,False,True,1,,0.540785498489426
 cash_flow,RepaymentsOfLongTermDebt,1,1,AAPL,Repayments of Long-term Debt,3,3.0,False,False,1,,0.30513595166163143
 cash_flow,UnrealizedGainLossOnInvestments,1,1,TSLA,Unrealized Gain (Loss) on Investments,3,3.0,False,False,1,Additional,0.5
-income_statement,EarningsPerShareBasic,3,3,"AAPL, NVDA, TSLA","Earnings Per Share, Basic",3,3.0,False,False,0,,0.8459214501510574
 income_statement,OtherNonoperatingIncomeExpense,3,3,"AAPL, NVDA, TSLA",Other Nonoperating Income (Expense),3,2.3333333333333335,False,False,0,,0.4259818731117824
 income_statement,CommonStockDividendsPerShareDeclared,2,2,"AAPL, NVDA","Common Stock, Dividends, Per Share, Declared",3,3.0,False,False,1,Additional,0.5
 income_statement,CurrentIncomeTaxExpenseBenefit,2,2,"NVDA, TSLA",Current Income Tax Expense (Benefit),3,3.0,False,False,1,Additional,0.5

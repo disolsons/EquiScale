@@ -1,0 +1,12 @@
+hard_conflicts:
+  - [basic, diluted]
+  - [current, noncurrent]
+
+soft_conflicts:
+  - [increase, decrease]
+  - [gain, loss]
+  - [income, expense]
+  - [operating, nonoperating]
+  - [operating,  investing]
+  - [operating,  financing]
+  - [investing,  financing]
