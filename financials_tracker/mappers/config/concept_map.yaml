@@ -28,6 +28,7 @@ income_statement:
     - InterestExpense
 
   pretax_income:
+    - IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest
     - IncomeBeforeIncomeTaxes
 
   income_tax_expense:

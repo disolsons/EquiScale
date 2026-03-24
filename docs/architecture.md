@@ -30,30 +30,6 @@ Purpose:
 
 ---
 
-## Current Core Components
-
-### 1. `EdgarClient`
-Responsible for retrieving:
-- latest statements
-- historical statements
-
-Supported statements:
-- income statement
-- balance sheet
-- cash flow
-
-### 2. `ConceptMapHelper`
-Responsible for:
-- loading the concept map YAML
-- forward lookup: concept -> tags
-- reverse lookup: tag -> concept + statement type
-
-### 3. `StatementMapper`
-Responsible for:
-- mapping raw Edgar statement output into normalized concept-based DataFrames
-
-
-
 ## Data Flow
 
 ### Latest Statement Flow

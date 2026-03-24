@@ -21,6 +21,14 @@ poetry run python -m financials_tracker.cli.run_pipeline --tickers TSLA AAPL NVD
 Custom output dir:
 
 poetry run python -m financials_tracker.cli.run_pipeline --tickers TSLA AAPL --output-dir outputs/dev_run```
+
+Run unmapped tags aggregator: 
+
+poetry run python -m financials_tracker.cli.aggregate_unmapped_tags --input-dir outputs
+
+Rank the unmap tags by priority score:
+
+poetry run python -m financials_tracker.cli.rank_unmapped_tags
 ```
 
 # Run integration tests:

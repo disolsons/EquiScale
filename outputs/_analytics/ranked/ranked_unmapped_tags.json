@@ -1,0 +1,2417 @@
+[
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "PropertyPlantAndEquipmentNet",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Property, Plant and Equipment, Net"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 2.6666666666666665,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      true
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.540785498489426,
+    "priority_score": 24,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "OtherAssetsNoncurrent",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Other Assets, Noncurrent"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.5438066465256798,
+    "priority_score": 22,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Accumulated Other Comprehensive Income (Loss), Net of Tax"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      2
+    ],
+    "section_values": [],
+    "avg_confidence": 0.7552870090634441,
+    "priority_score": 21,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "OperatingLeaseLiabilityNoncurrent",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Operating Lease, Liability, Noncurrent"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.39274924471299094,
+    "priority_score": 21,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "OperatingLeaseRightOfUseAsset",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Operating Lease, Right-of-Use Asset"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.459214501510574,
+    "priority_score": 21,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "OtherLiabilitiesNoncurrent",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Other Liabilities, Noncurrent"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.486404833836858,
+    "priority_score": 21,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "RetainedEarningsAccumulatedDeficit",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Retained Earnings (Accumulated Deficit)"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      2
+    ],
+    "section_values": [],
+    "avg_confidence": 0.8368580060422962,
+    "priority_score": 21,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "OperatingLeaseLiabilityCurrent",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Operating Lease, Liability, Current"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      2
+    ],
+    "section_values": [],
+    "avg_confidence": 0.31419939577039274,
+    "priority_score": 20,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "Goodwill",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Goodwill"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.5649546827794562,
+    "priority_score": 18,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "CommonStockValue",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Common Stock, Value, Issued"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      2
+    ],
+    "section_values": [],
+    "avg_confidence": 0.770392749244713,
+    "priority_score": 17,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "IntangibleAssetsNetExcludingGoodwill",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Intangible Assets, Net (Excluding Goodwill)"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.40483383685800606,
+    "priority_score": 17,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "LongTermDebtCurrent",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "AAPL",
+      "NVDA"
+    ],
+    "example_labels": [
+      "Long-term Debt, Current Maturities"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "PrepaidExpenseAndOtherAssetsCurrent",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Prepaid Expense and Other Assets, Current"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      2
+    ],
+    "section_values": [],
+    "avg_confidence": 0.32326283987915405,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "AccruedLiabilitiesCurrent",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "example_labels": [
+      "Accrued Liabilities, Current"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      true
+    ],
+    "depth_values": [
+      2
+    ],
+    "section_values": [],
+    "avg_confidence": 0.5526,
+    "priority_score": 15,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "DeferredIncomeTaxLiabilitiesNet",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "example_labels": [
+      "Deferred Income Tax Liabilities, Net"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.38972809667673713,
+    "priority_score": 13,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "MinorityInterest",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Stockholders' Equity Attributable to Noncontrolling Interest"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      0
+    ],
+    "section_values": [],
+    "avg_confidence": 0.4078549848942598,
+    "priority_score": 13,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "AdditionalPaidInCapital",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "example_labels": [
+      "Additional Paid in Capital"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      2
+    ],
+    "section_values": [],
+    "avg_confidence": 0.4471299093655589,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "AdditionalPaidInCapitalCommonStock",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Additional Paid in Capital, Common Stock"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      2
+    ],
+    "section_values": [],
+    "avg_confidence": 0.3595166163141994,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "CommitmentsAndContingencies",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "example_labels": [
+      "Commitments and Contingencies"
+    ],
+    "max_non_null_periods": 2,
+    "avg_non_null_periods": 2.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.6827794561933535,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "PreferredStockValue",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Preferred Stock, Value, Issued"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      2
+    ],
+    "section_values": [],
+    "avg_confidence": 0.4169184290030212,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "RedeemableNoncontrollingInterestEquityCarryingAmount",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Redeemable Noncontrolling Interest, Equity, Carrying Amount"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "balance_sheet",
+    "raw_tag": "ShortTermInvestments",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Short-term Investments"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Cash, Cash Equivalents, Restricted Cash and Restricted Cash Equivalents, Period Increase (Decrease), Including Exchange Rate Effect"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      true
+    ],
+    "depth_values": [
+      0
+    ],
+    "section_values": [],
+    "avg_confidence": 0.797583081570997,
+    "priority_score": 24,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "NetCashProvidedByUsedInFinancingActivities",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Net Cash Provided by (Used in) Financing Activities"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      true
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.8942598187311178,
+    "priority_score": 24,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "NetCashProvidedByUsedInInvestingActivities",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Net Cash Provided by (Used in) Investing Activities"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      true
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.8519637462235649,
+    "priority_score": 24,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "InterestPaidNet",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Interest Paid, Excluding Capitalized Interest, Operating Activities"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 2.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.5830815709969789,
+    "priority_score": 22,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "NetIncomeLoss",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Net Income (Loss) Attributable to Parent"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      true
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 22,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "IncomeTaxesPaidNet",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Income Taxes Paid, Net"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 2.3333333333333335,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.37462235649546827,
+    "priority_score": 21,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "AllocatedShareBasedCompensationExpense",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Share-based Payment Arrangement, Expense"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 20,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "IncomeTaxExpenseBenefit",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Income Tax Expense (Benefit)"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 20,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "IncreaseDecreaseInAccountsReceivable",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Increase (Decrease) in Accounts Receivable"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      3
+    ],
+    "section_values": [],
+    "avg_confidence": 0.41087613293051356,
+    "priority_score": 20,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "IncreaseDecreaseInInventories",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Increase (Decrease) in Inventories"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      3
+    ],
+    "section_values": [],
+    "avg_confidence": 0.37462235649546827,
+    "priority_score": 20,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "OperatingExpenses",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Operating Expenses"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 20,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "OtherNonoperatingIncomeExpense",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Other Nonoperating Income (Expense)"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 2.3333333333333335,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 20,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "AAPL",
+      "NVDA"
+    ],
+    "example_labels": [
+      "Cash, Cash Equivalents, Restricted Cash and Restricted Cash Equivalents"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      0
+    ],
+    "section_values": [],
+    "avg_confidence": 0.7885196374622356,
+    "priority_score": 18,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "PaymentsForProceedsFromOtherInvestingActivities",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "AAPL",
+      "NVDA"
+    ],
+    "example_labels": [
+      "Payments for (Proceeds from) Other Investing Activities"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.3776435045317221,
+    "priority_score": 17,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "PaymentsOfDividendsCommonStock",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "AAPL",
+      "NVDA"
+    ],
+    "example_labels": [
+      "Dividends paid"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.37462235649546827,
+    "priority_score": 17,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "PaymentsRelatedToTaxWithholdingForShareBasedCompensation",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "AAPL",
+      "NVDA"
+    ],
+    "example_labels": [
+      "Payment, Tax Withholding, Share-based Payment Arrangement"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.32326283987915405,
+    "priority_score": 17,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "PaymentsToAcquireBusinessesNetOfCashAcquired",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Payments to Acquire Businesses, Net of Cash Acquired"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.3776435045317221,
+    "priority_score": 17,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "ProceedsFromPaymentsForOtherFinancingActivities",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "AAPL",
+      "NVDA"
+    ],
+    "example_labels": [
+      "Proceeds from (Payments for) Other Financing Activities"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.3504531722054381,
+    "priority_score": 17,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "DeferredIncomeTaxExpenseBenefit",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Deferred Income Tax Expense (Benefit)"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      2
+    ],
+    "section_values": [],
+    "avg_confidence": 0.3776435045317221,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "DividendsPaid",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "AAPL",
+      "NVDA"
+    ],
+    "example_labels": [
+      "Payments of Dividends"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "Goodwill",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Goodwill"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "GoodwillImpairmentLoss",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Goodwill, Impairment Loss"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "IncreaseDecreaseInAccountsPayable",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "AAPL",
+      "NVDA"
+    ],
+    "example_labels": [
+      "Increase (Decrease) in Accounts Payable"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      3
+    ],
+    "section_values": [],
+    "avg_confidence": 0.311178247734139,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "InventoryWriteDown",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Inventory Write-down"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "InvestmentIncomeInterest",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Investment Income, Interest"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "NonoperatingIncomeExpense",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "AAPL",
+      "NVDA"
+    ],
+    "example_labels": [
+      "Nonoperating Income (Expense)"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "AAPL",
+      "NVDA"
+    ],
+    "example_labels": [
+      "Proceeds from Maturities, Prepayments and Calls of Debt Securities, Available-for-sale"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "ProfitLoss",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Net Income (Loss), Including Portion Attributable to Noncontrolling Interest"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      true
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.540785498489426,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "InterestExpenseNonoperating",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "InterestExpenseNonoperating"
+    ],
+    "max_non_null_periods": 2,
+    "avg_non_null_periods": 2.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 14,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Net Income (Loss) Attributable to Noncontrolling Interest"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      true
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 14,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Net Income (Loss) Available to Common Stockholders, Basic"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      true
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 14,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "CapitalExpendituresIncurredButNotYetPaid",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "AAPL"
+    ],
+    "example_labels": [
+      "Purchases of property and equipment, accrued but unpaid"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.2687,
+    "priority_score": 13,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "RepaymentsOfLongTermDebt",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "AAPL"
+    ],
+    "example_labels": [
+      "Repayments of Long-term Debt"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.30513595166163143,
+    "priority_score": 13,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "AmortizationOfIntangibleAssets",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "example_labels": [
+      "Amortization of Intangible Assets"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "ForeignCurrencyTransactionGainLossUnrealized",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Foreign Currency Transaction Gain (Loss), Unrealized"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "GainLossOnInvestments",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "example_labels": [
+      "Gain (Loss) on Investments"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "PaymentsToAcquireInvestments",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Payments to Acquire Investments"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "ProceedsFromIssuanceOfLongTermDebt",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "AAPL"
+    ],
+    "example_labels": [
+      "Proceeds from Issuance of Long-term Debt"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "UnrealizedGainLossOnInvestments",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Unrealized Gain (Loss) on Investments"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "GeneralAndAdministrativeExpense",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "AAPL"
+    ],
+    "example_labels": [
+      "General and Administrative Expense"
+    ],
+    "max_non_null_periods": 1,
+    "avg_non_null_periods": 1.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 8,
+    "priority_bucket": "later"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "ImpairmentOfIntangibleAssetsExcludingGoodwill",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Impairment of Intangible Assets (Excluding Goodwill)"
+    ],
+    "max_non_null_periods": 1,
+    "avg_non_null_periods": 1.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 8,
+    "priority_bucket": "later"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "ProceedsFromMinorityShareholders",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Proceeds from Noncontrolling Interests"
+    ],
+    "max_non_null_periods": 1,
+    "avg_non_null_periods": 1.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 8,
+    "priority_bucket": "later"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "AdjustmentsToReconcileNetIncomeLossToCashProvidedByUsedInOperatingActivitiesAbstract",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Adjustments to reconcile net income to net cash provided by operating activities:"
+    ],
+    "max_non_null_periods": 0,
+    "avg_non_null_periods": 0.0,
+    "is_abstract_values": [
+      true
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.7794561933534743,
+    "priority_score": 4,
+    "priority_bucket": "ignore"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "NetCashProvidedByUsedInFinancingActivitiesAbstract",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Cash flows from financing activities:"
+    ],
+    "max_non_null_periods": 0,
+    "avg_non_null_periods": 0.0,
+    "is_abstract_values": [
+      true
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      0
+    ],
+    "section_values": [],
+    "avg_confidence": 0.7854984894259819,
+    "priority_score": 4,
+    "priority_bucket": "ignore"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "NetCashProvidedByUsedInInvestingActivitiesAbstract",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Cash flows from investing activities:"
+    ],
+    "max_non_null_periods": 0,
+    "avg_non_null_periods": 0.0,
+    "is_abstract_values": [
+      true
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      0
+    ],
+    "section_values": [],
+    "avg_confidence": 0.7522658610271903,
+    "priority_score": 4,
+    "priority_bucket": "ignore"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "IncreaseDecreaseInOperatingCapitalAbstract",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Changes in operating assets and liabilities:"
+    ],
+    "max_non_null_periods": 0,
+    "avg_non_null_periods": 0.0,
+    "is_abstract_values": [
+      true
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      2
+    ],
+    "section_values": [],
+    "avg_confidence": 0.7129909365558912,
+    "priority_score": 3,
+    "priority_bucket": "ignore"
+  },
+  {
+    "statement_type": "cash_flow",
+    "raw_tag": "CashFlowNoncashInvestingAndFinancingActivitiesDisclosureAbstract",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "AAPL"
+    ],
+    "example_labels": [
+      "Noncash investing and financing activities:"
+    ],
+    "max_non_null_periods": 0,
+    "avg_non_null_periods": 0.0,
+    "is_abstract_values": [
+      true
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      0
+    ],
+    "section_values": [],
+    "avg_confidence": 0.2985,
+    "priority_score": -5,
+    "priority_bucket": "ignore"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      true
+    ],
+    "depth_values": [
+      0
+    ],
+    "section_values": [],
+    "avg_confidence": 0.6827794561933535,
+    "priority_score": 24,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "EarningsPerShareBasic",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Earnings Per Share, Basic"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      0
+    ],
+    "section_values": [],
+    "avg_confidence": 0.8459214501510574,
+    "priority_score": 22,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "OtherNonoperatingIncomeExpense",
+    "count": 3,
+    "ticker_count": 3,
+    "tickers": [
+      "AAPL",
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Other Nonoperating Income (Expense)"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 2.3333333333333335,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      0
+    ],
+    "section_values": [],
+    "avg_confidence": 0.4259818731117824,
+    "priority_score": 21,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "CommonStockDividendsPerShareDeclared",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "AAPL",
+      "NVDA"
+    ],
+    "example_labels": [
+      "Common Stock, Dividends, Per Share, Declared"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "CurrentIncomeTaxExpenseBenefit",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Current Income Tax Expense (Benefit)"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "GoodwillImpairmentLoss",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Goodwill, Impairment Loss"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",
+    "count": 2,
+    "ticker_count": 2,
+    "tickers": [
+      "NVDA",
+      "TSLA"
+    ],
+    "example_labels": [
+      "Income (Loss) from Continuing Operations before Income Taxes, Domestic"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 16,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "NonoperatingIncomeExpense",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "AAPL"
+    ],
+    "example_labels": [
+      "Nonoperating Income (Expense)"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      true
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.4179,
+    "priority_score": 15,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "NetIncomeLossAvailableToCommonStockholdersBasic",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Net Income (Loss) Available to Common Stockholders, Basic"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      true
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 14,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "InvestmentIncomeInterest",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Investment Income, Interest"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      0
+    ],
+    "section_values": [],
+    "avg_confidence": 0.2206,
+    "priority_score": 13,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "NetIncomeLossAttributableToNoncontrollingInterest",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "TSLA"
+    ],
+    "example_labels": [
+      "Net Income (Loss) Attributable to Noncontrolling Interest"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      0
+    ],
+    "section_values": [],
+    "avg_confidence": 0.3776435045317221,
+    "priority_score": 13,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "AmortizationOfIntangibleAssets",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "example_labels": [
+      "Amortization of Intangible Assets"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "GainLossOnInvestments",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "NVDA"
+    ],
+    "example_labels": [
+      "Gain (Loss) on Investments"
+    ],
+    "max_non_null_periods": 3,
+    "avg_non_null_periods": 3.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [
+      "Additional"
+    ],
+    "avg_confidence": 0.5,
+    "priority_score": 12,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "GeneralAndAdministrativeExpense",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "AAPL"
+    ],
+    "example_labels": [
+      "General and Administrative Expense"
+    ],
+    "max_non_null_periods": 1,
+    "avg_non_null_periods": 1.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.6567,
+    "priority_score": 10,
+    "priority_bucket": "map_now"
+  },
+  {
+    "statement_type": "income_statement",
+    "raw_tag": "SellingAndMarketingExpense",
+    "count": 1,
+    "ticker_count": 1,
+    "tickers": [
+      "AAPL"
+    ],
+    "example_labels": [
+      "Selling and Marketing Expense"
+    ],
+    "max_non_null_periods": 1,
+    "avg_non_null_periods": 1.0,
+    "is_abstract_values": [
+      false
+    ],
+    "is_total_values": [
+      false
+    ],
+    "depth_values": [
+      1
+    ],
+    "section_values": [],
+    "avg_confidence": 0.5672,
+    "priority_score": 10,
+    "priority_bucket": "map_now"
+  }
+]
