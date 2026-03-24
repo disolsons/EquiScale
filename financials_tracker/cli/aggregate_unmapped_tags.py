@@ -1,7 +1,8 @@
 import argparse
 import json
-from collections import defaultdict
 from pathlib import Path
+from financials_tracker.storage.db_setup import get_session_factory
+from financials_tracker.storage.repositories import replace_aggregated_unmapped_tags
 
 import pandas as pd
 
@@ -166,6 +167,15 @@ def save_csv(data: list[dict], path: Path) -> None:
     df = pd.DataFrame(flattened_rows)
     df.to_csv(path, index=False)
 
+def persist_aggregated_results_to_db(aggregated: list[dict]):
+    SessionFactory = get_session_factory()
+    session = SessionFactory()
+
+    try:
+        replace_aggregated_unmapped_tags(session, aggregated)
+        session.commit()
+    finally:
+        session.close()
 
 def main():
     args = parse_args()
@@ -177,7 +187,8 @@ def main():
 
     save_json(aggregated, output_dir / "unmapped_tags.json")
     save_csv(aggregated, output_dir / "unmapped_tags.csv")
-
+    persist_aggregated_results_to_db(aggregated)
+    
     print(f"Aggregated {len(aggregated)} unique unmapped tag entries.")
     print(f"Saved to: {output_dir}")
 

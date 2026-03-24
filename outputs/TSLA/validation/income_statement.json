@@ -3,8 +3,8 @@
   "coverage": {
     "statement_type": "income_statement",
     "expected_concepts_count": 13,
-    "mapped_concepts_count": 11,
-    "coverage_ratio": 0.8461538461538461,
+    "mapped_concepts_count": 12,
+    "coverage_ratio": 0.9230769230769231,
     "mapped_concepts": [
       "cost_of_revenue",
       "diluted_eps",
@@ -14,26 +14,27 @@
       "net_income",
       "operating_expense",
       "operating_income",
+      "pretax_income",
       "research_and_development",
       "revenue",
       "selling_general_admin"
     ],
     "missing_concepts": [
-      "diluted_shares",
-      "pretax_income"
+      "diluted_shares"
     ],
     "non_null_period_counts": {
-      "diluted_eps": 3,
-      "net_income": 3,
-      "interest_expense": 1,
-      "gross_profit": 3,
-      "income_tax_expense": 3,
-      "revenue": 3,
-      "operating_income": 3,
+      "operating_expense": 3,
       "selling_general_admin": 3,
+      "interest_expense": 1,
       "research_and_development": 3,
+      "gross_profit": 3,
       "cost_of_revenue": 3,
-      "operating_expense": 3
+      "diluted_eps": 3,
+      "pretax_income": 3,
+      "operating_income": 3,
+      "net_income": 3,
+      "revenue": 3,
+      "income_tax_expense": 3
     }
   },
   "mapping_detail": {
@@ -107,6 +108,16 @@
         "depth": 0,
         "section": null,
         "confidence": 0.5709969788519638,
+        "non_null_periods": 3
+      },
+      "pretax_income": {
+        "raw_tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+        "label": "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest",
+        "is_total": true,
+        "is_abstract": false,
+        "depth": 0,
+        "section": null,
+        "confidence": 0.6827794561933535,
         "non_null_periods": 3
       },
       "income_tax_expense": {
@@ -190,6 +201,7 @@
       "CostOfRevenue",
       "EarningsPerShareDiluted",
       "GrossProfit",
+      "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
       "IncomeTaxExpenseBenefit",
       "InterestExpense",
       "NetIncomeLoss",
@@ -212,16 +224,6 @@
         "depth": 0,
         "section": null,
         "confidence": 0.4259818731117825,
-        "non_null_periods": 3
-      },
-      {
-        "raw_tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
-        "label": "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest",
-        "is_total": true,
-        "is_abstract": false,
-        "depth": 0,
-        "section": null,
-        "confidence": 0.6827794561933535,
         "non_null_periods": 3
       },
       {
