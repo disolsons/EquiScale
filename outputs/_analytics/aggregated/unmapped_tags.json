@@ -1876,33 +1876,6 @@
   },
   {
     "statement_type": "income_statement",
-    "raw_tag": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
-    "count": 3,
-    "ticker_count": 3,
-    "tickers": [
-      "AAPL",
-      "NVDA",
-      "TSLA"
-    ],
-    "example_labels": [
-      "Income (Loss) from Continuing Operations before Income Taxes, Noncontrolling Interest"
-    ],
-    "max_non_null_periods": 3,
-    "avg_non_null_periods": 3.0,
-    "is_abstract_values": [
-      false
-    ],
-    "is_total_values": [
-      true
-    ],
-    "depth_values": [
-      0
-    ],
-    "section_values": [],
-    "avg_confidence": 0.6827794561933535
-  },
-  {
-    "statement_type": "income_statement",
     "raw_tag": "OtherNonoperatingIncomeExpense",
     "count": 3,
     "ticker_count": 3,
