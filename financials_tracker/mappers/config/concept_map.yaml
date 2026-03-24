@@ -27,7 +27,7 @@ income_statement:
   interest_expense:
     - InterestExpense
 
-  pretax_income:
+  income_before_tax:
     - IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest
     - IncomeBeforeIncomeTaxes
 
@@ -103,3 +103,9 @@ cash_flow:
 
   share_repurchases:
     - PaymentsForRepurchaseOfCommonStock
+
+#Next wave of concepts for cash_flow:
+#interest_paid
+#income_taxes_paid
+#net_cash_from_investing
+#net_cash_from_financing

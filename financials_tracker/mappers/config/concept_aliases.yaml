@@ -1,0 +1,144 @@
+income_statement:
+  revenue:
+    - revenue
+    - revenues
+    - net sales
+    - sales revenue
+
+  cost_of_revenue:
+    - cost of revenue
+    - cost of sales
+    - cost of goods sold
+    - cost of goods and services sold
+
+  gross_profit:
+    - gross profit
+
+  research_and_development:
+    - research and development
+    - r&d
+    - r and d
+
+  selling_general_admin:
+    - selling general and administrative
+    - sg&a
+    - sga
+
+  operating_expense:
+    - operating expense
+    - operating expenses
+
+  operating_income:
+    - operating income
+    - operating profit
+
+  interest_expense:
+    - interest expense
+
+  income_before_tax:
+    - income before tax
+    - income before income taxes
+    - before income taxes
+    - before tax
+    - pretax
+    - pre tax
+
+  income_tax_expense:
+    - income tax expense
+    - income tax benefit
+    - tax expense
+    - tax benefit
+
+  net_income:
+    - net income
+    - net earnings
+    - profit loss
+
+  diluted_eps:
+    - diluted earnings per share
+    - earnings per share diluted
+    - diluted eps
+
+  diluted_shares:
+    - weighted average diluted shares
+    - weighted average diluted shares outstanding
+    - diluted shares outstanding
+
+
+balance_sheet:
+  cash_and_equivalents:
+    - cash and cash equivalents
+    - cash equivalents
+
+  accounts_receivable:
+    - accounts receivable
+    - receivables
+
+  inventory:
+    - inventory
+
+  total_current_assets:
+    - current assets
+    - total current assets
+
+  total_assets:
+    - assets
+    - total assets
+
+  accounts_payable:
+    - accounts payable
+
+  total_current_liabilities:
+    - current liabilities
+    - total current liabilities
+
+  long_term_debt:
+    - long term debt
+    - long-term debt
+
+  total_liabilities:
+    - liabilities
+    - total liabilities
+
+  shareholder_equity:
+    - stockholders equity
+    - shareholders equity
+    - equity attributable to parent
+
+  total_liabilities_and_equity:
+    - liabilities and equity
+    - liabilities and stockholders equity
+    - liabilities and shareholders equity
+    - liabilities and partners capital
+
+
+cash_flow:
+  operating_cash_flow:
+    - operating cash flow
+    - net cash from operating activities
+    - net cash provided by operating activities
+
+  capital_expenditures:
+    - capital expenditures
+    - capex
+    - purchases of property and equipment
+    - acquire property plant and equipment
+
+  depreciation_amortization:
+    - depreciation
+    - amortization
+    - depreciation and amortization
+
+  stock_based_compensation:
+    - stock based compensation
+    - share based compensation
+    - share-based payment expense
+
+  dividends_paid:
+    - dividends paid
+    - payments of dividends
+
+  share_repurchases:
+    - share repurchases
+    - repurchase of common stock
+    - stock buybacks
