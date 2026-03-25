@@ -40,6 +40,10 @@ poetry run python -m financials_tracker.cli.aggregate_unmapped_tags --input-dir 
 Rank the unmap tags by priority score:
 
 poetry run python -m financials_tracker.cli.rank_unmapped_tags
+
+Suggest concepts for unmapped tags: 
+
+poetry run python -m financials_tracker.cli.generate_tag_suggestions
 ```
 
 # Run integration tests:

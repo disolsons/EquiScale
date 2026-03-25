@@ -32,7 +32,6 @@ class MappingValidations(Base):
         UniqueConstraint("ticker", "statement_type", name="uq_mapping_validation_ticker_statement"),
     )
 
-
 class UnmappedTag(Base):
     __tablename__ = "unmapped_tags"
 
@@ -58,7 +57,6 @@ class UnmappedTag(Base):
             name="uq_unmapped_tag_ticker_statement_rawtag",
         ),
     )
-
 
 class AggregatedUnmappedTag(Base):
     __tablename__ = "aggregated_unmapped_tags"
@@ -91,8 +89,6 @@ class AggregatedUnmappedTag(Base):
         ),
     )
 
-
-
 class TagSuggestion(Base):
     __tablename__ = "tag_suggestions"
 
@@ -114,5 +110,52 @@ class TagSuggestion(Base):
             "statement_type",
             "raw_tag",
             name="uq_tag_suggestion_statement_rawtag",
+        ),
+    )
+
+class MappedConceptSelection(Base):
+    __tablename__ = "mapped_concept_selections"
+
+    id = Column(Integer, primary_key=True)
+    ticker = Column(String, nullable=False, index=True)
+    statement_type = Column(String, nullable=False, index=True)
+    concept = Column(String, nullable=False, index=True)
+
+    selected_raw_tag = Column(String, nullable=False)
+    selected_label = Column(Text, nullable=True)
+
+    is_abstract = Column(Boolean, nullable=True)
+    is_total = Column(Boolean, nullable=True)
+    depth = Column(Integer, nullable=True)
+    non_null_periods = Column(Integer, nullable=True)
+    selection_score = Column(Float, nullable=True)
+    candidate_count = Column(Integer, nullable=True)
+
+    __table_args__ = (
+        UniqueConstraint(
+            "ticker",
+            "statement_type",
+            "concept",
+            name="uq_mapped_concept_selection",
+        ),
+    )
+
+class MappedConceptValue(Base):
+    __tablename__ = "mapped_concept_values"
+
+    id = Column(Integer, primary_key=True)
+    ticker = Column(String, nullable=False, index=True)
+    statement_type = Column(String, nullable=False, index=True)
+    concept = Column(String, nullable=False, index=True)
+    period = Column(String, nullable=False, index=True)
+    value = Column(Float, nullable=True)
+
+    __table_args__ = (
+        UniqueConstraint(
+            "ticker",
+            "statement_type",
+            "concept",
+            "period",
+            name="uq_mapped_concept_value",
         ),
     )

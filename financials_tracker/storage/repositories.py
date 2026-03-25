@@ -9,7 +9,6 @@ from financials_tracker.storage.models import (
     TagSuggestion
 )
 
-
 def upsert_mapping_validations(session: Session, ticker: str, statement_type: str, report: dict[str, Any]) -> None:
     coverage = report.get("coverage", {})
     reconciliation = report.get("reconciliation", {}).get("checks", {})
@@ -46,7 +45,6 @@ def upsert_mapping_validations(session: Session, ticker: str, statement_type: st
     else:
         session.add(MappingValidations(**payload))
 
-
 def replace_unmapped_tags_for_statement(
     session: Session,
     ticker: str,
@@ -75,7 +73,6 @@ def replace_unmapped_tags_for_statement(
                 confidence=row.get("confidence"),
             )
         )
-
 
 def replace_aggregated_unmapped_tags(session: Session, rows: list[dict[str, Any]]) -> None:
     session.query(AggregatedUnmappedTag).delete()
@@ -129,7 +126,6 @@ def upsert_tag_suggestion(
             setattr(existing, key, value)
     else:
         session.add(TagSuggestion(**payload))
-
 
 def delete_all_tag_suggestions(session) -> None:
     """
