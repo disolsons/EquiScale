@@ -60,13 +60,14 @@ def test_map_historical_statement_selects_best_candidate_not_first(mapper: State
         ],
     )
 
-    result = mapper.map_historical_statement("income_statement", df)
+    income_result = mapper.map_historical_statement("income_statement", df)
+    income_mapped = income_result.mapped_df
 
-    assert result is not None
-    assert "revenue" in result.index
+    assert income_mapped is not None
+    assert "revenue" in income_mapped.index
 
     # The selected row should be the stronger candidate (SalesRevenueNet),
     # so the mapped values should come from that row.
-    assert result.loc["revenue", "FY 2025"] == 110.0
-    assert result.loc["revenue", "FY 2024"] == 105.0
-    assert result.loc["revenue", "FY 2023"] == 95.0
+    assert income_mapped.loc["revenue", "FY 2025"] == 110.0
+    assert income_mapped.loc["revenue", "FY 2024"] == 105.0
+    assert income_mapped.loc["revenue", "FY 2023"] == 95.0

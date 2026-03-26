@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from sqlalchemy import create_engine
+from sqlalchemy import MetaData, create_engine, delete
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 
@@ -24,3 +24,19 @@ def get_session_factory(db_path: str | None = None):
 def create_tables(db_path: str | None = None):
     engine = get_engine(db_path)
     Base.metadata.create_all(engine)
+
+def reset_all_data(db_path: str | None = None):
+    engine = get_engine(db_path)
+
+    metadata = MetaData()
+    metadata.reflect(bind=engine)
+
+    conn = engine.connect()
+    with conn.begin() as trans:
+        for table in reversed(metadata.sorted_tables):
+            print(f"Deleting all rows from table: {table.name}")
+            # Use delete without a where condition to remove all rows efficiently
+            delete_statement = delete(table)
+            conn.execute(delete_statement)
+        trans.commit()
+    conn.close()

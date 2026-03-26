@@ -54,10 +54,8 @@ def test_historical_statement_pipeline_real(ticker, case):
     assert raw_df is not None, f"Raw historical {case['statement_type']} is None for {ticker}"
     assert not raw_df.empty, f"Raw historical {case['statement_type']} is empty for {ticker}"
 
-    mapped_df = mapper.map_historical_statement(
-        df=raw_df,
-        statement_type=case["statement_type"],
-    )
+    income_result = mapper.map_historical_statement("income_statement", raw_df)
+    mapped_df = income_result.mapped_df
 
     assert mapped_df is not None, f"Mapped historical {case['statement_type']} is None for {ticker}"
     assert not mapped_df.empty, f"Mapped historical {case['statement_type']} is empty for {ticker}"
@@ -93,7 +91,7 @@ def test_latest_statement_pipeline_real(ticker, case):
     mapped_df = mapper.map_latest_statement(
         df=raw_df,
         statement_type=case["statement_type"],
-    )
+    ).mapped_df
 
     assert mapped_df is not None, f"Mapped latest {case['statement_type']} is None for {ticker}"
     assert not mapped_df.empty, f"Mapped latest {case['statement_type']} is empty for {ticker}"

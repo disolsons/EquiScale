@@ -1,12 +1,14 @@
 import json
 from typing import Any
 from sqlalchemy.orm import Session
-
+import pandas as pd
 from financials_tracker.storage.models import (
     AggregatedUnmappedTag,
     UnmappedTag,
     MappingValidations,
-    TagSuggestion
+    TagSuggestion,
+    MappedConceptSelection,
+    MappedConceptValue,
 )
 
 def upsert_mapping_validations(session: Session, ticker: str, statement_type: str, report: dict[str, Any]) -> None:
@@ -135,3 +137,67 @@ def delete_all_tag_suggestions(session) -> None:
     instead of accumulating stale rows across runs.
     """
     session.query(TagSuggestion).delete()
+
+def replace_mapped_concept_selections_for_statement(
+    session: Session,
+    ticker: str,
+    statement_type: str,
+    mapping_metadata: list,
+) -> None:
+    """
+    Replace selected mapping provenance rows for one ticker + statement.
+
+    One row is stored per normalized concept, describing which raw tag
+    was selected and the structural signals behind that selection.
+    """
+    session.query(MappedConceptSelection).filter_by(
+        ticker=ticker.upper(),
+        statement_type=statement_type,
+    ).delete()
+
+    for item in mapping_metadata:
+        session.add(
+            MappedConceptSelection(
+                ticker=ticker.upper(),
+                statement_type=statement_type,
+                concept=item.concept,
+                selected_raw_tag=item.selected_raw_tag,
+                selected_label=item.selected_label,
+                is_abstract=item.is_abstract,
+                is_total=item.is_total,
+                depth=item.depth,
+                non_null_periods=item.non_null_periods,
+                selection_score=item.selection_score,
+                candidate_count=item.candidate_count,
+            )
+        )
+
+def replace_mapped_concept_values_for_statement(
+    session: Session,
+    ticker: str,
+    statement_type: str,
+    mapped_df,
+) -> None:
+    """
+    Replace mapped concept values for one ticker + statement.
+
+    Stores one row per concept-period numeric value.
+    """
+    session.query(MappedConceptValue).filter_by(
+        ticker=ticker.upper(),
+        statement_type=statement_type,
+    ).delete()
+
+    if mapped_df is None or mapped_df.empty:
+        return
+
+    for concept, row in mapped_df.iterrows():
+        for period, value in row.items():
+            session.add(
+                MappedConceptValue(
+                    ticker=ticker.upper(),
+                    statement_type=statement_type,
+                    concept=str(concept),
+                    period=str(period),
+                     value=None if pd.isna(value) else float(value),                )
+            )

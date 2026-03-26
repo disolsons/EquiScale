@@ -20,14 +20,14 @@
       "capital_expenditures"
     ],
     "non_null_period_counts": {
-      "operating_cash_flow": 3,
-      "interest_paid": 2,
-      "share_repurchases": 3,
+      "net_cash_from_financing": 3,
       "dividends_paid": 3,
+      "share_repurchases": 3,
+      "operating_cash_flow": 3,
       "income_taxes_paid": 3,
       "depreciation_amortization": 3,
-      "net_cash_from_financing": 3,
       "net_cash_from_investing": 3,
+      "interest_paid": 2,
       "stock_based_compensation": 3
     }
   },

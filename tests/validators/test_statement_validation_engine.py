@@ -2,11 +2,13 @@ import pandas as pd
 
 from financials_tracker.mappers.concept_map_helper import ConceptMapHelper
 from financials_tracker.validators.statement_validation_engine import StatementValidationEngine
+from financials_tracker.validators.utils.ignored_tags_helper import IgnoredTagsHelper
 
 
 def test_coverage_validator_basic():
     helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
-    engine = StatementValidationEngine(helper)
+    ignored_tags_helper = IgnoredTagsHelper("financials_tracker/validators/config/ignored_tags.yaml")
+    engine = StatementValidationEngine(helper, ignored_tags_helper)
 
     mapped_df = pd.DataFrame(
         {
@@ -26,8 +28,8 @@ def test_coverage_validator_basic():
 
 def test_reconciliation_income_statement():
     helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
-    engine = StatementValidationEngine(helper)
-
+    ignored_tags_helper = IgnoredTagsHelper("financials_tracker/validators/config/ignored_tags.yaml")
+    engine = StatementValidationEngine(helper, ignored_tags_helper)
     mapped_df = pd.DataFrame(
         {
             "FY 2024": [100.0, 40.0, 60.0],
@@ -44,7 +46,8 @@ def test_reconciliation_income_statement():
 
 def test_reconciliation_balance_sheet_equation():
     helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
-    engine = StatementValidationEngine(helper)
+    ignored_tags_helper = IgnoredTagsHelper("financials_tracker/validators/config/ignored_tags.yaml")
+    engine = StatementValidationEngine(helper, ignored_tags_helper)
 
     mapped_df = pd.DataFrame(
         {
@@ -61,7 +64,8 @@ def test_reconciliation_balance_sheet_equation():
 
 def test_mapping_detail_historical():
     helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
-    engine = StatementValidationEngine(helper)
+    ignored_tags_helper = IgnoredTagsHelper("financials_tracker/validators/config/ignored_tags.yaml")
+    engine = StatementValidationEngine(helper, ignored_tags_helper)
 
     raw_df = pd.DataFrame(
         {
@@ -83,8 +87,8 @@ def test_mapping_detail_historical():
 
 def test_validate_statement_combines_metrics():
     helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
-    engine = StatementValidationEngine(helper)
-
+    ignored_tags_helper = IgnoredTagsHelper("financials_tracker/validators/config/ignored_tags.yaml")
+    engine = StatementValidationEngine(helper, ignored_tags_helper)
     raw_df = pd.DataFrame(
         {"FY 2024": [100.0]},
         index=pd.Index(["GrossProfit"], name="concept"),

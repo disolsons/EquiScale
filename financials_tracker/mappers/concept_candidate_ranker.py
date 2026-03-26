@@ -9,9 +9,28 @@ class ConceptCandidateRanker:
     def select_best_candidate(
         self,
         candidate_rows: list[ConceptCandidate],
-    ) -> ConceptCandidate | None:
-        if not candidate_rows:
+    ) -> ConceptCandidate | None:  
+        ranked = self.rank_candidates(candidate_rows)
+        if not ranked:
             return None
+
+        best_score, best_candidate = ranked[0]
+
+        if best_score <= -999.0:
+            return None
+
+        return best_candidate
+
+
+    def rank_candidates(
+        self,
+        candidate_rows: list[ConceptCandidate],
+    ) -> list[tuple[float, ConceptCandidate]]:
+        """
+        Score and sort candidate rows from best to worst.
+        """
+        if not candidate_rows:
+            return []
 
         scored_candidates = []
         for candidate in candidate_rows:
@@ -33,13 +52,9 @@ class ConceptCandidateRanker:
             reverse=True,
         )
 
-        best_score, best_candidate = scored_candidates[0]
+        return scored_candidates
 
-        if best_score <= -999.0:
-            return None
-
-        return best_candidate
-
+    
     def _score_candidate(self, candidate: ConceptCandidate) -> float:
         if candidate.is_abstract is True:
             return -999.0

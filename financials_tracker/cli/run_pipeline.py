@@ -16,6 +16,8 @@ from financials_tracker.storage.db_setup import get_session_factory
 from financials_tracker.storage.repositories import (
     replace_unmapped_tags_for_statement,
     upsert_mapping_validations,
+    replace_mapped_concept_selections_for_statement,
+    replace_mapped_concept_values_for_statement
 )
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -137,9 +139,14 @@ def run_for_ticker(
     cash_raw = client.fetch_cash_flow(period_mode="history", years=years, annual=annual)
 
     # --- Map historical statements ---
-    income_mapped = mapper.map_historical_statement(df=income_raw, statement_type="income_statement")
-    balance_mapped = mapper.map_historical_statement(df=balance_raw, statement_type="balance_sheet")
-    cash_mapped = mapper.map_historical_statement(df=cash_raw, statement_type="cash_flow")
+    income_result = mapper.map_historical_statement(df=income_raw, statement_type="income_statement")
+    balance_result = mapper.map_historical_statement(df=balance_raw, statement_type="balance_sheet")
+    cash_result = mapper.map_historical_statement(df=cash_raw, statement_type="cash_flow")
+
+    income_mapped = income_result.mapped_df
+    balance_mapped = balance_result.mapped_df
+    cash_mapped = cash_result.mapped_df
+
 
     # --- Save raw statements ---
     save_json(dataframe_to_json_payload(income_raw), ticker_dir / "raw" / "income_statement.json")
@@ -150,6 +157,7 @@ def run_for_ticker(
     save_dataframe(income_mapped, ticker_dir / "mapped" / "income_statement.csv")
     save_dataframe(balance_mapped, ticker_dir / "mapped" / "balance_sheet.csv")
     save_dataframe(cash_mapped, ticker_dir / "mapped" / "cash_flow.csv")
+
 
     # --- Validation reports ---
     income_validation = validator.validate(
@@ -203,6 +211,44 @@ def run_for_ticker(
         replace_unmapped_tags_for_statement(session, ticker, "balance_sheet", balance_validation)
         replace_unmapped_tags_for_statement(session, ticker, "cash_flow", cash_validation)
 
+                # --- Save mapping metadata ---
+        replace_mapped_concept_selections_for_statement(
+            session=session,
+            ticker=ticker,
+            statement_type="income_statement",
+            mapping_metadata=income_result.selection_metadata,
+        )
+        replace_mapped_concept_selections_for_statement(
+            session=session,
+            ticker=ticker,
+            statement_type="balance_sheet",
+            mapping_metadata=balance_result.selection_metadata,
+        )
+        replace_mapped_concept_selections_for_statement(
+            session=session,
+            ticker=ticker,
+            statement_type="cash_flow",
+            mapping_metadata=cash_result.selection_metadata,
+        )
+
+        replace_mapped_concept_values_for_statement(
+            session=session,
+            ticker=ticker,
+            statement_type="income_statement",
+            mapped_df=income_mapped,
+        )
+        replace_mapped_concept_values_for_statement(
+            session=session,
+            ticker=ticker,
+            statement_type="balance_sheet",
+            mapped_df=balance_mapped,
+        )
+        replace_mapped_concept_values_for_statement(
+            session=session,
+            ticker=ticker,
+            statement_type="cash_flow",
+            mapped_df=cash_mapped,
+        )
         session.commit()
     finally:
         session.close()
