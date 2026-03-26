@@ -1,6 +1,7 @@
 # Requirements
 - Python
 - Poetry
+- SQLite 
 
 # Initialize the project: 
 ```
@@ -49,4 +50,9 @@ poetry run python -m financials_tracker.cli.generate_tag_suggestions
 # Run integration tests:
 ```
 poetry run pytest -m integration -q
+```
+
+# Run all tests: 
+```
+poetry run pytest
 ```
