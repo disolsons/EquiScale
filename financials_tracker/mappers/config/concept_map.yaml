@@ -144,6 +144,6 @@ cash_flow:
     - AllocatedShareBasedCompensationExpense
   
   dividends_paid:
-    - PaymentsOfDividends
     - DividendsPaid
+    - PaymentsOfDividends
     - PaymentsOfDividendsCommonStock

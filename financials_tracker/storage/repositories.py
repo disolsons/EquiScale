@@ -1,14 +1,15 @@
 import json
 from typing import Any
+from financials_tracker.mappers.model.concept_selection_metadata import ConceptSelectionMetadata
 from sqlalchemy.orm import Session
 import pandas as pd
 from financials_tracker.storage.models import (
-    AggregatedUnmappedTag,
-    UnmappedTag,
+    AggregatedUnmappedTags,
+    UnmappedTags,
     MappingValidations,
-    TagSuggestion,
-    MappedConceptSelection,
-    MappedConceptValue,
+    TagSuggestions,
+    MappedConceptSelections,
+    MappedConceptValues,
 )
 
 def upsert_mapping_validations(session: Session, ticker: str, statement_type: str, report: dict[str, Any]) -> None:
@@ -53,7 +54,7 @@ def replace_unmapped_tags_for_statement(
     statement_type: str,
     report: dict[str, Any],
 ) -> None:
-    session.query(UnmappedTag).filter_by(
+    session.query(UnmappedTags).filter_by(
         ticker=ticker.upper(),
         statement_type=statement_type,
     ).delete()
@@ -62,7 +63,7 @@ def replace_unmapped_tags_for_statement(
 
     for row in rows:
         session.add(
-            UnmappedTag(
+            UnmappedTags(
                 ticker=ticker.upper(),
                 statement_type=statement_type,
                 raw_tag=row.get("raw_tag"),
@@ -77,11 +78,11 @@ def replace_unmapped_tags_for_statement(
         )
 
 def replace_aggregated_unmapped_tags(session: Session, rows: list[dict[str, Any]]) -> None:
-    session.query(AggregatedUnmappedTag).delete()
+    session.query(AggregatedUnmappedTags).delete()
 
     for row in rows:
         session.add(
-            AggregatedUnmappedTag(
+            AggregatedUnmappedTags(
                 statement_type=row.get("statement_type"),
                 raw_tag=row.get("raw_tag"),
                 count=row.get("count", 0),
@@ -118,7 +119,7 @@ def upsert_tag_suggestion(
     }
 
     existing = (
-        session.query(TagSuggestion)
+        session.query(TagSuggestions)
         .filter_by(statement_type=statement_type, raw_tag=raw_tag)
         .one_or_none()
     )
@@ -127,7 +128,7 @@ def upsert_tag_suggestion(
         for key, value in payload.items():
             setattr(existing, key, value)
     else:
-        session.add(TagSuggestion(**payload))
+        session.add(TagSuggestions(**payload))
 
 def delete_all_tag_suggestions(session) -> None:
     """
@@ -136,42 +137,43 @@ def delete_all_tag_suggestions(session) -> None:
     This keeps the suggestions table in sync with the latest inference run
     instead of accumulating stale rows across runs.
     """
-    session.query(TagSuggestion).delete()
+    session.query(TagSuggestions).delete()
 
 def replace_mapped_concept_selections_for_statement(
     session: Session,
     ticker: str,
     statement_type: str,
-    mapping_metadata: list,
+    mapping_metadata: list[ConceptSelectionMetadata],
 ) -> None:
     """
-    Replace selected mapping provenance rows for one ticker + statement.
+    Replace candidate-level mapping metadata rows for one ticker + statement.
 
-    One row is stored per normalized concept, describing which raw tag
-    was selected and the structural signals behind that selection.
+    Stores all evaluated candidates, with is_selected indicating the winner.
     """
-    session.query(MappedConceptSelection).filter_by(
+    session.query(MappedConceptSelections).filter_by(
         ticker=ticker.upper(),
         statement_type=statement_type,
     ).delete()
 
     for item in mapping_metadata:
         session.add(
-            MappedConceptSelection(
+            MappedConceptSelections(
                 ticker=ticker.upper(),
                 statement_type=statement_type,
                 concept=item.concept,
-                selected_raw_tag=item.selected_raw_tag,
-                selected_label=item.selected_label,
+                raw_tag=item.raw_tag,
+                label=item.label,
                 is_abstract=item.is_abstract,
                 is_total=item.is_total,
                 depth=item.depth,
                 non_null_periods=item.non_null_periods,
-                selection_score=item.selection_score,
+                candidate_score=item.candidate_score,
+                is_selected=item.is_selected,
+                rank_order=item.rank_order,
                 candidate_count=item.candidate_count,
             )
         )
-
+        
 def replace_mapped_concept_values_for_statement(
     session: Session,
     ticker: str,
@@ -183,7 +185,7 @@ def replace_mapped_concept_values_for_statement(
 
     Stores one row per concept-period numeric value.
     """
-    session.query(MappedConceptValue).filter_by(
+    session.query(MappedConceptValues).filter_by(
         ticker=ticker.upper(),
         statement_type=statement_type,
     ).delete()
@@ -194,7 +196,7 @@ def replace_mapped_concept_values_for_statement(
     for concept, row in mapped_df.iterrows():
         for period, value in row.items():
             session.add(
-                MappedConceptValue(
+                MappedConceptValues(
                     ticker=ticker.upper(),
                     statement_type=statement_type,
                     concept=str(concept),

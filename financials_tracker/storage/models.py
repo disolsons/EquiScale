@@ -32,7 +32,7 @@ class MappingValidations(Base):
         UniqueConstraint("ticker", "statement_type", name="uq_mapping_validation_ticker_statement"),
     )
 
-class UnmappedTag(Base):
+class UnmappedTags(Base):
     __tablename__ = "unmapped_tags"
 
     id = Column(Integer, primary_key=True)
@@ -58,7 +58,7 @@ class UnmappedTag(Base):
         ),
     )
 
-class AggregatedUnmappedTag(Base):
+class AggregatedUnmappedTags(Base):
     __tablename__ = "aggregated_unmapped_tags"
 
     id = Column(Integer, primary_key=True)
@@ -89,7 +89,7 @@ class AggregatedUnmappedTag(Base):
         ),
     )
 
-class TagSuggestion(Base):
+class TagSuggestions(Base):
     __tablename__ = "tag_suggestions"
 
     id = Column(Integer, primary_key=True)
@@ -113,7 +113,7 @@ class TagSuggestion(Base):
         ),
     )
 
-class MappedConceptSelection(Base):
+class MappedConceptSelections(Base):
     __tablename__ = "mapped_concept_selections"
 
     id = Column(Integer, primary_key=True)
@@ -121,14 +121,17 @@ class MappedConceptSelection(Base):
     statement_type = Column(String, nullable=False, index=True)
     concept = Column(String, nullable=False, index=True)
 
-    selected_raw_tag = Column(String, nullable=False)
-    selected_label = Column(Text, nullable=True)
+    raw_tag = Column(String, nullable=False)
+    label = Column(Text, nullable=True)
 
     is_abstract = Column(Boolean, nullable=True)
     is_total = Column(Boolean, nullable=True)
     depth = Column(Integer, nullable=True)
     non_null_periods = Column(Integer, nullable=True)
-    selection_score = Column(Float, nullable=True)
+
+    candidate_score = Column(Float, nullable=True)
+    is_selected = Column(Boolean, nullable=False, default=False)
+    rank_order = Column(Integer, nullable=True)
     candidate_count = Column(Integer, nullable=True)
 
     __table_args__ = (
@@ -136,11 +139,12 @@ class MappedConceptSelection(Base):
             "ticker",
             "statement_type",
             "concept",
-            name="uq_mapped_concept_selection",
+            "raw_tag",
+            name="uq_mapped_concept_selection_candidate",
         ),
     )
 
-class MappedConceptValue(Base):
+class MappedConceptValues(Base):
     __tablename__ = "mapped_concept_values"
 
     id = Column(Integer, primary_key=True)

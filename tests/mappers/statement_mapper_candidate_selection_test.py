@@ -1,8 +1,6 @@
 from pathlib import Path
-
 import pandas as pd
 import pytest
-
 from financials_tracker.mappers.concept_map_helper import ConceptMapHelper
 from financials_tracker.mappers.statement_mapper import StatementMapper
 
@@ -26,9 +24,18 @@ def mapper(concept_map_file: Path) -> StatementMapper:
     return StatementMapper(helper)
 
 
-def test_map_historical_statement_selects_best_candidate_not_first(mapper: StatementMapper):
-    # The first mapped tag is present but weaker (fewer non-null periods, not total).
-    # The second mapped tag should win because it is total and fully populated.
+def test_map_historical_statement_selects_best_candidate_and_persists_all_metadata(
+    mapper: StatementMapper,
+):
+    # First mapped tag is weaker:
+    # - not total
+    # - fewer populated periods
+    # - deeper row
+    #
+    # Second mapped tag is stronger:
+    # - total
+    # - fully populated
+    # - shallower row
     df = pd.DataFrame(
         [
             {
@@ -60,14 +67,38 @@ def test_map_historical_statement_selects_best_candidate_not_first(mapper: State
         ],
     )
 
-    income_result = mapper.map_historical_statement("income_statement", df)
-    income_mapped = income_result.mapped_df
+    result = mapper.map_historical_statement("income_statement", df)
 
-    assert income_mapped is not None
-    assert "revenue" in income_mapped.index
+    assert result is not None
+    assert result.mapped_df is not None
+    assert "revenue" in result.mapped_df.index
 
-    # The selected row should be the stronger candidate (SalesRevenueNet),
-    # so the mapped values should come from that row.
-    assert income_mapped.loc["revenue", "FY 2025"] == 110.0
-    assert income_mapped.loc["revenue", "FY 2024"] == 105.0
-    assert income_mapped.loc["revenue", "FY 2023"] == 95.0
+    # The mapped values should come from the stronger candidate.
+    assert result.mapped_df.loc["revenue", "FY 2025"] == 110.0
+    assert result.mapped_df.loc["revenue", "FY 2024"] == 105.0
+    assert result.mapped_df.loc["revenue", "FY 2023"] == 95.0
+
+    # We should now persist metadata for ALL candidates, not just the winner.
+    revenue_metadata = [m for m in result.selection_metadata if m.concept == "revenue"]
+    assert len(revenue_metadata) == 2
+
+    # Check rank ordering
+    revenue_metadata = sorted(revenue_metadata, key=lambda m: m.rank_order)
+
+    winner = revenue_metadata[0]
+    loser = revenue_metadata[1]
+
+    assert winner.rank_order == 1
+    assert winner.is_selected is True
+    assert winner.raw_tag == "SalesRevenueNet"
+    assert winner.label == "Sales Revenue, Net"
+    assert winner.candidate_count == 2
+
+    assert loser.rank_order == 2
+    assert loser.is_selected is False
+    assert loser.raw_tag == "RevenueFromContractWithCustomerExcludingAssessedTax"
+    assert loser.label == "Revenue from Contract with Customer"
+    assert loser.candidate_count == 2
+
+    # Winner should score higher than loser
+    assert winner.candidate_score > loser.candidate_score

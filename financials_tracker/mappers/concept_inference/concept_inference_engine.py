@@ -1,10 +1,9 @@
 import re
 from dataclasses import dataclass
-from financials_tracker.mappers.concept_inference.concept_aliases_helper import ConceptAliasesHelper
 from financials_tracker.mappers.concept_inference.fuzzy_concept_matcher import FuzzyConceptMatcher
-from financials_tracker.mappers.concept_inference.ignore_patterns_helper import IgnorePatternsHelper
-from financials_tracker.mappers.concept_inference.semantic_conflicts_helper import SemanticConflictsHelper
+from financials_tracker.mappers.concept_inference.config_processing_helper import IgnorePatternsHelper, SemanticConflictsHelper, ConceptAliasesHelper
 from financials_tracker.mappers.concept_inference.model.concept_suggestion import ConceptSuggestion
+from financials_tracker.mappers.tag_normalization_utils import normalize_text
 
 class ConceptInferenceEngine:
     """
@@ -92,8 +91,8 @@ class ConceptInferenceEngine:
         raw_tag = raw_tag or ""
         label = label or ""
 
-        normalized_tag = self._normalize_text(raw_tag)
-        normalized_label = self._normalize_text(label)
+        normalized_tag = normalize_text(raw_tag)
+        normalized_label = normalize_text(label)
         
 
         text_candidates = []
@@ -212,7 +211,7 @@ class ConceptInferenceEngine:
             hits: list[str] = []
 
             for alias in aliases:
-                normalized_alias = self._normalize_text(alias)
+                normalized_alias = normalize_text(alias)
                 if not normalized_alias:
                     continue
 
@@ -239,19 +238,3 @@ class ConceptInferenceEngine:
             suggestion_type="existing_concept",
             suggestion_reason=[f"keyword match: {hit}" for hit in best_hits],
         )
-
-
-    @staticmethod
-    def _normalize_text(value: str) -> str:
-
-        # Replace underscores with spaces so snake_case words can be matched naturally.
-        value = value.replace("_", " ")
-        # Insert a space between lowercase-to-uppercase transitions to split CamelCase words. Since tags are commonly written like this "DepreciationDepletionAndAmortization"
-        value = re.sub(r"([a-z])([A-Z])", r"\1 \2", value)
-        # Lowercase everything to make matching case-insensitive.
-        value = value.lower()
-        # Replace any non-alphanumeric characters with spaces to simplify comparison.
-        value = re.sub(r"[^a-z0-9]+", " ", value)
-        # Collapse repeated whitespace into a single space and trim leading/trailing spaces.
-        value = re.sub(r"\s+", " ", value).strip()
-        return value

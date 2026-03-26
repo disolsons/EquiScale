@@ -1,5 +1,8 @@
-from financials_tracker.mappers.model.concept_candidate import ConceptCandidate
+from difflib import SequenceMatcher
+import re
 
+from financials_tracker.mappers.model.concept_candidate import ConceptCandidate
+from financials_tracker.mappers.tag_normalization_utils import normalize_text
 
 class ConceptCandidateRanker:
     """
@@ -8,9 +11,10 @@ class ConceptCandidateRanker:
 
     def select_best_candidate(
         self,
+        concept: str,
         candidate_rows: list[ConceptCandidate],
     ) -> ConceptCandidate | None:  
-        ranked = self.rank_candidates(candidate_rows)
+        ranked = self.rank_candidates(concept, candidate_rows)
         if not ranked:
             return None
 
@@ -22,8 +26,10 @@ class ConceptCandidateRanker:
         return best_candidate
 
 
+
     def rank_candidates(
         self,
+        concept: str,
         candidate_rows: list[ConceptCandidate],
     ) -> list[tuple[float, ConceptCandidate]]:
         """
@@ -48,10 +54,10 @@ class ConceptCandidateRanker:
                 item[1].non_null_periods,
                 1 if item[1].is_total is True else 0,
                 -(item[1].depth if item[1].depth is not None else 999),
+                self._concept_tag_similarity(concept, item[1].raw_tag),
             ),
             reverse=True,
         )
-
         return scored_candidates
 
     
@@ -72,3 +78,14 @@ class ConceptCandidateRanker:
                 score -= 0.5 * candidate.depth
 
         return score
+    
+
+    def _concept_tag_similarity(self, concept: str, raw_tag: str) -> float:
+        """
+        Measure textual similarity between a normalized concept name and a raw tag.
+
+        Used only as a final tie-break among already-approved candidates.
+        """
+        normalized_concept = normalize_text(concept)
+        normalized_raw_tag = normalize_text(raw_tag)
+        return SequenceMatcher(None, normalized_concept, normalized_raw_tag).ratio()

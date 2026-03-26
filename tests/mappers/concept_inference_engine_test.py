@@ -2,11 +2,10 @@ from pathlib import Path
 
 import pytest
 
-from financials_tracker.mappers.concept_inference.concept_aliases_helper import ConceptAliasesHelper
+from financials_tracker.mappers.concept_inference.config_processing_helper import ConceptAliasesHelper, IgnorePatternsHelper, SemanticConflictsHelper
 from financials_tracker.mappers.concept_inference.concept_inference_engine import ConceptInferenceEngine
-from financials_tracker.mappers.concept_inference.ignore_patterns_helper import IgnorePatternsHelper
-from financials_tracker.mappers.concept_inference.semantic_conflicts_helper import SemanticConflictsHelper
 from financials_tracker.mappers.concept_inference.fuzzy_concept_matcher import FuzzyConceptMatcher
+from financials_tracker.mappers.tag_normalization_utils import normalize_text
 
 @pytest.fixture
 def aliases_file(tmp_path: Path) -> Path:
@@ -155,5 +154,5 @@ def test_suggest_concept_uses_fuzzy_fallback(engine: ConceptInferenceEngine):
     assert result["suggestion_type"] in {"existing_concept", "new_concept_candidate"}
 
 def test_normalize_text_splits_camel_case(engine: ConceptInferenceEngine):
-    normalized = engine._normalize_text("PaymentsToAcquirePropertyPlantAndEquipment")
+    normalized = normalize_text("PaymentsToAcquirePropertyPlantAndEquipment")
     assert normalized == "payments to acquire property plant and equipment"

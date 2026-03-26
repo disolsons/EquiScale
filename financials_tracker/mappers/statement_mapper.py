@@ -21,29 +21,26 @@ class StatementMapper:
         self.concept_map_helper = concept_map_helper
         self.candidate_ranker = ConceptCandidateRanker()
 
-    
     def map_historical_statement(
         self,
         statement_type: str,
         df: pd.DataFrame,
     ) -> StatementMappingResult:
         """
-        Convert a raw historical statement DataFrame into a normalized one.
+            Convert a raw historical statement DataFrame into a normalized one.
 
-        Returns both:
-        - mapped_df: normalized concept-value table
-        - selection_metadata: provenance metadata for the selected raw tag per concept
+            Returns both:
+            - mapped_df: normalized concept-value table
+            - selection_metadata: candidate-level metadata for all evaluated candidates
         """
         if df is None or df.empty:
             return StatementMappingResult(mapped_df=None, selection_metadata=[])
 
         auxiliar_df = df.copy()
 
-        # Remove structural/abstract rows before candidate collection.
         if MapperConstants.IS_ABSTRACT_COL in auxiliar_df.columns:
             auxiliar_df = auxiliar_df[auxiliar_df[MapperConstants.IS_ABSTRACT_COL] == False]
 
-        # Keep only fiscal-period columns for the mapped output.
         fiscal_period_cols = [
             col for col in auxiliar_df.columns
             if str(col).startswith(
@@ -54,7 +51,6 @@ class StatementMapper:
         if not fiscal_period_cols:
             return StatementMappingResult(mapped_df=None, selection_metadata=[])
 
-        # Collect all valid candidates per normalized concept.
         concept_candidates: dict[str, list[ConceptCandidate]] = {}
 
         for raw_tag in auxiliar_df.index:
@@ -87,28 +83,32 @@ class StatementMapper:
         mapped_rows: dict[str, dict] = {}
         selection_metadata: list[ConceptSelectionMetadata] = []
 
-        # Rank candidates per concept and keep the best one.
         for normalized_concept, candidate_rows in concept_candidates.items():
-            ranked_candidates = self.candidate_ranker.rank_candidates(candidate_rows)
+            ranked_candidates = self.candidate_ranker.rank_candidates(normalized_concept, candidate_rows)
             if not ranked_candidates:
                 continue
 
-            best_score, best_candidate = ranked_candidates[0]
+            candidate_count = len(ranked_candidates)
 
-            # All candidates may have been rejected by the ranker.
+            for idx, (score, candidate) in enumerate(ranked_candidates, start=1):
+                is_selected = idx == 1 and score > -999.0
+
+                selection_metadata.append(
+                    self._build_selection_metadata(
+                        concept=normalized_concept,
+                        candidate=candidate,
+                        candidate_score=score,
+                        is_selected=is_selected,
+                        rank_order=idx,
+                        candidate_count=candidate_count,
+                    )
+                )
+
+            best_score, best_candidate = ranked_candidates[0]
             if best_score <= -999.0:
                 continue
 
             mapped_rows[normalized_concept] = best_candidate.row_data
-
-            selection_metadata.append(
-                self._build_selection_metadata(
-                    concept=normalized_concept,
-                    best_candidate=best_candidate,
-                    best_score=best_score,
-                    candidate_count=len(candidate_rows),
-                )
-            )
 
         if not mapped_rows:
             return StatementMappingResult(mapped_df=None, selection_metadata=selection_metadata)
@@ -119,101 +119,101 @@ class StatementMapper:
         return StatementMappingResult(
             mapped_df=result_df,
             selection_metadata=selection_metadata,
-        )
-    
+        )    
+
     def map_latest_statement(
         self,
         statement_type: str,
         df: pd.DataFrame,
     ) -> StatementMappingResult:
-        """
-            Map the latest-statement DataFrame into normalized concepts.
+            """
+                Map the latest-statement DataFrame into normalized concepts.
 
-            Returns both:
-            - mapped_df: normalized concept rows
-            - selection_metadata: provenance metadata for the selected raw tag per concept
-        """
-        if df is None or df.empty:
-            return StatementMappingResult(mapped_df=None, selection_metadata=[])
+                Returns both:
+                - mapped_df: normalized concept rows
+                - selection_metadata: candidate-level metadata for all evaluated candidates
+            """
+            if df is None or df.empty:
+                return StatementMappingResult(mapped_df=None, selection_metadata=[])
 
-        if MapperConstants.CONCEPT_COL not in df.columns:
-            return StatementMappingResult(mapped_df=None, selection_metadata=[])
+            if MapperConstants.CONCEPT_COL not in df.columns:
+                return StatementMappingResult(mapped_df=None, selection_metadata=[])
 
-        auxiliar_df = df.copy()
-
-        # Normalize raw SEC/XBRL concept strings so they can be matched against the concept map.
-        auxiliar_df["normalized_raw_tag"] = auxiliar_df[MapperConstants.CONCEPT_COL].apply(
-            self._normalize_raw_tag
-        )
-
-        # Collect all valid candidates per normalized concept.
-        concept_candidates: dict[str, list[ConceptCandidate]] = {}
-
-        for _, row in auxiliar_df.iterrows():
-            raw_tag = row["normalized_raw_tag"]
-            mapped = self.concept_map_helper.get_concept_from_tag(raw_tag)
-
-            if not mapped:
-                continue
-
-            if mapped["statement"] != statement_type:
-                continue
-
-            normalized_concept = mapped[MapperConstants.CONCEPT_COL]
-            row_dict = row.to_dict()
-
-            # Latest statements do not have FY/Q history columns, so use a minimal
-            # completeness signal of 1.
-            candidate = ConceptCandidate(
-                raw_tag=raw_tag,
-                label=row_dict.get("label"),
-                is_abstract=row_dict.get(MapperConstants.IS_ABSTRACT_COL),
-                is_total=row_dict.get("is_total"),
-                depth=row_dict.get("depth"),
-                non_null_periods=1,
-                row_data=row_dict,
+            auxiliar_df = df.copy()
+            auxiliar_df["normalized_raw_tag"] = auxiliar_df[MapperConstants.CONCEPT_COL].apply(
+                self._normalize_raw_tag
             )
 
-            concept_candidates.setdefault(normalized_concept, []).append(candidate)
+            concept_candidates: dict[str, list[ConceptCandidate]] = {}
 
-        if not concept_candidates:
-            return StatementMappingResult(mapped_df=None, selection_metadata=[])
+            for _, row in auxiliar_df.iterrows():
+                raw_tag = row["normalized_raw_tag"]
+                mapped = self.concept_map_helper.get_concept_from_tag(raw_tag)
 
-        mapped_rows: dict[str, dict] = {}
-        selection_metadata: list[ConceptSelectionMetadata] = []
+                if not mapped:
+                    continue
 
-        # Rank candidates per concept and keep the best one.
-        for normalized_concept, candidate_rows in concept_candidates.items():
-            ranked_candidates = self.candidate_ranker.rank_candidates(candidate_rows)
-            if not ranked_candidates:
-                continue
+                if mapped["statement"] != statement_type:
+                    continue
 
-            best_score, best_candidate = ranked_candidates[0]
+                normalized_concept = mapped[MapperConstants.CONCEPT_COL]
+                row_dict = row.to_dict()
 
-            if best_score <= -999.0:
-                continue
-
-            mapped_rows[normalized_concept] = best_candidate.row_data
-
-            selection_metadata.append(
-                self._build_selection_metadata(
-                    concept=normalized_concept,
-                    best_candidate=best_candidate,
-                    best_score=best_score,
-                    candidate_count=len(candidate_rows),
+                candidate = ConceptCandidate(
+                    raw_tag=raw_tag,
+                    label=row_dict.get("label"),
+                    is_abstract=row_dict.get(MapperConstants.IS_ABSTRACT_COL),
+                    is_total=row_dict.get("is_total"),
+                    depth=row_dict.get("depth"),
+                    non_null_periods=1,
+                    row_data=row_dict,
                 )
+
+                concept_candidates.setdefault(normalized_concept, []).append(candidate)
+
+            if not concept_candidates:
+                return StatementMappingResult(mapped_df=None, selection_metadata=[])
+
+            mapped_rows: dict[str, dict] = {}
+            selection_metadata: list[ConceptSelectionMetadata] = []
+
+            for normalized_concept, candidate_rows in concept_candidates.items():
+                ranked_candidates = self.candidate_ranker.rank_candidates(normalized_concept, candidate_rows)
+                if not ranked_candidates:
+                    continue
+
+                candidate_count = len(ranked_candidates)
+
+                for idx, (score, candidate) in enumerate(ranked_candidates, start=1):
+                    is_selected = idx == 1 and score > -999.0
+
+                    selection_metadata.append(
+                        self._build_selection_metadata(
+                            concept=normalized_concept,
+                            candidate=candidate,
+                            candidate_score=score,
+                            is_selected=is_selected,
+                            rank_order=idx,
+                            candidate_count=candidate_count,
+                        )
+                    )
+
+                best_score, best_candidate = ranked_candidates[0]
+                if best_score <= -999.0:
+                    continue
+
+                mapped_rows[normalized_concept] = best_candidate.row_data
+
+            if not mapped_rows:
+                return StatementMappingResult(mapped_df=None, selection_metadata=selection_metadata)
+
+            result_df = pd.DataFrame.from_dict(mapped_rows, orient="index")
+            result_df.index.name = MapperConstants.CONCEPT_COL
+
+            return StatementMappingResult(
+                mapped_df=result_df,
+                selection_metadata=selection_metadata,
             )
-
-        if not mapped_rows:
-            return StatementMappingResult(mapped_df=None, selection_metadata=selection_metadata)
-
-        result_df = pd.DataFrame.from_dict(mapped_rows, orient="index")
-        result_df.index.name = MapperConstants.CONCEPT_COL
-
-        return StatementMappingResult(
-            mapped_df=result_df,
-            selection_metadata=selection_metadata,
-        )
     
     def _normalize_raw_tag(self, raw_tag: str) -> str:
         """
@@ -251,21 +251,25 @@ class StatementMapper:
     def _build_selection_metadata(
         self,
         concept: str,
-        best_candidate: ConceptCandidate,
-        best_score: float,
+        candidate: ConceptCandidate,
+        candidate_score: float,
+        is_selected: bool,
+        rank_order: int,
         candidate_count: int,
     ) -> ConceptSelectionMetadata:
         """
-        Build provenance metadata for the selected mapped concept.
+            Build candidate-level mapping provenance metadata for one concept candidate.
         """
         return ConceptSelectionMetadata(
             concept=concept,
-            selected_raw_tag=best_candidate.raw_tag,
-            selected_label=best_candidate.label,
-            is_abstract=best_candidate.is_abstract,
-            is_total=best_candidate.is_total,
-            depth=best_candidate.depth,
-            non_null_periods=best_candidate.non_null_periods,
-            selection_score=best_score,
+            raw_tag=candidate.raw_tag,
+            label=candidate.label,
+            is_abstract=candidate.is_abstract,
+            is_total=candidate.is_total,
+            depth=candidate.depth,
+            non_null_periods=candidate.non_null_periods,
+            candidate_score=candidate_score,
+            is_selected=is_selected,
+            rank_order=rank_order,
             candidate_count=candidate_count,
         )

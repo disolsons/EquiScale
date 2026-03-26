@@ -1,13 +1,11 @@
 import argparse
 from pathlib import Path
 
-from financials_tracker.mappers.concept_inference.concept_aliases_helper import ConceptAliasesHelper
+from financials_tracker.mappers.concept_inference.config_processing_helper import ConceptAliasesHelper, IgnorePatternsHelper, SemanticConflictsHelper
 from financials_tracker.mappers.concept_inference.concept_inference_engine import ConceptInferenceEngine
 from financials_tracker.mappers.concept_inference.fuzzy_concept_matcher import FuzzyConceptMatcher
-from financials_tracker.mappers.concept_inference.ignore_patterns_helper import IgnorePatternsHelper
-from financials_tracker.mappers.concept_inference.semantic_conflicts_helper import SemanticConflictsHelper
 from financials_tracker.storage.db_setup import get_session_factory
-from financials_tracker.storage.models import AggregatedUnmappedTag
+from financials_tracker.storage.models import AggregatedUnmappedTags
 from financials_tracker.storage.repositories import (
     delete_all_tag_suggestions,
     upsert_tag_suggestion,
@@ -96,25 +94,25 @@ def build_inference_engine() -> ConceptInferenceEngine:
 
 
 def build_query(session, args: argparse.Namespace):
-    query = session.query(AggregatedUnmappedTag)
+    query = session.query(AggregatedUnmappedTags)
 
     if args.statement_type:
         query = query.filter(
-            AggregatedUnmappedTag.statement_type == args.statement_type
+            AggregatedUnmappedTags.statement_type == args.statement_type
         )
 
     query = query.filter(
-        AggregatedUnmappedTag.ticker_count >= args.min_ticker_count
+        AggregatedUnmappedTags.ticker_count >= args.min_ticker_count
     )
 
     # Optional filter only if your model has this column
-    if args.exclude_ignore_bucket and hasattr(AggregatedUnmappedTag, "priority_bucket"):
-        query = query.filter(AggregatedUnmappedTag.priority_bucket != "ignore")
+    if args.exclude_ignore_bucket and hasattr(AggregatedUnmappedTags, "priority_bucket"):
+        query = query.filter(AggregatedUnmappedTags.priority_bucket != "ignore")
 
     query = query.order_by(
-        AggregatedUnmappedTag.statement_type.asc(),
-        AggregatedUnmappedTag.ticker_count.desc(),
-        AggregatedUnmappedTag.raw_tag.asc(),
+        AggregatedUnmappedTags.statement_type.asc(),
+        AggregatedUnmappedTags.ticker_count.desc(),
+        AggregatedUnmappedTags.raw_tag.asc(),
     )
 
     if args.limit:

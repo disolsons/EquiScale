@@ -45,7 +45,7 @@ def test_select_best_candidate_rejects_abstract_rows(ranker: ConceptCandidateRan
         non_null_periods=3,
     )
 
-    result = ranker.select_best_candidate([abstract_candidate, valid_candidate])
+    result = ranker.select_best_candidate("assets", [abstract_candidate, valid_candidate])
 
     assert result is not None
     assert result.raw_tag == "Assets"
@@ -65,7 +65,7 @@ def test_select_best_candidate_prefers_more_non_null_periods(ranker: ConceptCand
         non_null_periods=3,
     )
 
-    result = ranker.select_best_candidate([weaker, stronger])
+    result = ranker.select_best_candidate("sales_revenue_net", [weaker, stronger])
 
     assert result is not None
     assert result.raw_tag == "SalesRevenueNet"
@@ -85,7 +85,7 @@ def test_select_best_candidate_prefers_total_when_other_signals_are_similar(rank
         non_null_periods=3,
     )
 
-    result = ranker.select_best_candidate([non_total, total_like])
+    result = ranker.select_best_candidate("long_term_debt", [non_total, total_like])
 
     assert result is not None
     assert result.raw_tag == "LongTermDebt"
@@ -107,7 +107,7 @@ def test_select_best_candidate_prefers_shallower_depth_when_other_signals_are_eq
         non_null_periods=3,
     )
 
-    result = ranker.select_best_candidate([deep, shallow])
+    result = ranker.select_best_candidate("operating_income_loss", [deep, shallow])
 
     assert result is not None
     assert result.raw_tag == "OperatingIncomeLoss"
@@ -129,6 +129,6 @@ def test_select_best_candidate_returns_none_when_all_candidates_are_abstract(
         non_null_periods=0,
     )
 
-    result = ranker.select_best_candidate([candidate_a, candidate_b])
+    result = ranker.select_best_candidate("assets", [candidate_a, candidate_b])
 
     assert result is None
