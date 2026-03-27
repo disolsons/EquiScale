@@ -119,6 +119,7 @@ cash_flow:
 
   capital_expenditures:
     - PaymentsToAcquirePropertyPlantAndEquipment
+    - PaymentsToAcquireProductiveAssets
 
   depreciation_amortization:
     - DepreciationDepletionAndAmortization

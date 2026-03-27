@@ -125,3 +125,122 @@ class EdgarClient:
             return facts.cash_flow(periods=years, annual=annual, as_dataframe=True)
         else:
             raise ValueError(f"Unsupported statement_type: {statement_type}")
+
+
+
+    ## DEBUGGING - REMOVE AFTER. 
+
+    def inspect_fact_concepts(
+        self,
+        ticker: str | None = None,
+        concept_names: list[str] | None = None,
+    ):
+        """
+        Inspect specific concept tags directly from EntityFacts.
+
+        This is useful when a line item does not appear in the rendered statement
+        output, but may still exist in the underlying SEC facts.
+        """
+        ticker = ticker or self.ticker
+        if not ticker:
+            raise ValueError("Ticker is required")
+
+        if not concept_names:
+            raise ValueError("concept_names must be provided")
+
+        company = Company(ticker)
+        facts = company.get_facts()
+
+        if facts is None:
+            return {}
+
+        concept_map = getattr(facts, "facts", None)
+        if concept_map is None:
+            raise ValueError("EntityFacts object does not expose a .facts mapping in this environment")
+
+        results = {}
+
+        for concept_name in concept_names:
+            concept_result = concept_map.get(concept_name)
+            results[concept_name] = concept_result
+
+        return results
+    
+    def inspect_capex_facts(self, ticker: str | None = None):
+        """
+        Inspect common capital expenditure concept tags directly from EntityFacts.
+        """
+        capex_candidates = [
+            "PaymentsToAcquirePropertyPlantAndEquipment",
+            "PurchasesOfPropertyAndEquipment",
+            "PaymentsToAcquirePropertyAndEquipment",
+            "PaymentsToAcquireProductiveAssets",
+            "PropertyPlantAndEquipmentAdditions",
+            "CapitalExpendituresIncurredButNotYetPaid",
+        ]
+        return self.inspect_fact_concepts(ticker=ticker, concept_names=capex_candidates)
+    
+    def search_capex_rows(
+        self,
+        ticker: str | None = None,
+        period_mode: str = "history",
+        years: int = 5,
+        annual: bool = True,
+    ):
+        """
+        Search the cash flow statement for likely capital expenditure rows.
+        """
+        keywords = ["property", "plant", "equipment", "purchase", "acquire", "capital"]
+        return self.search_statement_rows(
+            statement_type=EdgarConstants.STATEMENT_TYPE_CASH_FLOW,
+            ticker=ticker,
+            period_mode=period_mode,
+            years=years,
+            annual=annual,
+            keywords=keywords,
+        )
+    
+    def search_statement_rows(
+        self,
+        statement_type: str,
+        ticker: str | None = None,
+        period_mode: str = "history",
+        years: int = 5,
+        annual: bool = True,
+        keywords: list[str] | None = None,
+    ):
+        """
+        Search a fetched statement DataFrame by concept/index and label text.
+
+        Useful for checking whether a concept-like row exists under a different tag or label.
+        """
+        ticker = ticker or self.ticker
+        if not ticker:
+            raise ValueError("Ticker is required")
+
+        if not keywords:
+            raise ValueError("keywords must be provided")
+
+        df = self._fetch_statement(
+            statement_type=statement_type,
+            ticker=ticker,
+            period_mode=period_mode,
+            years=years,
+            annual=annual,
+        )
+
+        if df is None or df.empty:
+            return None
+
+        pattern = "|".join(k.lower() for k in keywords)
+
+        index_series = df.index.to_series().astype(str).str.lower()
+        label_series = (
+            df["label"].astype(str).str.lower()
+            if "label" in df.columns
+            else index_series * 0 + ""
+        )
+
+        mask = index_series.str.contains(pattern, na=False) | label_series.str.contains(pattern, na=False)
+
+        return df.loc[mask]
