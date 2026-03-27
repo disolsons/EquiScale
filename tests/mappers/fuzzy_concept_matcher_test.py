@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 
 from financials_tracker.mappers.concept_inference.fuzzy_concept_matcher import FuzzyConceptMatcher
-from financials_tracker.mappers.concept_inference.semantic_conflicts_helper import SemanticConflictsHelper
+from financials_tracker.mappers.concept_inference.config_processing_helper import SemanticConflictsHelper
 
 
 @pytest.fixture

@@ -9,7 +9,7 @@ def test_coverage_validator_basic():
     helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
     ignored_tags_helper = IgnoredTagsHelper("financials_tracker/validators/config/ignored_tags.yaml")
     engine = StatementValidationEngine(helper, ignored_tags_helper)
-
+    
     mapped_df = pd.DataFrame(
         {
             "FY 2024": [100.0, 40.0],

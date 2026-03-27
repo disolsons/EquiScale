@@ -1,12 +1,13 @@
 import pandas as pd
 from financials_tracker.metrics.metrics_calculator import MetricsCalculator
 from financials_tracker.metrics.financial_dataset import FinancialDataset
-from financials_tracker.metrics.metrics_registry import METRIC_REGISTRY
+from financials_tracker.metrics.metrics_registry_helper import MetricsRegistryHelper
 class MetricsEngine:
     
-    def __init__(self, dataset: FinancialDataset):
+    def __init__(self, dataset: FinancialDataset, metrics_registry_helper: MetricsRegistryHelper):
         self.dataset = dataset
         self.calc = MetricsCalculator()        
+        self.metrics_registry_helper = metrics_registry_helper
         self.cache = {}
     
     def calculate_profitability_metrics(self) -> pd.DataFrame:
@@ -108,45 +109,26 @@ class MetricsEngine:
             "roe_avg_equity",
         ])
     
-    def _calculate_metrics(self, metric_names) -> pd.DataFrame:
+    def _calculate_metrics(self, metric_names: list[str]) -> pd.DataFrame:
         results = {}
 
         for metric_name in metric_names:
-            results[metric_name] = self._calculate_metric(metric_name)
+            metric_result = self._calculate_metric(metric_name)
 
-    # Collect all period columns from any Series result
-        all_columns = set()
-        for value in results.values():
-            if isinstance(value, pd.Series):
-                all_columns.update(value.index.tolist())
-
-        # If every metric returned None, return an empty DataFrame
-        # with the metric names as index
-        if not all_columns:
-            empty_df = pd.DataFrame(index=metric_names)
-            empty_df.index.name = "metric"
-            return empty_df
-
-        all_columns = sorted(all_columns)
-
-        normalized_results = {}
-        for metric_name, value in results.items():
-            if isinstance(value, pd.Series):
-                normalized_results[metric_name] = value.reindex(all_columns)
+            # If a metric cannot be calculated, store an empty Series
+            # so pandas can still build a DataFrame consistently.
+            if metric_result is None:
+                results[metric_name] = pd.Series(dtype="float64")
             else:
-                normalized_results[metric_name] = pd.Series(
-                    [None] * len(all_columns),
-                    index=all_columns
-                )
+                results[metric_name] = metric_result
 
-        result_df = pd.DataFrame(normalized_results).T
-        result_df.index.name = "metric"
-        
-        return result_df
+        return pd.DataFrame(results).T
     
-
-    def _calculate_metric(self, metric_name, visited=None) -> pd.Series | None:
-        #Prevent circular dependencies in cascading metrics.
+    def _calculate_metric(
+        self,
+        metric_name: str,
+        visited: set[str] | None = None,
+    ) -> pd.Series | None:
         if visited is None:
             visited = set()
 
@@ -155,11 +137,14 @@ class MetricsEngine:
 
         visited.add(metric_name)
 
-        metric_definition = METRIC_REGISTRY[metric_name]
+        metric_definition = self.metrics_registry_helper.get_metric_definition(metric_name)
+        if metric_definition is None:
+            raise ValueError(f"Unknown metric: {metric_name}")
+
         inputs = [self._get_values(name, visited) for name in metric_definition["inputs"]]
         operation = metric_definition["operation"]
 
-        if operation == "divide":
+        if operation == "divide": #TODO: extract operations to constants.
             return self.calc.divide(inputs[0], inputs[1])
 
         if operation == "subtract":
@@ -170,10 +155,15 @@ class MetricsEngine:
 
         raise ValueError(f"Unsupported operation: {operation}")
 
-    def _get_values(self, name, visited=None) -> pd.Series | None:
+
+    def _get_values(
+        self,
+        name: str,
+        visited: set[str] | None = None,
+    ) -> pd.Series | None:        
         """
-        Retrieves the values for a specific metric input, which could be a direct concept from the dataset 
-        or a derived concept that requires additional calculation logic.
+            Retrieves the values for a specific metric input, which could be a direct concept from the dataset 
+            or a derived concept that requires additional calculation logic.
         """
         if name in self.cache:
             return self.cache[name]
@@ -189,7 +179,7 @@ class MetricsEngine:
             return values
 
         #  cascading metrics.
-        if name in METRIC_REGISTRY:
+        if name in self.metrics_registry_helper.get_metric_names():
             values = self._calculate_metric(name, visited=visited)
             self.cache[name] = values
             return values
