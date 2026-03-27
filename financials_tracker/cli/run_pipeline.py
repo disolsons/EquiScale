@@ -8,7 +8,7 @@ import pandas as pd
 from financials_tracker.clients.edgar.edgar_client import EdgarClient
 from financials_tracker.mappers.concept_map_helper import ConceptMapHelper
 from financials_tracker.mappers.statement_mapper import StatementMapper
-from financials_tracker.metrics.financial_dataset import FinancialDataset
+from financials_tracker.metrics.model.financial_dataset import FinancialDataset
 from financials_tracker.metrics.metrics_engine import MetricsEngine
 from financials_tracker.validators.utils.ignored_tags_helper import IgnoredTagsHelper
 from financials_tracker.validators.statement_validation_engine import StatementValidationEngine

@@ -1,6 +1,6 @@
 import pandas as pd
 
-from financials_tracker.metrics.financial_dataset import FinancialDataset
+from financials_tracker.metrics.model.financial_dataset import FinancialDataset
 from financials_tracker.metrics.metrics_engine import MetricsEngine
 from financials_tracker.metrics.metrics_registry_helper import MetricsRegistryHelper
 

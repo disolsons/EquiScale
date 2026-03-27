@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from financials_tracker.metrics.financial_dataset import FinancialDataset
+from financials_tracker.metrics.model.financial_dataset import FinancialDataset
 from financials_tracker.metrics.metrics_engine import MetricsEngine
 from financials_tracker.metrics.metrics_registry_helper import MetricsRegistryHelper
 from financials_tracker.storage.db_setup import get_session_factory
@@ -59,11 +59,9 @@ def main():
             / "config"
             / "metric_registry.yaml"
         )
-        registry_helper = MetricsRegistryHelper(registry_path)
 
         engine = MetricsEngine(
-            dataset=dataset,
-            metrics_registry_helper=registry_helper,
+            dataset=dataset
         )
 
         profitability = engine.calculate_profitability_metrics()
