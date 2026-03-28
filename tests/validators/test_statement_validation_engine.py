@@ -1,13 +1,13 @@
 import pandas as pd
 
-from financials_tracker.mappers.concept_map_helper import ConceptMapHelper
-from financials_tracker.validators.statement_validation_engine import StatementValidationEngine
-from financials_tracker.validators.utils.ignored_tags_helper import IgnoredTagsHelper
+from src.processing.utils.concept_map_helper import ConceptMapHelper
+from src.validators.statement_validation_engine import StatementValidationEngine
+from src.validators.utils.ignored_tags_helper import IgnoredTagsHelper
 
 
 def test_coverage_validator_basic():
-    helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
-    ignored_tags_helper = IgnoredTagsHelper("financials_tracker/validators/config/ignored_tags.yaml")
+    helper = ConceptMapHelper("srcconfig/concept_map.yaml")
+    ignored_tags_helper = IgnoredTagsHelper("src/config/ignored_tags.yaml")
     engine = StatementValidationEngine(helper, ignored_tags_helper)
     
     mapped_df = pd.DataFrame(

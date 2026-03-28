@@ -1,7 +1,7 @@
 import pytest
 
-from financials_tracker.mappers.model.concept_candidate import ConceptCandidate
-from financials_tracker.mappers.concept_candidate_ranker import ConceptCandidateRanker
+from src.processing.mappers.model.concept_candidate import ConceptCandidate
+from src.processing.mappers.concept_candidate_ranker import ConceptCandidateRanker
 
 
 @pytest.fixture

@@ -2,10 +2,10 @@ from pathlib import Path
 
 import pytest
 
-from financials_tracker.mappers.concept_inference.config_processing_helper import ConceptAliasesHelper, IgnorePatternsHelper, SemanticConflictsHelper
-from financials_tracker.mappers.concept_inference.concept_inference_engine import ConceptInferenceEngine
-from financials_tracker.mappers.concept_inference.fuzzy_concept_matcher import FuzzyConceptMatcher
-from financials_tracker.mappers.tag_normalization_utils import normalize_text
+from src.processing.concept_inference.config_processing_helper import ConceptAliasesHelper, IgnorePatternsHelper, SemanticConflictsHelper
+from src.processing.concept_inference.concept_inference_engine import ConceptInferenceEngine
+from src.processing.concept_inference.fuzzy_concept_matcher import FuzzyConceptMatcher
+from src.processing.utils.tag_normalization_utils import normalize_text
 
 @pytest.fixture
 def aliases_file(tmp_path: Path) -> Path:

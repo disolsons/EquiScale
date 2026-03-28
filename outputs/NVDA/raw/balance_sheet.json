@@ -8,7 +8,10 @@
     "confidence",
     "FY 2026",
     "FY 2025",
-    "FY 2024"
+    "FY 2024",
+    "parent_raw_tag",
+    "calculation_weight",
+    "source_layer"
   ],
   "index": [
     "AssetsAbstract",
@@ -58,7 +61,10 @@
       "confidence": 0.8368580060422961,
       "FY 2026": null,
       "FY 2025": null,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "Assets",
@@ -70,7 +76,10 @@
       "confidence": 0.9003021148036254,
       "FY 2026": 206803000000.0,
       "FY 2025": 111601000000.0,
-      "FY 2024": 65728000000.0
+      "FY 2024": 65728000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "PropertyPlantAndEquipmentNet",
@@ -82,7 +91,10 @@
       "confidence": 0.540785498489426,
       "FY 2026": 10383000000.0,
       "FY 2025": 6283000000.0,
-      "FY 2024": 3914000000.0
+      "FY 2024": 3914000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "Goodwill",
@@ -94,7 +106,10 @@
       "confidence": 0.5649546827794562,
       "FY 2026": 20832000000.0,
       "FY 2025": 5188000000.0,
-      "FY 2024": 4430000000.0
+      "FY 2024": 4430000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "IntangibleAssetsNetExcludingGoodwill",
@@ -106,7 +121,10 @@
       "confidence": 0.40483383685800606,
       "FY 2026": 3306000000.0,
       "FY 2025": 807000000.0,
-      "FY 2024": 1112000000.0
+      "FY 2024": 1112000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "AssetsCurrentAbstract",
@@ -118,7 +136,10 @@
       "confidence": 0.5166163141993958,
       "FY 2026": null,
       "FY 2025": null,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "CashAndCashEquivalentsAtCarryingValue",
@@ -130,7 +151,10 @@
       "confidence": 0.7280966767371602,
       "FY 2026": 10605000000.0,
       "FY 2025": 8589000000.0,
-      "FY 2024": 7280000000.0
+      "FY 2024": 7280000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "AccountsReceivableNetCurrent",
@@ -142,7 +166,10 @@
       "confidence": 0.43202416918429004,
       "FY 2026": 38466000000.0,
       "FY 2025": 23065000000.0,
-      "FY 2024": 9999000000.0
+      "FY 2024": 9999000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "InventoryNet",
@@ -154,7 +181,10 @@
       "confidence": 0.38972809667673713,
       "FY 2026": 21403000000.0,
       "FY 2025": 10080000000.0,
-      "FY 2024": 5282000000.0
+      "FY 2024": 5282000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "AssetsCurrent",
@@ -166,7 +196,10 @@
       "confidence": 0.5921450151057401,
       "FY 2026": 125605000000.0,
       "FY 2025": 80126000000.0,
-      "FY 2024": 44345000000.0
+      "FY 2024": 44345000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "PrepaidExpenseAndOtherAssetsCurrent",
@@ -178,7 +211,10 @@
       "confidence": 0.32326283987915405,
       "FY 2026": 3180000000.0,
       "FY 2025": 3771000000.0,
-      "FY 2024": 3080000000.0
+      "FY 2024": 3080000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "OperatingLeaseRightOfUseAsset",
@@ -190,7 +226,10 @@
       "confidence": 0.459214501510574,
       "FY 2026": 2867000000.0,
       "FY 2025": 1793000000.0,
-      "FY 2024": 1346000000.0
+      "FY 2024": 1346000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "OtherAssetsNoncurrent",
@@ -202,7 +241,10 @@
       "confidence": 0.5438066465256798,
       "FY 2026": 8301000000.0,
       "FY 2025": 6425000000.0,
-      "FY 2024": 4500000000.0
+      "FY 2024": 4500000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "LiabilitiesAndStockholdersEquityAbstract",
@@ -214,7 +256,10 @@
       "confidence": 0.716012084592145,
       "FY 2026": null,
       "FY 2025": null,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "Liabilities",
@@ -226,7 +271,10 @@
       "confidence": 0.7280966767371602,
       "FY 2026": 49510000000.0,
       "FY 2025": 32274000000.0,
-      "FY 2024": 22750000000.0
+      "FY 2024": 22750000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "CommitmentsAndContingencies",
@@ -238,7 +286,10 @@
       "confidence": 0.6827794561933535,
       "FY 2026": 0.0,
       "FY 2025": 0.0,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "StockholdersEquityAbstract",
@@ -250,7 +301,10 @@
       "confidence": 0.5921450151057401,
       "FY 2026": null,
       "FY 2025": null,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "CommonStockValue",
@@ -262,7 +316,10 @@
       "confidence": 0.770392749244713,
       "FY 2026": 24000000.0,
       "FY 2025": 24000000.0,
-      "FY 2024": 2000000.0
+      "FY 2024": 2000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "AdditionalPaidInCapital",
@@ -274,7 +331,10 @@
       "confidence": 0.4471299093655589,
       "FY 2026": 10118000000.0,
       "FY 2025": 11237000000.0,
-      "FY 2024": 13132000000.0
+      "FY 2024": 13132000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "RetainedEarningsAccumulatedDeficit",
@@ -286,7 +346,10 @@
       "confidence": 0.8368580060422961,
       "FY 2026": 146973000000.0,
       "FY 2025": 68038000000.0,
-      "FY 2024": 29817000000.0
+      "FY 2024": 29817000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "AccumulatedOtherComprehensiveIncomeLossNetOfTax",
@@ -298,7 +361,10 @@
       "confidence": 0.7552870090634441,
       "FY 2026": 178000000.0,
       "FY 2025": 28000000.0,
-      "FY 2024": 27000000.0
+      "FY 2024": 27000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "StockholdersEquity",
@@ -310,7 +376,10 @@
       "confidence": 0.8157099697885196,
       "FY 2026": 157293000000.0,
       "FY 2025": 79327000000.0,
-      "FY 2024": 42978000000.0
+      "FY 2024": 42978000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "LiabilitiesAndStockholdersEquity",
@@ -322,7 +391,10 @@
       "confidence": 0.8882175226586103,
       "FY 2026": 206803000000.0,
       "FY 2025": 111601000000.0,
-      "FY 2024": 65728000000.0
+      "FY 2024": 65728000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "LiabilitiesCurrentAbstract",
@@ -334,7 +406,10 @@
       "confidence": 0.5105740181268882,
       "FY 2026": null,
       "FY 2025": null,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "LiabilitiesCurrent",
@@ -346,7 +421,10 @@
       "confidence": 0.5921450151057401,
       "FY 2026": 32163000000.0,
       "FY 2025": 18047000000.0,
-      "FY 2024": 10631000000.0
+      "FY 2024": 10631000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "OperatingLeaseLiabilityCurrent",
@@ -358,7 +436,10 @@
       "confidence": 0.31419939577039274,
       "FY 2026": 372000000.0,
       "FY 2025": 288000000.0,
-      "FY 2024": 228000000.0
+      "FY 2024": 228000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "AccountsPayableCurrent",
@@ -370,7 +451,10 @@
       "confidence": 0.4652567975830816,
       "FY 2026": 9812000000.0,
       "FY 2025": 6310000000.0,
-      "FY 2024": 2699000000.0
+      "FY 2024": 2699000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "AccruedLiabilitiesCurrent",
@@ -382,7 +466,10 @@
       "confidence": 0.5526,
       "FY 2026": 21352000000.0,
       "FY 2025": 11737000000.0,
-      "FY 2024": 6682000000.0
+      "FY 2024": 6682000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "OperatingLeaseLiabilityNoncurrent",
@@ -394,7 +481,10 @@
       "confidence": 0.39274924471299094,
       "FY 2026": 2572000000.0,
       "FY 2025": 1519000000.0,
-      "FY 2024": 1119000000.0
+      "FY 2024": 1119000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "DeferredIncomeTaxLiabilitiesNet",
@@ -406,7 +496,10 @@
       "confidence": 0.38972809667673713,
       "FY 2026": 1774000000.0,
       "FY 2025": 886000000.0,
-      "FY 2024": 462000000.0
+      "FY 2024": 462000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "OtherLiabilitiesNoncurrent",
@@ -418,7 +511,10 @@
       "confidence": 0.486404833836858,
       "FY 2026": 7306000000.0,
       "FY 2025": 4245000000.0,
-      "FY 2024": 2541000000.0
+      "FY 2024": 2541000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "LongTermDebtNoncurrent",
@@ -430,7 +526,10 @@
       "confidence": 0.3158,
       "FY 2026": 7469000000.0,
       "FY 2025": 8463000000.0,
-      "FY 2024": 8459000000.0
+      "FY 2024": 8459000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "AdditionalItems",
@@ -442,7 +541,10 @@
       "confidence": 1.0,
       "FY 2026": null,
       "FY 2025": null,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "LongTermDebt",
@@ -454,7 +556,10 @@
       "confidence": 0.5,
       "FY 2026": 8468000000.0,
       "FY 2025": 8463000000.0,
-      "FY 2024": 9709000000.0
+      "FY 2024": 9709000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "LongTermDebtCurrent",
@@ -466,7 +571,10 @@
       "confidence": 0.5,
       "FY 2026": 999000000.0,
       "FY 2025": 0.0,
-      "FY 2024": 1250000000.0
+      "FY 2024": 1250000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     }
   ]
 }

@@ -1,8 +1,8 @@
 from pathlib import Path
 import pandas as pd
 import pytest
-from financials_tracker.mappers.concept_map_helper import ConceptMapHelper
-from financials_tracker.mappers.statement_mapper import StatementMapper
+from src.mappers.concept_map_helper import ConceptMapHelper
+from src.mappers.statement_mapper import StatementMapper
 
 
 @pytest.fixture

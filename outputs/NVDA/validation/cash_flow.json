@@ -3,9 +3,10 @@
   "coverage": {
     "statement_type": "cash_flow",
     "expected_concepts_count": 10,
-    "mapped_concepts_count": 9,
-    "coverage_ratio": 0.9,
+    "mapped_concepts_count": 10,
+    "coverage_ratio": 1.0,
     "mapped_concepts": [
+      "capital_expenditures",
       "depreciation_amortization",
       "dividends_paid",
       "income_taxes_paid",
@@ -16,19 +17,18 @@
       "share_repurchases",
       "stock_based_compensation"
     ],
-    "missing_concepts": [
-      "capital_expenditures"
-    ],
+    "missing_concepts": [],
     "non_null_period_counts": {
+      "net_cash_from_investing": 3,
+      "operating_cash_flow": 3,
       "stock_based_compensation": 3,
       "dividends_paid": 3,
-      "interest_paid": 2,
-      "net_cash_from_investing": 3,
+      "share_repurchases": 3,
+      "capital_expenditures": 3,
       "income_taxes_paid": 3,
-      "operating_cash_flow": 3,
       "net_cash_from_financing": 3,
       "depreciation_amortization": 3,
-      "share_repurchases": 3
+      "interest_paid": 2
     }
   },
   "mapping_detail": {
@@ -123,6 +123,16 @@
         "section": null,
         "confidence": 0.37462235649546827,
         "non_null_periods": 3
+      },
+      "capital_expenditures": {
+        "raw_tag": "PaymentsToAcquireProductiveAssets",
+        "label": "Payments to Acquire Productive Assets",
+        "is_total": false,
+        "is_abstract": false,
+        "depth": null,
+        "section": null,
+        "confidence": null,
+        "non_null_periods": 3
       }
     }
   },
@@ -132,7 +142,7 @@
   },
   "unmapped_tags": {
     "statement_type": "cash_flow",
-    "total_raw_rows": 43,
+    "total_raw_rows": 44,
     "mapped_raw_tags": [
       "AllocatedShareBasedCompensationExpense",
       "Depreciation",
@@ -146,6 +156,7 @@
       "PaymentsForRepurchaseOfCommonStock",
       "PaymentsOfDividends",
       "PaymentsOfDividendsCommonStock",
+      "PaymentsToAcquireProductiveAssets",
       "ShareBasedCompensation"
     ],
     "ignored_raw_tags": [

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "financials-tracker"
+name = "src"
 version = "0.1.0"
 description = ""
 authors = ["jordi-solsona <disolsons@gmail.com>"]

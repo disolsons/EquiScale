@@ -1,8 +1,8 @@
 import pandas as pd
 
-from financials_tracker.metrics.model.financial_dataset import FinancialDataset
-from financials_tracker.metrics.metrics_engine import MetricsEngine
-from financials_tracker.metrics.metrics_registry_helper import MetricsRegistryHelper
+from src.metrics.model.financial_dataset import FinancialDataset
+from src.metrics.metrics_engine import MetricsEngine
+from src.metrics.metrics_registry_helper import MetricsRegistryHelper
 
 def build_test_dataset():
     income_statement = pd.DataFrame(

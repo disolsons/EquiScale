@@ -8,7 +8,14 @@
     "confidence",
     "FY 2026",
     "FY 2025",
-    "FY 2024"
+    "FY 2024",
+    "parent_raw_tag",
+    "calculation_weight",
+    "source_layer",
+    "parent_label",
+    "source_concept",
+    "filing_accession",
+    "filing_date"
   ],
   "index": [
     "NetCashProvidedByUsedInOperatingActivitiesAbstract",
@@ -53,7 +60,8 @@
     "OperatingExpenses",
     "OtherNonoperatingIncomeExpense",
     "PaymentsOfDividends",
-    "ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities"
+    "ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
+    "PaymentsToAcquireProductiveAssets"
   ],
   "rows": [
     {
@@ -66,7 +74,14 @@
       "confidence": 0.7915407854984894,
       "FY 2026": null,
       "FY 2025": null,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "AdjustmentsToReconcileNetIncomeLossToCashProvidedByUsedInOperatingActivitiesAbstract",
@@ -78,7 +93,14 @@
       "confidence": 0.7794561933534743,
       "FY 2026": null,
       "FY 2025": null,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "DepreciationDepletionAndAmortization",
@@ -90,7 +112,14 @@
       "confidence": 0.38368580060422963,
       "FY 2026": 2843000000.0,
       "FY 2025": 1864000000.0,
-      "FY 2024": 1508000000.0
+      "FY 2024": 1508000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "ShareBasedCompensation",
@@ -102,7 +131,14 @@
       "confidence": 0.6676737160120846,
       "FY 2026": 6386000000.0,
       "FY 2025": 4737000000.0,
-      "FY 2024": 3549000000.0
+      "FY 2024": 3549000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "IncreaseDecreaseInOperatingCapitalAbstract",
@@ -114,7 +150,14 @@
       "confidence": 0.7129909365558912,
       "FY 2026": null,
       "FY 2025": null,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "IncreaseDecreaseInAccountsReceivable",
@@ -126,7 +169,14 @@
       "confidence": 0.4108761329305136,
       "FY 2026": 15399000000.0,
       "FY 2025": 13063000000.0,
-      "FY 2024": 6172000000.0
+      "FY 2024": 6172000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "IncreaseDecreaseInInventories",
@@ -138,7 +188,14 @@
       "confidence": 0.37462235649546827,
       "FY 2026": 11324000000.0,
       "FY 2025": 4781000000.0,
-      "FY 2024": 98000000.0
+      "FY 2024": 98000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "IncreaseDecreaseInAccountsPayable",
@@ -150,7 +207,14 @@
       "confidence": 0.311178247734139,
       "FY 2026": 3096000000.0,
       "FY 2025": 3357000000.0,
-      "FY 2024": 1531000000.0
+      "FY 2024": 1531000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "DeferredIncomeTaxExpenseBenefit",
@@ -162,7 +226,14 @@
       "confidence": 0.3776435045317221,
       "FY 2026": -1424000000.0,
       "FY 2025": -4477000000.0,
-      "FY 2024": -2489000000.0
+      "FY 2024": -2489000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "Depreciation",
@@ -174,7 +245,14 @@
       "confidence": 0.2632,
       "FY 2026": 2400000000.0,
       "FY 2025": 1300000000.0,
-      "FY 2024": 894000000.0
+      "FY 2024": 894000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "NetCashProvidedByUsedInOperatingActivities",
@@ -186,7 +264,14 @@
       "confidence": 0.8851963746223565,
       "FY 2026": 102718000000.0,
       "FY 2025": 64089000000.0,
-      "FY 2024": 28090000000.0
+      "FY 2024": 28090000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "NetCashProvidedByUsedInInvestingActivitiesAbstract",
@@ -198,7 +283,14 @@
       "confidence": 0.7522658610271903,
       "FY 2026": null,
       "FY 2025": null,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "PaymentsToAcquireBusinessesNetOfCashAcquired",
@@ -210,7 +302,14 @@
       "confidence": 0.3776435045317221,
       "FY 2026": 1535000000.0,
       "FY 2025": 1007000000.0,
-      "FY 2024": 83000000.0
+      "FY 2024": 83000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "NetCashProvidedByUsedInInvestingActivities",
@@ -222,7 +321,14 @@
       "confidence": 0.851963746223565,
       "FY 2026": -52228000000.0,
       "FY 2025": -20421000000.0,
-      "FY 2024": -10566000000.0
+      "FY 2024": -10566000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "PaymentsForProceedsFromOtherInvestingActivities",
@@ -234,7 +340,14 @@
       "confidence": 0.3776435045317221,
       "FY 2026": 0.0,
       "FY 2025": -22000000.0,
-      "FY 2024": 985000000.0
+      "FY 2024": 985000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "NetCashProvidedByUsedInFinancingActivitiesAbstract",
@@ -246,7 +359,14 @@
       "confidence": 0.7854984894259819,
       "FY 2026": null,
       "FY 2025": null,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "PaymentsRelatedToTaxWithholdingForShareBasedCompensation",
@@ -258,7 +378,14 @@
       "confidence": 0.32326283987915405,
       "FY 2026": 7948000000.0,
       "FY 2025": 6930000000.0,
-      "FY 2024": 2783000000.0
+      "FY 2024": 2783000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "PaymentsForRepurchaseOfCommonStock",
@@ -270,7 +397,14 @@
       "confidence": 0.5861027190332326,
       "FY 2026": 40086000000.0,
       "FY 2025": 33706000000.0,
-      "FY 2024": 9533000000.0
+      "FY 2024": 9533000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "NetCashProvidedByUsedInFinancingActivities",
@@ -282,7 +416,14 @@
       "confidence": 0.8942598187311178,
       "FY 2026": -48474000000.0,
       "FY 2025": -42359000000.0,
-      "FY 2024": -13633000000.0
+      "FY 2024": -13633000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "PaymentsOfDividendsCommonStock",
@@ -294,7 +435,14 @@
       "confidence": 0.37462235649546827,
       "FY 2026": 974000000.0,
       "FY 2025": 834000000.0,
-      "FY 2024": 395000000.0
+      "FY 2024": 395000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "ProceedsFromPaymentsForOtherFinancingActivities",
@@ -306,7 +454,14 @@
       "confidence": 0.3504531722054381,
       "FY 2026": -9000000.0,
       "FY 2025": 0.0,
-      "FY 2024": -1000000.0
+      "FY 2024": -1000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect",
@@ -318,7 +473,14 @@
       "confidence": 0.797583081570997,
       "FY 2026": 2016000000.0,
       "FY 2025": 1309000000.0,
-      "FY 2024": 3891000000.0
+      "FY 2024": 3891000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
@@ -330,7 +492,14 @@
       "confidence": 0.7885196374622356,
       "FY 2026": 10605000000.0,
       "FY 2025": 8589000000.0,
-      "FY 2024": 7280000000.0
+      "FY 2024": 7280000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "SupplementalCashFlowInformationAbstract",
@@ -342,7 +511,14 @@
       "confidence": 0.5619335347432024,
       "FY 2026": null,
       "FY 2025": null,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "InterestPaidNet",
@@ -354,7 +530,14 @@
       "confidence": 0.5830815709969789,
       "FY 2026": null,
       "FY 2025": 246000000.0,
-      "FY 2024": 252000000.0
+      "FY 2024": 252000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "IncomeTaxesPaidNet",
@@ -366,7 +549,14 @@
       "confidence": 0.37462235649546827,
       "FY 2026": 20288000000.0,
       "FY 2025": 15118000000.0,
-      "FY 2024": 6549000000.0
+      "FY 2024": 6549000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "AdditionalItems",
@@ -378,7 +568,14 @@
       "confidence": 1.0,
       "FY 2026": null,
       "FY 2025": null,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "AllocatedShareBasedCompensationExpense",
@@ -390,7 +587,14 @@
       "confidence": 0.5,
       "FY 2026": 6386000000.0,
       "FY 2025": 4737000000.0,
-      "FY 2024": 3549000000.0
+      "FY 2024": 3549000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "AmortizationOfIntangibleAssets",
@@ -402,7 +606,14 @@
       "confidence": 0.5,
       "FY 2026": 488000000.0,
       "FY 2025": 593000000.0,
-      "FY 2024": 614000000.0
+      "FY 2024": 614000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "DividendsPaid",
@@ -414,7 +625,14 @@
       "confidence": 0.5,
       "FY 2026": 974000000.0,
       "FY 2025": 834000000.0,
-      "FY 2024": 395000000.0
+      "FY 2024": 395000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "GainLossOnInvestments",
@@ -426,7 +644,14 @@
       "confidence": 0.5,
       "FY 2026": 8918000000.0,
       "FY 2025": 1030000000.0,
-      "FY 2024": 238000000.0
+      "FY 2024": 238000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "Goodwill",
@@ -438,7 +663,14 @@
       "confidence": 0.5,
       "FY 2026": 20832000000.0,
       "FY 2025": 5188000000.0,
-      "FY 2024": 4430000000.0
+      "FY 2024": 4430000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "GoodwillImpairmentLoss",
@@ -450,7 +682,14 @@
       "confidence": 0.5,
       "FY 2026": 0.0,
       "FY 2025": 0.0,
-      "FY 2024": 0.0
+      "FY 2024": 0.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "IncomeTaxExpenseBenefit",
@@ -462,7 +701,14 @@
       "confidence": 0.5,
       "FY 2026": 21383000000.0,
       "FY 2025": 11146000000.0,
-      "FY 2024": 4058000000.0
+      "FY 2024": 4058000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "InterestExpenseNonoperating",
@@ -474,7 +720,14 @@
       "confidence": 0.5,
       "FY 2026": 259000000.0,
       "FY 2025": 247000000.0,
-      "FY 2024": null
+      "FY 2024": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "InventoryWriteDown",
@@ -486,7 +739,14 @@
       "confidence": 0.5,
       "FY 2026": 4000000000.0,
       "FY 2025": 1600000000.0,
-      "FY 2024": 774000000.0
+      "FY 2024": 774000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "InvestmentIncomeInterest",
@@ -498,7 +758,14 @@
       "confidence": 0.5,
       "FY 2026": 2300000000.0,
       "FY 2025": 1786000000.0,
-      "FY 2024": 866000000.0
+      "FY 2024": 866000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "NetIncomeLoss",
@@ -510,7 +777,14 @@
       "confidence": 0.5,
       "FY 2026": 120067000000.0,
       "FY 2025": 72880000000.0,
-      "FY 2024": 29760000000.0
+      "FY 2024": 29760000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "NonoperatingIncomeExpense",
@@ -522,7 +796,14 @@
       "confidence": 0.5,
       "FY 2026": 11063000000.0,
       "FY 2025": 2573000000.0,
-      "FY 2024": 846000000.0
+      "FY 2024": 846000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "OperatingExpenses",
@@ -534,7 +815,14 @@
       "confidence": 0.5,
       "FY 2026": 23076000000.0,
       "FY 2025": 16405000000.0,
-      "FY 2024": 11329000000.0
+      "FY 2024": 11329000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "OtherNonoperatingIncomeExpense",
@@ -546,7 +834,14 @@
       "confidence": 0.5,
       "FY 2026": 9022000000.0,
       "FY 2025": 1034000000.0,
-      "FY 2024": 237000000.0
+      "FY 2024": 237000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "PaymentsOfDividends",
@@ -558,7 +853,14 @@
       "confidence": 0.5,
       "FY 2026": 974000000.0,
       "FY 2025": 834000000.0,
-      "FY 2024": 395000000.0
+      "FY 2024": 395000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
     },
     {
       "concept": "ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
@@ -570,7 +872,33 @@
       "confidence": 0.5,
       "FY 2026": 11226000000.0,
       "FY 2025": 11195000000.0,
-      "FY 2024": 9732000000.0
+      "FY 2024": 9732000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame",
+      "parent_label": null,
+      "source_concept": null,
+      "filing_accession": null,
+      "filing_date": null
+    },
+    {
+      "concept": "PaymentsToAcquireProductiveAssets",
+      "label": "Payments to Acquire Productive Assets",
+      "depth": null,
+      "is_abstract": false,
+      "is_total": false,
+      "section": null,
+      "confidence": null,
+      "FY 2026": 6042000000.0,
+      "FY 2025": 3236000000.0,
+      "FY 2024": 1069000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "facts_query_backfill",
+      "parent_label": null,
+      "source_concept": "us-gaap:PaymentsToAcquireProductiveAssets",
+      "filing_accession": "0001045810-26-000021",
+      "filing_date": "2026-02-25"
     }
   ]
 }
