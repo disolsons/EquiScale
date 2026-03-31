@@ -8,7 +8,7 @@ Edgar orchestration component diagram:
 
 ## Event Flow
 Edgar report generation: 
-![event-flow](diagrams/edgar-orchestration-event-flow.png)
+![event-flow](diagrams/edgar-orchestation-event-flow.png)
 
 
 ---
