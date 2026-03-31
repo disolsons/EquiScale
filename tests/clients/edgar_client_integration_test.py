@@ -2,14 +2,15 @@ import pandas as pd
 import pytest
 from src.clients.edgar.edgar_client import EdgarClient
 from src.processing.utils.concept_map_helper import ConceptMapHelper
-
+import src.utils.config_constants as config
 
 @pytest.mark.integration
 def test_fetch_income_statement_history_real():
-    helper = ConceptMapHelper("src/config/concept_map.yaml")
-    client = EdgarClient(concept_helper=helper, ticker="AAPL")
+    helper = ConceptMapHelper(config.CONCEPT_MAP_PATH)
+    client = EdgarClient(concept_helper=helper)
 
     df = client.fetch_income_statement(
+        ticker="AAPL",
         period_mode="history",
         years=3,
         annual=True
