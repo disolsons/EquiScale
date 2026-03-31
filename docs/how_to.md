@@ -22,17 +22,12 @@ poetry run python -m financials_tracker.cli.init_db
 ```
 The db will be created under `data`
 
-# Run: 
-
-Init db: 
-```
-poetry run python -m src.cli.init_db
-```
-
 Erase db data:
 ```
 poetry run python -m src.cli.reset_db
 ```
+
+# Run: 
 
 Full edgar pipeline for a ticker: 
     - Retrieve edgar documents
