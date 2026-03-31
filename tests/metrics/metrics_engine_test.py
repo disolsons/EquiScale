@@ -1,8 +1,8 @@
 import pandas as pd
 
-from src.metrics.model.financial_dataset import FinancialDataset
-from src.metrics.metrics_engine import MetricsEngine
-from src.metrics.metrics_registry_helper import MetricsRegistryHelper
+from src.services.metrics.model.financial_dataset import FinancialDataset
+from src.services.metrics.metrics_service import MetricsService
+from src.services.metrics.metrics_registry_helper import MetricsRegistryHelper
 
 def build_test_dataset():
     income_statement = pd.DataFrame(
@@ -57,7 +57,7 @@ def build_test_dataset():
 def test_calculate_profitability_metrics():
     dataset = build_test_dataset()
     metrics_registry_helper = MetricsRegistryHelper("financials_tracker/metrics/config/metric_registry.yaml")
-    engine = MetricsEngine(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
+    engine = MetricsService(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
 
     result = engine.calculate_profitability_metrics()
 
@@ -77,7 +77,7 @@ def test_calculate_profitability_metrics():
 def test_calculate_cash_flow_metrics():
     dataset = build_test_dataset()
     metrics_registry_helper = MetricsRegistryHelper("financials_tracker/metrics/config/metric_registry.yaml")
-    engine = MetricsEngine(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
+    engine = MetricsService(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
 
     result = engine.calculate_cash_flow_metrics()
 
@@ -98,8 +98,8 @@ def test_calculate_cash_flow_metrics():
 
 def test_calculate_growth_metrics():
     dataset = build_test_dataset()
-    metrics_registry_helper = MetricsRegistryHelper("financials_tracker/metrics/config/metric_registry.yaml")
-    engine = MetricsEngine(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
+    metrics_registry_helper = MetricsRegistryHelper("config/metric_registry.yaml")
+    engine = MetricsService(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
 
     result = engine.calculate_growth_metrics()
 
@@ -119,7 +119,7 @@ def test_calculate_growth_metrics():
 def test_calculate_balance_sheet_metrics():
     dataset = build_test_dataset()
     metrics_registry_helper = MetricsRegistryHelper("financials_tracker/metrics/config/metric_registry.yaml")
-    engine = MetricsEngine(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
+    engine = MetricsService(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
 
     result = engine.calculate_balance_sheet_metrics()
 
@@ -144,7 +144,7 @@ def test_calculate_balance_sheet_metrics():
 def test_calculate_metric_dependency_free_cash_flow_margin():
     dataset = build_test_dataset()
     metrics_registry_helper = MetricsRegistryHelper("financials_tracker/metrics/config/metric_registry.yaml")
-    engine = MetricsEngine(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
+    engine = MetricsService(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
 
     result = engine._calculate_metric("free_cash_flow_margin")
 

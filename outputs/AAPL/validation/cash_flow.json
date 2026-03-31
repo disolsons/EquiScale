@@ -20,14 +20,14 @@
     "missing_concepts": [],
     "non_null_period_counts": {
       "income_taxes_paid": 3,
-      "capital_expenditures": 3,
-      "interest_paid": 1,
-      "net_cash_from_investing": 3,
+      "net_cash_from_financing": 3,
       "depreciation_amortization": 3,
+      "interest_paid": 1,
+      "dividends_paid": 3,
+      "capital_expenditures": 3,
+      "net_cash_from_investing": 3,
       "stock_based_compensation": 3,
       "share_repurchases": 3,
-      "dividends_paid": 3,
-      "net_cash_from_financing": 3,
       "operating_cash_flow": 3
     }
   },

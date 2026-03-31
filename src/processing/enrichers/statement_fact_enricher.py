@@ -24,8 +24,8 @@ class StatementFactEnricher:
         annual: bool = True,
     ) -> pd.DataFrame | None:
         """
-        Backfill direct-mapping tags that are defined in concept_map but missing
-        from the statement-oriented historical DataFrame.
+            Backfill direct-mapping tags that are defined in concept_map but missing
+            from the statement-oriented historical DataFrame.
         """
         if statement_df is None or statement_df.empty:
             return statement_df
@@ -47,21 +47,12 @@ class StatementFactEnricher:
         ]
 
         for raw_tag in missing_tags:
-            print(f"[DEBUG] trying backfill tag: {raw_tag}")
-
-
             query_df = self.edgar_client.query_concept_facts(
                 raw_tag=raw_tag,
                 ticker=ticker,
                 years=years,
                 annual=annual,
             )
-
-            if query_df is None:
-                print(f"[DEBUG] query returned None for {raw_tag}")
-            else:
-                print(f"[DEBUG] query returned {len(query_df)} rows for {raw_tag}")
-                print(query_df.to_string())
 
             if query_df is None or query_df.empty:
                 continue

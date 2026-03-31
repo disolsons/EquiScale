@@ -8,7 +8,10 @@
     "confidence",
     "FY 2025",
     "FY 2024",
-    "FY 2023"
+    "FY 2023",
+    "parent_raw_tag",
+    "calculation_weight",
+    "source_layer"
   ],
   "index": [
     "NetCashProvidedByUsedInOperatingActivitiesAbstract",
@@ -63,7 +66,10 @@
       "confidence": 0.7915407854984894,
       "FY 2025": null,
       "FY 2024": null,
-      "FY 2023": null
+      "FY 2023": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "AdjustmentsToReconcileNetIncomeLossToCashProvidedByUsedInOperatingActivitiesAbstract",
@@ -75,7 +81,10 @@
       "confidence": 0.7794561933534743,
       "FY 2025": null,
       "FY 2024": null,
-      "FY 2023": null
+      "FY 2023": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "DepreciationDepletionAndAmortization",
@@ -87,7 +96,10 @@
       "confidence": 0.38368580060422963,
       "FY 2025": 11698000000.0,
       "FY 2024": 11445000000.0,
-      "FY 2023": 11519000000.0
+      "FY 2023": 11519000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "ShareBasedCompensation",
@@ -99,7 +111,10 @@
       "confidence": 0.6676737160120846,
       "FY 2025": 12863000000.0,
       "FY 2024": 11688000000.0,
-      "FY 2023": 10833000000.0
+      "FY 2023": 10833000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "IncreaseDecreaseInOperatingCapitalAbstract",
@@ -111,7 +126,10 @@
       "confidence": 0.7129909365558912,
       "FY 2025": null,
       "FY 2024": null,
-      "FY 2023": null
+      "FY 2023": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "IncreaseDecreaseInAccountsReceivable",
@@ -123,7 +141,10 @@
       "confidence": 0.4108761329305136,
       "FY 2025": 6682000000.0,
       "FY 2024": 3788000000.0,
-      "FY 2023": 1688000000.0
+      "FY 2023": 1688000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "IncreaseDecreaseInInventories",
@@ -135,7 +156,10 @@
       "confidence": 0.37462235649546827,
       "FY 2025": -1400000000.0,
       "FY 2024": 1046000000.0,
-      "FY 2023": 1618000000.0
+      "FY 2023": 1618000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "IncreaseDecreaseInAccountsPayable",
@@ -147,7 +171,10 @@
       "confidence": 0.311178247734139,
       "FY 2025": 902000000.0,
       "FY 2024": 6020000000.0,
-      "FY 2023": -1889000000.0
+      "FY 2023": -1889000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "NetCashProvidedByUsedInOperatingActivities",
@@ -159,7 +186,10 @@
       "confidence": 0.8851963746223565,
       "FY 2025": 111482000000.0,
       "FY 2024": 118254000000.0,
-      "FY 2023": 110543000000.0
+      "FY 2023": 110543000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "NetCashProvidedByUsedInInvestingActivitiesAbstract",
@@ -171,7 +201,10 @@
       "confidence": 0.7522658610271903,
       "FY 2025": null,
       "FY 2024": null,
-      "FY 2023": null
+      "FY 2023": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "NetCashProvidedByUsedInInvestingActivities",
@@ -183,7 +216,10 @@
       "confidence": 0.851963746223565,
       "FY 2025": 15195000000.0,
       "FY 2024": 2935000000.0,
-      "FY 2023": 3705000000.0
+      "FY 2023": 3705000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "PaymentsForProceedsFromOtherInvestingActivities",
@@ -195,7 +231,10 @@
       "confidence": 0.3776435045317221,
       "FY 2025": 1480000000.0,
       "FY 2024": 1308000000.0,
-      "FY 2023": 1337000000.0
+      "FY 2023": 1337000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "PaymentsToAcquirePropertyPlantAndEquipment",
@@ -207,7 +246,10 @@
       "confidence": 0.513595166163142,
       "FY 2025": 12715000000.0,
       "FY 2024": 9447000000.0,
-      "FY 2023": 10959000000.0
+      "FY 2023": 10959000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "NetCashProvidedByUsedInFinancingActivitiesAbstract",
@@ -219,7 +261,10 @@
       "confidence": 0.7854984894259819,
       "FY 2025": null,
       "FY 2024": null,
-      "FY 2023": null
+      "FY 2023": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "PaymentsRelatedToTaxWithholdingForShareBasedCompensation",
@@ -231,7 +276,10 @@
       "confidence": 0.32326283987915405,
       "FY 2025": 5960000000.0,
       "FY 2024": 5441000000.0,
-      "FY 2023": 5431000000.0
+      "FY 2023": 5431000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "PaymentsForRepurchaseOfCommonStock",
@@ -243,7 +291,10 @@
       "confidence": 0.5861027190332326,
       "FY 2025": 90711000000.0,
       "FY 2024": 94949000000.0,
-      "FY 2023": 77550000000.0
+      "FY 2023": 77550000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "NetCashProvidedByUsedInFinancingActivities",
@@ -255,7 +306,10 @@
       "confidence": 0.8942598187311178,
       "FY 2025": -120686000000.0,
       "FY 2024": -121983000000.0,
-      "FY 2023": -108488000000.0
+      "FY 2023": -108488000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "PaymentsOfDividendsCommonStock",
@@ -267,7 +321,10 @@
       "confidence": 0.37462235649546827,
       "FY 2025": 15421000000.0,
       "FY 2024": 15234000000.0,
-      "FY 2023": 15025000000.0
+      "FY 2023": 15025000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "ProceedsFromPaymentsForOtherFinancingActivities",
@@ -279,7 +336,10 @@
       "confidence": 0.3504531722054381,
       "FY 2025": -111000000.0,
       "FY 2024": -361000000.0,
-      "FY 2023": -581000000.0
+      "FY 2023": -581000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "RepaymentsOfLongTermDebt",
@@ -291,7 +351,10 @@
       "confidence": 0.30513595166163143,
       "FY 2025": 10932000000.0,
       "FY 2024": 9958000000.0,
-      "FY 2023": 11151000000.0
+      "FY 2023": 11151000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect",
@@ -303,7 +366,10 @@
       "confidence": 0.797583081570997,
       "FY 2025": 5991000000.0,
       "FY 2024": -794000000.0,
-      "FY 2023": 5760000000.0
+      "FY 2023": 5760000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
@@ -315,7 +381,10 @@
       "confidence": 0.7885196374622356,
       "FY 2025": 35934000000.0,
       "FY 2024": 29943000000.0,
-      "FY 2023": 30737000000.0
+      "FY 2023": 30737000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "SupplementalCashFlowInformationAbstract",
@@ -327,7 +396,10 @@
       "confidence": 0.5619335347432024,
       "FY 2025": null,
       "FY 2024": null,
-      "FY 2023": null
+      "FY 2023": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "InterestPaidNet",
@@ -339,7 +411,10 @@
       "confidence": 0.5830815709969789,
       "FY 2025": null,
       "FY 2024": null,
-      "FY 2023": 3803000000.0
+      "FY 2023": 3803000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "IncomeTaxesPaidNet",
@@ -351,7 +426,10 @@
       "confidence": 0.37462235649546827,
       "FY 2025": 43369000000.0,
       "FY 2024": 26102000000.0,
-      "FY 2023": 18679000000.0
+      "FY 2023": 18679000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "CashFlowNoncashInvestingAndFinancingActivitiesDisclosureAbstract",
@@ -363,7 +441,10 @@
       "confidence": 0.2985,
       "FY 2025": null,
       "FY 2024": null,
-      "FY 2023": null
+      "FY 2023": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "CapitalExpendituresIncurredButNotYetPaid",
@@ -375,7 +456,10 @@
       "confidence": 0.2687,
       "FY 2025": 12715000000.0,
       "FY 2024": 9447000000.0,
-      "FY 2023": 10959000000.0
+      "FY 2023": 10959000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "AdditionalItems",
@@ -387,7 +471,10 @@
       "confidence": 1.0,
       "FY 2025": null,
       "FY 2024": null,
-      "FY 2023": null
+      "FY 2023": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "AllocatedShareBasedCompensationExpense",
@@ -399,7 +486,10 @@
       "confidence": 0.5,
       "FY 2025": 12863000000.0,
       "FY 2024": 11688000000.0,
-      "FY 2023": 10833000000.0
+      "FY 2023": 10833000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "Depreciation",
@@ -411,7 +501,10 @@
       "confidence": 0.5,
       "FY 2025": 8000000000.0,
       "FY 2024": 8200000000.0,
-      "FY 2023": 8500000000.0
+      "FY 2023": 8500000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "DividendsPaid",
@@ -423,7 +516,10 @@
       "confidence": 0.5,
       "FY 2025": 15421000000.0,
       "FY 2024": 15234000000.0,
-      "FY 2023": 15025000000.0
+      "FY 2023": 15025000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "GeneralAndAdministrativeExpense",
@@ -435,7 +531,10 @@
       "confidence": 0.5,
       "FY 2025": 8077000000.0,
       "FY 2024": null,
-      "FY 2023": null
+      "FY 2023": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "IncomeTaxExpenseBenefit",
@@ -447,7 +546,10 @@
       "confidence": 0.5,
       "FY 2025": 20719000000.0,
       "FY 2024": 29749000000.0,
-      "FY 2023": 16741000000.0
+      "FY 2023": 16741000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "NetIncomeLoss",
@@ -459,7 +561,10 @@
       "confidence": 0.5,
       "FY 2025": 112010000000.0,
       "FY 2024": 93736000000.0,
-      "FY 2023": 96995000000.0
+      "FY 2023": 96995000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "NonoperatingIncomeExpense",
@@ -471,7 +576,10 @@
       "confidence": 0.5,
       "FY 2025": -321000000.0,
       "FY 2024": 269000000.0,
-      "FY 2023": -565000000.0
+      "FY 2023": -565000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "OperatingExpenses",
@@ -483,7 +591,10 @@
       "confidence": 0.5,
       "FY 2025": 62151000000.0,
       "FY 2024": 57467000000.0,
-      "FY 2023": 54847000000.0
+      "FY 2023": 54847000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "OtherNonoperatingIncomeExpense",
@@ -495,7 +606,10 @@
       "confidence": 0.5,
       "FY 2025": null,
       "FY 2024": null,
-      "FY 2023": -382000000.0
+      "FY 2023": -382000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "PaymentsOfDividends",
@@ -507,7 +621,10 @@
       "confidence": 0.5,
       "FY 2025": 15421000000.0,
       "FY 2024": 15234000000.0,
-      "FY 2023": 15025000000.0
+      "FY 2023": 15025000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "ProceedsFromIssuanceOfLongTermDebt",
@@ -519,7 +636,10 @@
       "confidence": 0.5,
       "FY 2025": 4481000000.0,
       "FY 2024": 0.0,
-      "FY 2023": 5228000000.0
+      "FY 2023": 5228000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "ProceedsFromMaturitiesPrepaymentsAndCallsOfAvailableForSaleSecurities",
@@ -531,7 +651,10 @@
       "confidence": 0.5,
       "FY 2025": 40907000000.0,
       "FY 2024": 51211000000.0,
-      "FY 2023": 39686000000.0
+      "FY 2023": 39686000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     }
   ]
 }

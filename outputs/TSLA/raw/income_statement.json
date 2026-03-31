@@ -8,7 +8,10 @@
     "confidence",
     "FY 2025",
     "FY 2024",
-    "FY 2023"
+    "FY 2023",
+    "parent_raw_tag",
+    "calculation_weight",
+    "source_layer"
   ],
   "index": [
     "RevenueFromContractWithCustomerExcludingAssessedTax",
@@ -45,7 +48,10 @@
       "confidence": 0.95,
       "FY 2025": 94827000000.0,
       "FY 2024": 97690000000.0,
-      "FY 2023": 96773000000.0
+      "FY 2023": 96773000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "CostOfRevenue",
@@ -57,7 +63,10 @@
       "confidence": 0.3088,
       "FY 2025": 77733000000.0,
       "FY 2024": 80240000000.0,
-      "FY 2023": 79113000000.0
+      "FY 2023": 79113000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "GrossProfit",
@@ -69,7 +78,10 @@
       "confidence": 0.7206,
       "FY 2025": 17094000000.0,
       "FY 2024": 17450000000.0,
-      "FY 2023": 17660000000.0
+      "FY 2023": 17660000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "OperatingExpensesAbstract",
@@ -81,7 +93,10 @@
       "confidence": 0.31419939577039274,
       "FY 2025": null,
       "FY 2024": null,
-      "FY 2023": null
+      "FY 2023": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "ResearchAndDevelopmentExpense",
@@ -93,7 +108,10 @@
       "confidence": 0.3529,
       "FY 2025": 6411000000.0,
       "FY 2024": 4540000000.0,
-      "FY 2023": 3969000000.0
+      "FY 2023": 3969000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "OperatingExpenses",
@@ -105,7 +123,10 @@
       "confidence": 0.4265,
       "FY 2025": 12739000000.0,
       "FY 2024": 10374000000.0,
-      "FY 2023": 8769000000.0
+      "FY 2023": 8769000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "SellingGeneralAndAdministrativeExpense",
@@ -117,7 +138,10 @@
       "confidence": 0.3716012084592145,
       "FY 2025": 5834000000.0,
       "FY 2024": 5150000000.0,
-      "FY 2023": 4800000000.0
+      "FY 2023": 4800000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "OperatingIncomeLoss",
@@ -129,7 +153,10 @@
       "confidence": 0.5709969788519638,
       "FY 2025": 4355000000.0,
       "FY 2024": 7076000000.0,
-      "FY 2023": 8891000000.0
+      "FY 2023": 8891000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "OtherNonoperatingIncomeExpense",
@@ -141,7 +168,10 @@
       "confidence": 0.4259818731117825,
       "FY 2025": -419000000.0,
       "FY 2024": 695000000.0,
-      "FY 2023": 172000000.0
+      "FY 2023": 172000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
@@ -153,7 +183,10 @@
       "confidence": 0.6827794561933535,
       "FY 2025": 5278000000.0,
       "FY 2024": 8990000000.0,
-      "FY 2023": 9973000000.0
+      "FY 2023": 9973000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "IncomeTaxExpenseBenefit",
@@ -165,7 +198,10 @@
       "confidence": 0.8006042296072508,
       "FY 2025": 1423000000.0,
       "FY 2024": 1837000000.0,
-      "FY 2023": -5001000000.0
+      "FY 2023": -5001000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "NetIncomeLossAttributableToNoncontrollingInterest",
@@ -177,7 +213,10 @@
       "confidence": 0.3776435045317221,
       "FY 2025": 61000000.0,
       "FY 2024": 62000000.0,
-      "FY 2023": -23000000.0
+      "FY 2023": -23000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "NetIncomeLoss",
@@ -189,7 +228,10 @@
       "confidence": 0.7764350453172205,
       "FY 2025": 3794000000.0,
       "FY 2024": 7091000000.0,
-      "FY 2023": 14997000000.0
+      "FY 2023": 14997000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "EarningsPerShareBasic",
@@ -201,7 +243,10 @@
       "confidence": 0.8459214501510574,
       "FY 2025": 1.18,
       "FY 2024": 2.23,
-      "FY 2023": 4.73
+      "FY 2023": 4.73,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "EarningsPerShareDiluted",
@@ -213,7 +258,10 @@
       "confidence": 0.8368580060422961,
       "FY 2025": 1.08,
       "FY 2024": 2.04,
-      "FY 2023": 4.3
+      "FY 2023": 4.3,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "InvestmentIncomeInterest",
@@ -225,7 +273,10 @@
       "confidence": 0.2206,
       "FY 2025": 1680000000.0,
       "FY 2024": 1569000000.0,
-      "FY 2023": 1066000000.0
+      "FY 2023": 1066000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "InterestExpense",
@@ -237,7 +288,10 @@
       "confidence": 0.2059,
       "FY 2025": null,
       "FY 2024": null,
-      "FY 2023": 156000000.0
+      "FY 2023": 156000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "AdditionalItems",
@@ -249,7 +303,10 @@
       "confidence": 1.0,
       "FY 2025": null,
       "FY 2024": null,
-      "FY 2023": null
+      "FY 2023": null,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "CurrentIncomeTaxExpenseBenefit",
@@ -261,7 +318,10 @@
       "confidence": 0.5,
       "FY 2025": 1300000000.0,
       "FY 2024": 1360000000.0,
-      "FY 2023": 1348000000.0
+      "FY 2023": 1348000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "GoodwillImpairmentLoss",
@@ -273,7 +333,10 @@
       "confidence": 0.5,
       "FY 2025": 0.0,
       "FY 2024": 0.0,
-      "FY 2023": 0.0
+      "FY 2023": 0.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "IncomeLossFromContinuingOperationsBeforeIncomeTaxesDomestic",
@@ -285,7 +348,10 @@
       "confidence": 0.5,
       "FY 2025": 4766000000.0,
       "FY 2024": 2292000000.0,
-      "FY 2023": 3196000000.0
+      "FY 2023": 3196000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     },
     {
       "concept": "NetIncomeLossAvailableToCommonStockholdersBasic",
@@ -297,7 +363,10 @@
       "confidence": 0.5,
       "FY 2025": 3794000000.0,
       "FY 2024": 7130000000.0,
-      "FY 2023": 14999000000.0
+      "FY 2023": 14999000000.0,
+      "parent_raw_tag": null,
+      "calculation_weight": null,
+      "source_layer": "statement_frame"
     }
   ]
 }

@@ -1,4 +1,5 @@
 import json
+from collections import Counter 
 from typing import Any
 from src.processing.mappers.model.concept_selection_metadata import ConceptSelectionMetadata
 from sqlalchemy.orm import Session
@@ -218,7 +219,39 @@ def replace_raw_statement_facts_for_statement(
     Expected grain of `records`:
     one row per raw_tag per period_label.
     """
-    session.query(RawStatementFact).filter(
+
+    # Check duplicates on the exact batch being inserted
+    keys = [
+        (
+            r["ticker"],
+            r["statement_type"],
+            r["raw_tag"],
+            r["period_label"],
+            r["source_layer"],
+        )
+        for r in records
+    ]
+
+    counter = Counter(keys)
+    dupes = [k for k, c in counter.items() if c > 1]
+
+    if dupes:
+        for key in dupes[:20]:
+            matching = [
+                r for r in records
+                if (
+                    r["ticker"],
+                    r["statement_type"],
+                    r["raw_tag"],
+                    r["period_label"],
+                    r["source_layer"],
+                ) == key
+            ]
+            for row in matching:
+                print(row)
+        raise ValueError("Duplicate raw_statement_facts keys detected before insert")
+
+    deleted = session.query(RawStatementFact).filter(
         RawStatementFact.ticker == ticker,
         RawStatementFact.statement_type == statement_type,
     ).delete()

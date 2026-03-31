@@ -22,29 +22,25 @@ poetry run python -m financials_tracker.cli.init_db
 ```
 The db will be created under `data`
 
-# Run the project: 
+# Run: 
+
+Init db: 
 ```
-poetry run python -m financials_tracker.cli.run_pipeline --tickers TSLA
+poetry run python -m src.cli.init_db
+```
 
-Multiple tickers:
+Erase db data:
+```
+poetry run python -m src.cli.reset_db
+```
 
-poetry run python -m financials_tracker.cli.run_pipeline --tickers TSLA AAPL NVDA
-
-Custom output dir:
-
-poetry run python -m financials_tracker.cli.run_pipeline --tickers TSLA AAPL --output-dir outputs/dev_run```
-
-Run unmapped tags aggregator: 
-
-poetry run python -m financials_tracker.cli.aggregate_unmapped_tags --input-dir outputs
-
-Rank the unmap tags by priority score:
-
-poetry run python -m financials_tracker.cli.rank_unmapped_tags
-
-Suggest concepts for unmapped tags: 
-
-poetry run python -m financials_tracker.cli.generate_tag_suggestions
+Full edgar pipeline for a ticker: 
+    - Retrieve edgar documents
+    - enrich and map to standarized concepts
+    - persist values
+    - calculate metrics
+```    
+poetry run python -m src.cli.run_pipeline --ticker AAPL
 ```
 
 # Run integration tests:

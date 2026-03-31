@@ -1,36 +1,7 @@
 import json
 from pathlib import Path
-from typing import Any
+from src.utils.json_utils import make_json_safe
 
-import pandas as pd
-from datetime import date, datetime
-
-def make_json_safe(obj: Any) -> Any:
-    """
-    Recursively convert common pandas/numpy-style values into JSON-safe Python values.
-    """
-    if isinstance(obj, dict):
-        return {str(k): make_json_safe(v) for k, v in obj.items()}
-
-    if isinstance(obj, list):
-        return [make_json_safe(v) for v in obj]
-
-    if isinstance(obj, tuple):
-        return [make_json_safe(v) for v in obj]
-
-    if isinstance(obj, (date, datetime)):
-        return obj.isoformat()
-    
-    if pd.isna(obj):
-        return None
-
-    if hasattr(obj, "item"):
-        try:
-            return obj.item()
-        except Exception:
-            pass
-
-    return obj
 
 def save_validation_report(report: dict, output_path: str | Path) -> None:
     """

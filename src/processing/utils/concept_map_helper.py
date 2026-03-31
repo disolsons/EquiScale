@@ -1,7 +1,8 @@
 import yaml
+import src.utils.config_constants as config
 
 class ConceptMapHelper:
-    CONFIG_MAP_PATH = "config/concept_map.yaml"
+    CONFIG_MAP_PATH = config.CONCEPT_MAP_PATH
 
     def __init__(self, path=CONFIG_MAP_PATH):
         self.concept_map = self._load_concept_map(path)

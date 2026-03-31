@@ -1,19 +1,31 @@
 import pandas as pd
-from src.metrics.metrics_calculator import MetricsCalculator
-from src.metrics.model.financial_dataset import FinancialDataset
-from src.metrics.metrics_registry_helper import MetricsRegistryHelper
-from src.metrics.pre_processors.metric_input_preprocessor import MetricInputPreprocessor
+from src.services.metrics.metrics_calculator import MetricsCalculator
+from src.domain.financial_dataset import FinancialDataset
+from src.domain.financial_metrics import FinancialMetrics
+from src.services.metrics.metrics_registry_helper import MetricsRegistryHelper
+from src.services.metrics.pre_processors.metric_input_preprocessor import MetricInputPreprocessor
+import src.utils.config_constants as config
 
-class MetricsEngine:
+class MetricsService:
     
-    def __init__(self, dataset: FinancialDataset):
-        self.dataset = dataset
+    def __init__(self):
         self.calc = MetricsCalculator()        
-        self.metrics_registry_helper = MetricsRegistryHelper("config/metric_registry.yaml")
+        self.metrics_registry_helper = MetricsRegistryHelper(config.METRICS_REGISTRY_PATH)
         self.input_preprocessor = MetricInputPreprocessor()
         self.cache = {}
     
-    def calculate_profitability_metrics(self) -> pd.DataFrame:
+    def calculate_all_metrics(self, dataset: FinancialDataset) -> FinancialMetrics:
+        """
+        Calculate all available metrics for a given financial dataset.
+        """
+        return FinancialMetrics(
+            profitability=self.calculate_profitability_metrics(dataset=dataset),
+            growth=self.calculate_growth_metrics(dataset=dataset),
+            cash_flow=self.calculate_cash_flow_metrics(dataset=dataset),
+            balance_sheet=self.calculate_balance_sheet_metrics(dataset=dataset)
+        )
+
+    def calculate_profitability_metrics(self, dataset: FinancialDataset) -> pd.DataFrame:
         """
         Compute core profitability ratios based on the income statement.
 
@@ -31,13 +43,11 @@ class MetricsEngine:
             - columns = fiscal periods (e.g. FY 2025, FY 2024)
         """    
 
-        return self._calculate_metrics([
-            "gross_margin",
-            "operating_margin",
-            "net_margin",
-        ])
+        return self._calculate_metrics(dataset=dataset,
+                                       metric_names=["gross_margin","operating_margin","net_margin"]
+        )
 
-    def calculate_growth_metrics(self) -> pd.DataFrame:
+    def calculate_growth_metrics(self, dataset: FinancialDataset) -> pd.DataFrame:
         """
         Compute year-over-year growth rates for key income statement metrics.
 
@@ -55,13 +65,15 @@ class MetricsEngine:
             - columns = fiscal periods (chronological order)
             - earliest period is typically NaN (no prior comparison)
         """
-        return self._calculate_metrics([
+        return self._calculate_metrics(
+            dataset=dataset,
+            metric_names=[
             "revenue_growth_yoy",
             "net_income_growth_yoy",
             "diluted_eps_growth_yoy",
         ])
 
-    def calculate_cash_flow_metrics(self) -> pd.DataFrame:
+    def calculate_cash_flow_metrics(self, dataset: FinancialDataset) -> pd.DataFrame:
         """
         Compute cash flow–based metrics derived from the cash flow statement.
 
@@ -77,12 +89,14 @@ class MetricsEngine:
             - index = metric names
             - columns = fiscal periods
         """
-        return self._calculate_metrics([
+        return self._calculate_metrics(
+            dataset=dataset,
+            metric_names=[
             "free_cash_flow",
             "free_cash_flow_margin",
         ])
 
-    def calculate_balance_sheet_metrics(self) -> pd.DataFrame:
+    def calculate_balance_sheet_metrics(self, dataset: FinancialDataset) -> pd.DataFrame:
         """
         Compute return metrics based on balance sheet and income data.
 
@@ -105,19 +119,21 @@ class MetricsEngine:
             - columns = fiscal periods
             - earliest period for average-based metrics is typically NaN
         """
-        return self._calculate_metrics([
+        return self._calculate_metrics(          
+            dataset=dataset,
+            metric_names=[
             "roa_ending",
             "roe_ending",
             "roa_avg_assets",
             "roe_avg_equity",
         ])
     
-    def _calculate_metrics(self, metric_names: list[str]) -> pd.DataFrame:
+    def _calculate_metrics(self, dataset: FinancialDataset, metric_names: list[str]) -> pd.DataFrame:
         results = {}
-        reference_index = self._get_reference_period_index()
+        reference_index = self._get_reference_period_index(dataset=dataset)
         
         for metric_name in metric_names:
-            metric_result = self._calculate_metric(metric_name)
+            metric_result = self._calculate_metric(dataset=dataset, metric_name=metric_name)
 
             # If a metric cannot be calculated, store an empty Series
             # so pandas can still build a DataFrame consistently.
@@ -130,6 +146,7 @@ class MetricsEngine:
     
     def _calculate_metric(
         self,
+        dataset: FinancialDataset,
         metric_name: str,
         visited: set[str] | None = None,
     ) -> pd.Series | None:
@@ -145,7 +162,7 @@ class MetricsEngine:
         if metric_definition is None:
             raise ValueError(f"Unknown metric: {metric_name}")
 
-        inputs = [self._get_values(name, visited) for name in metric_definition["inputs"]]
+        inputs = [self._get_values(dataset, name, visited) for name in metric_definition["inputs"]]
         operation = metric_definition["operation"]
 
         if operation == "divide": #TODO: extract operations to constants.
@@ -161,6 +178,7 @@ class MetricsEngine:
 
     def _get_values(
         self,
+        dataset: FinancialDataset,
         name: str,
         visited: set[str] | None = None,
     ) -> pd.Series | None:        
@@ -172,34 +190,34 @@ class MetricsEngine:
             return self.cache[name]
     
 
-        values = self._get_concept_values(name)
+        values = self._get_concept_values(dataset=dataset, concept=name)
         if values is not None:
-            values = self._prepare_metric_input(name, values)
+            values = self._prepare_metric_input(dataset=dataset, concept_name=name, values=values)
             self.cache[name] = values
             return values
 
-        values = self._get_derived_values(name)
+        values = self._get_derived_values(dataset=dataset, name=name)
         if values is not None:
             self.cache[name] = values
             return values
 
         #  cascading metrics.
         if self.metrics_registry_helper.has_metric(name):
-            values = self._calculate_metric(name, visited=visited)
+            values = self._calculate_metric(dataset=dataset, metric_name=name, visited=visited)
             self.cache[name] = values
             return values
         
         self.cache[name] = None
         return None
 
-    def _get_concept_values(self, concept: str) -> pd.Series | None:
+    def _get_concept_values(self, dataset: FinancialDataset, concept: str) -> pd.Series | None:
         """
         Retrieves the values for a specific financial concept directly from the dataset.
         """
         for statement_df in [
-            self.dataset.income_statement,
-            self.dataset.balance_sheet,
-            self.dataset.cash_flow,
+            dataset.income_statement.get_mapped_dataframe(),
+            dataset.balance_sheet.get_mapped_dataframe(),
+            dataset.cash_flow.get_mapped_dataframe(),
         ]:
             if statement_df is not None and concept in statement_df.index:
                 values = pd.to_numeric(statement_df.loc[concept], errors="coerce")
@@ -207,32 +225,32 @@ class MetricsEngine:
 
         return None
     
-    def _get_derived_values(self, name: str) -> pd.Series | None:
+    def _get_derived_values(self, dataset: FinancialDataset, name: str) -> pd.Series | None:
         """
           Retrieves the values for a specific financial concept derived from other concepts present in the dataset.
             E.g. avg_total_assets is derieved from total_assets, but requires additional logic to compute.
         """
         if name == "avg_total_assets":
-            base = self._get_concept_values("total_assets")
+            base = self._get_concept_values(dataset=dataset, concept="total_assets")
             result = self.calc.average_with_previous_period(base)
             return result
 
         if name == "avg_shareholder_equity":
-            base = self._get_concept_values("shareholder_equity")
+            base = self._get_concept_values(dataset=dataset, concept="shareholder_equity")
             result = self.calc.average_with_previous_period(base)
             return result
 
         return None 
 
-    def _get_reference_period_index(self) -> pd.Index:
+    def _get_reference_period_index(self, dataset: FinancialDataset) -> pd.Index:
         """
             Use the first non-empty mapped statement as the reference set of periods
             for metric output alignment.
         """
         for statement_df in [
-            self.dataset.income_statement,
-            self.dataset.balance_sheet,
-            self.dataset.cash_flow,
+            dataset.income_statement.get_mapped_dataframe(),
+            dataset.balance_sheet.get_mapped_dataframe(),
+            dataset.cash_flow.get_mapped_dataframe(),
         ]:
             if statement_df is not None and not statement_df.empty:
                 return statement_df.columns
@@ -241,6 +259,7 @@ class MetricsEngine:
 
     def _prepare_metric_input(
         self,
+        dataset: FinancialDataset,
         concept_name: str,
         values: pd.Series | None,
     ) -> pd.Series | None:
@@ -258,16 +277,16 @@ class MetricsEngine:
             return self.input_preprocessor.prepare_metric_input(
                 concept_name=concept_name,
                 series=values,
-                net_income_series=self._get_concept_values("net_income"),
-                shares_series=self._get_concept_values("diluted_shares"),
+                net_income_series=self._get_concept_values(dataset=dataset, concept="net_income"),
+                shares_series=self._get_concept_values(dataset=dataset, concept="diluted_shares"),
             )
 
         if concept_name == "basic_eps":
             return self.input_preprocessor.prepare_metric_input(
                 concept_name=concept_name,
                 series=values,
-                net_income_series=self._get_concept_values("net_income"),
-                shares_series=self._get_concept_values("basic_shares"),  # will be None if not mapped yet
+                net_income_series=self._get_concept_values(dataset=dataset, concept="net_income"),
+                shares_series=self._get_concept_values(dataset=dataset, concept="basic_shares"),  # will be None if not mapped yet
             )
 
         return values       

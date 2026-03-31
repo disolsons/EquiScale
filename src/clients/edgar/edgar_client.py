@@ -1,4 +1,3 @@
-import pandas as pd
 from edgar import Company, set_identity
 
 from src.clients.edgar.edgar_constants import EdgarConstants
@@ -7,9 +6,8 @@ from src.clients.edgar.edgar_constants import EdgarConstants
 class EdgarClient:
     set_identity("test yourname@example.com")
 
-    def __init__(self, concept_helper, ticker=None):
+    def __init__(self, concept_helper):
         self.helper = concept_helper
-        self.ticker = ticker
 
     def fetch_income_statement(self, **kwargs):
         return self._fetch_statement(
@@ -33,16 +31,17 @@ class EdgarClient:
         self,
         statement_type,
         ticker=None,
-        period_mode="latest",
+        period_mode=EdgarConstants.MODE_HISTORY,
         years=5,
         annual=True,
     ):
-        ticker = ticker or self.ticker
-
+        if not ticker:
+            raise ValueError("Ticker is required")
+        
         try:
             company = Company(ticker)
 
-            if period_mode == "latest":
+            if period_mode == EdgarConstants.MODE_LATEST:
                 financials = (
                     company.get_financials()
                     if annual
@@ -62,7 +61,7 @@ class EdgarClient:
 
                 return df
 
-            if period_mode == "history":
+            if period_mode == EdgarConstants.MODE_HISTORY:
                 return self._fetch_historical_statement(
                     ticker=ticker,
                     statement_type=statement_type,
@@ -83,6 +82,9 @@ class EdgarClient:
         years=5,
         annual=True,
     ):
+        if not ticker:
+            raise ValueError("Ticker is required")
+        
         try:
             company = Company(ticker)
             facts = company.get_facts()
@@ -100,7 +102,7 @@ class EdgarClient:
             if df is None or df.empty:
                 return None
 
-            return self._ensure_metadata_columns(df, source_layer="statement_frame")
+            return self._ensure_metadata_columns(df, source_layer=EdgarConstants.LAYER_STATEMENT_FRAME)
 
         except Exception as e:
             print(f"Historical SEC Fetch Error for {ticker}: {e}")
@@ -122,7 +124,6 @@ class EdgarClient:
         - no statement-type assumptions
         - no merging logic
         """
-        ticker = ticker or self.ticker
         if not ticker:
             raise ValueError("Ticker is required")
 
@@ -131,7 +132,7 @@ class EdgarClient:
         if facts is None:
             return None
 
-        concept_name = raw_tag if ":" in raw_tag else f"us-gaap:{raw_tag}"
+        concept_name = raw_tag if ":" in raw_tag else f"{EdgarConstants.US_TAG_PREFIX}:{raw_tag}"
 
         q = facts.query()
         q = q.by_concept(concept_name, exact=True)
@@ -143,17 +144,20 @@ class EdgarClient:
 
         return df
 
-    def _ensure_metadata_columns(self, df, source_layer="statement_frame"):
+    def _ensure_metadata_columns(self, df, source_layer=EdgarConstants.LAYER_STATEMENT_FRAME):
+        """
+        Generates metadata columns if they dont exist in the source for structure consistency
+        """
         out = df.copy()
 
-        if "parent_raw_tag" not in out.columns:
-            out["parent_raw_tag"] = None
+        if EdgarConstants.COLUMN_PARENT_TAG not in out.columns:
+            out[EdgarConstants.COLUMN_PARENT_TAG] = None
 
-        if "calculation_weight" not in out.columns:
-            out["calculation_weight"] = None
+        if EdgarConstants.COLUMN_CALCULATION_WEIGHT not in out.columns:
+            out[EdgarConstants.COLUMN_CALCULATION_WEIGHT] = None
 
-        if "source_layer" not in out.columns:
-            out["source_layer"] = source_layer
+        if EdgarConstants.COLUMN_SOURCE_LAYER not in out.columns:
+            out[EdgarConstants.COLUMN_SOURCE_LAYER] = source_layer
 
         return out
 
