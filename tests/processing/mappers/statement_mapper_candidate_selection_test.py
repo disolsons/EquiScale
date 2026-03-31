@@ -1,8 +1,8 @@
 from pathlib import Path
 import pandas as pd
 import pytest
-from src.mappers.concept_map_helper import ConceptMapHelper
-from src.mappers.statement_mapper import StatementMapper
+from src.processing.utils.concept_map_helper import ConceptMapHelper
+from src.processing.mappers.statement_mapper import StatementMapper
 
 
 @pytest.fixture

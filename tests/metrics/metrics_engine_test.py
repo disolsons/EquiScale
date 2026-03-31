@@ -1,11 +1,12 @@
 import pandas as pd
+import pytest as pytest
+from src.domain.financial_dataset import FinancialDataset
+from src.domain.financial_report import FinancialReport
 
-from src.services.metrics.model.financial_dataset import FinancialDataset
 from src.services.metrics.metrics_service import MetricsService
-from src.services.metrics.metrics_registry_helper import MetricsRegistryHelper
 
 def build_test_dataset():
-    income_statement = pd.DataFrame(
+    income_statement_df = pd.DataFrame(
         {
             "FY 2023": [100.0, 40.0, 20.0, 10.0, 2.0],
             "FY 2024": [120.0, 48.0, 24.0, 12.0, 2.4],
@@ -19,9 +20,12 @@ def build_test_dataset():
             "diluted_eps",
         ],
     )
-    income_statement.index.name = "concept"
-
-    balance_sheet = pd.DataFrame(
+    income_statement_df.index.name = "concept"
+    income_statement = FinancialReport(ticker = "TEST_TICKER",
+                                       report_type= "income_statement",
+                                       raw = income_statement_df, 
+                                       mapped = income_statement_df,)
+    balance_sheet_df = pd.DataFrame(
         {
             "FY 2023": [200.0, 100.0],
             "FY 2024": [240.0, 120.0],
@@ -32,9 +36,13 @@ def build_test_dataset():
             "shareholder_equity",
         ],
     )
-    balance_sheet.index.name = "concept"
+    balance_sheet_df.index.name = "concept"
+    balance_sheet = FinancialReport(ticker = "TEST_TICKER",
+                                    report_type= "balance_sheet",
+                                    raw = balance_sheet_df, 
+                                    mapped = balance_sheet_df,)
 
-    cash_flow = pd.DataFrame(
+    cash_flow_df = pd.DataFrame(
         {
             "FY 2023": [30.0, 10.0],
             "FY 2024": [36.0, 12.0],
@@ -45,9 +53,14 @@ def build_test_dataset():
             "capital_expenditures",
         ],
     )
-    cash_flow.index.name = "concept"
+    cash_flow_df.index.name = "concept"
+    cash_flow = FinancialReport(ticker = "TEST_TICKER",
+                                report_type= "cash_flow",
+                                raw = cash_flow_df, 
+                                mapped = cash_flow_df,)
 
     return FinancialDataset(
+        ticker="TEST_TICKER",
         income_statement=income_statement,
         balance_sheet=balance_sheet,
         cash_flow=cash_flow,
@@ -56,10 +69,9 @@ def build_test_dataset():
 
 def test_calculate_profitability_metrics():
     dataset = build_test_dataset()
-    metrics_registry_helper = MetricsRegistryHelper("financials_tracker/metrics/config/metric_registry.yaml")
-    engine = MetricsService(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
+    engine = MetricsService()
 
-    result = engine.calculate_profitability_metrics()
+    result = engine.calculate_profitability_metrics(dataset=dataset)
 
     assert result is not None
     assert "gross_margin" in result.index
@@ -76,10 +88,9 @@ def test_calculate_profitability_metrics():
 
 def test_calculate_cash_flow_metrics():
     dataset = build_test_dataset()
-    metrics_registry_helper = MetricsRegistryHelper("financials_tracker/metrics/config/metric_registry.yaml")
-    engine = MetricsService(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
+    engine = MetricsService()
 
-    result = engine.calculate_cash_flow_metrics()
+    result = engine.calculate_cash_flow_metrics(dataset=dataset)
 
     assert result is not None
     assert "free_cash_flow" in result.index
@@ -98,10 +109,9 @@ def test_calculate_cash_flow_metrics():
 
 def test_calculate_growth_metrics():
     dataset = build_test_dataset()
-    metrics_registry_helper = MetricsRegistryHelper("config/metric_registry.yaml")
-    engine = MetricsService(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
+    engine = MetricsService()
 
-    result = engine.calculate_growth_metrics()
+    result = engine.calculate_growth_metrics(dataset=dataset)
 
     assert result is not None
     assert "revenue_growth_yoy" in result.index
@@ -109,19 +119,18 @@ def test_calculate_growth_metrics():
     assert "diluted_eps_growth_yoy" in result.index
 
     assert pd.isna(result.loc["revenue_growth_yoy", "FY 2023"])
-    assert result.loc["revenue_growth_yoy", "FY 2024"] == 0.20
-    assert result.loc["revenue_growth_yoy", "FY 2025"] == 0.25
+    assert result.loc["revenue_growth_yoy", "FY 2024"] == pytest.approx(0.20)
+    assert result.loc["revenue_growth_yoy", "FY 2025"] == pytest.approx(0.25)
 
-    assert result.loc["net_income_growth_yoy", "FY 2024"] == 0.20
-    assert result.loc["diluted_eps_growth_yoy", "FY 2025"] == 0.25
+    assert result.loc["net_income_growth_yoy", "FY 2024"] == pytest.approx(0.20)
+    assert result.loc["diluted_eps_growth_yoy", "FY 2025"] == pytest.approx(0.25)
 
 
 def test_calculate_balance_sheet_metrics():
     dataset = build_test_dataset()
-    metrics_registry_helper = MetricsRegistryHelper("financials_tracker/metrics/config/metric_registry.yaml")
-    engine = MetricsService(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
+    engine = MetricsService()
 
-    result = engine.calculate_balance_sheet_metrics()
+    result = engine.calculate_balance_sheet_metrics(dataset=dataset)
 
     assert result is not None
     assert "roa_ending" in result.index
@@ -143,10 +152,9 @@ def test_calculate_balance_sheet_metrics():
 
 def test_calculate_metric_dependency_free_cash_flow_margin():
     dataset = build_test_dataset()
-    metrics_registry_helper = MetricsRegistryHelper("financials_tracker/metrics/config/metric_registry.yaml")
-    engine = MetricsService(dataset=dataset, metrics_registry_helper=metrics_registry_helper)
+    engine = MetricsService()
 
-    result = engine._calculate_metric("free_cash_flow_margin")
+    result = engine._calculate_metric(dataset=dataset, metric_name="free_cash_flow_margin")
 
     assert result is not None
     assert result["FY 2023"] == 0.20

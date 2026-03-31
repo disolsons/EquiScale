@@ -1,13 +1,13 @@
 import pandas as pd
-
+import src.utils.config_constants as config
 from src.processing.utils.concept_map_helper import ConceptMapHelper
 from src.validators.statement_validation_engine import StatementValidationEngine
 from src.validators.utils.ignored_tags_helper import IgnoredTagsHelper
 
 
 def test_coverage_validator_basic():
-    helper = ConceptMapHelper("srcconfig/concept_map.yaml")
-    ignored_tags_helper = IgnoredTagsHelper("src/config/ignored_tags.yaml")
+    helper = ConceptMapHelper(config.CONCEPT_MAP_PATH)
+    ignored_tags_helper = IgnoredTagsHelper(config.IGNORED_TAGS_PATH)
     engine = StatementValidationEngine(helper, ignored_tags_helper)
     
     mapped_df = pd.DataFrame(
@@ -27,8 +27,8 @@ def test_coverage_validator_basic():
 
 
 def test_reconciliation_income_statement():
-    helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
-    ignored_tags_helper = IgnoredTagsHelper("financials_tracker/validators/config/ignored_tags.yaml")
+    helper = ConceptMapHelper(config.CONCEPT_MAP_PATH)
+    ignored_tags_helper = IgnoredTagsHelper(config.IGNORED_TAGS_PATH)
     engine = StatementValidationEngine(helper, ignored_tags_helper)
     mapped_df = pd.DataFrame(
         {
@@ -45,8 +45,8 @@ def test_reconciliation_income_statement():
 
 
 def test_reconciliation_balance_sheet_equation():
-    helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
-    ignored_tags_helper = IgnoredTagsHelper("financials_tracker/validators/config/ignored_tags.yaml")
+    helper = ConceptMapHelper(config.CONCEPT_MAP_PATH)
+    ignored_tags_helper = IgnoredTagsHelper(config.IGNORED_TAGS_PATH)
     engine = StatementValidationEngine(helper, ignored_tags_helper)
 
     mapped_df = pd.DataFrame(
@@ -63,8 +63,8 @@ def test_reconciliation_balance_sheet_equation():
 
 
 def test_mapping_detail_historical():
-    helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
-    ignored_tags_helper = IgnoredTagsHelper("financials_tracker/validators/config/ignored_tags.yaml")
+    helper = ConceptMapHelper(config.CONCEPT_MAP_PATH)
+    ignored_tags_helper = IgnoredTagsHelper(config.IGNORED_TAGS_PATH)
     engine = StatementValidationEngine(helper, ignored_tags_helper)
 
     raw_df = pd.DataFrame(
@@ -86,8 +86,8 @@ def test_mapping_detail_historical():
 
 
 def test_validate_statement_combines_metrics():
-    helper = ConceptMapHelper("financials_tracker/mappers/config/concept_map.yaml")
-    ignored_tags_helper = IgnoredTagsHelper("financials_tracker/validators/config/ignored_tags.yaml")
+    helper = ConceptMapHelper(config.CONCEPT_MAP_PATH)
+    ignored_tags_helper = IgnoredTagsHelper(config.IGNORED_TAGS_PATH)
     engine = StatementValidationEngine(helper, ignored_tags_helper)
     raw_df = pd.DataFrame(
         {"FY 2024": [100.0]},
