@@ -1,5 +1,6 @@
 from edgar import Company, set_identity
 
+from typing import Any
 from src.clients.edgar.edgar_constants import EdgarConstants
 
 
@@ -172,6 +173,7 @@ class EdgarClient:
             raise ValueError(f"Unsupported statement_type: {statement_type}")
 
     def _get_statement_from_facts(self, facts, statement_type, years=5, annual=True):
+    
         if statement_type == EdgarConstants.STATEMENT_TYPE_INCOME:
             return facts.income_statement(periods=years, annual=annual, as_dataframe=True)
         elif statement_type == EdgarConstants.STATEMENT_TYPE_BALANCE_SHEET:
@@ -180,3 +182,4 @@ class EdgarClient:
             return facts.cash_flow(periods=years, annual=annual, as_dataframe=True)
         else:
             raise ValueError(f"Unsupported statement_type: {statement_type}")
+        

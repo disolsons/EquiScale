@@ -6,7 +6,7 @@ class RawStatementRowFactory:
     def from_statement_dataframe(df, statement_type: str, ticker: str | None = None) -> list[RawStatementRow]:
         if df is None or df.empty:
             return []
-
+ 
         metadata_cols = {
             "label",
             "depth",
