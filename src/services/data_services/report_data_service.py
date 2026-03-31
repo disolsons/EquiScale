@@ -1,3 +1,4 @@
+import pandas as pd
 from src.processing.mappers.raw_statement_row_factory import RawStatementRowFactory
 from typing import Iterable
 from src.domain.financial_report import FinancialReport
@@ -6,6 +7,7 @@ from src.storage.repositories import (
     replace_raw_statement_facts_for_statement,
     replace_mapped_concept_selections_for_statement,
     replace_mapped_concept_values_for_statement,
+    replace_metric_values_for_ticker
 )
 
 class ReportDataService:
@@ -98,6 +100,38 @@ class ReportDataService:
             session.close()
 
 
+    def persist_metrics_in_dataset(
+        self,
+        dataset: FinancialDataset,
+    ) -> None:
+        """
+        Persist dataset-level computed metrics for one ticker.
+
+        Transaction boundary:
+        - one transaction for all metric rows of the ticker
+        """
+        if dataset is None:
+            raise ValueError("dataset must not be None")
+
+        if not dataset.ticker or not dataset.ticker.strip():
+            raise ValueError("dataset.ticker must be a non-empty string")
+
+        records = self._flatten_metrics(dataset)
+
+        session = self.session_factory()
+        try:
+            replace_metric_values_for_ticker(
+                session=session,
+                ticker=dataset.ticker,
+                records=records,
+            )
+            session.commit()
+        except Exception:
+            session.rollback()
+            raise
+        finally:
+            session.close()
+
     def _persist_raw_report(
         self,
         session,
@@ -113,7 +147,7 @@ class ReportDataService:
         source_df = report.get_enriched_dataframe()
         if source_df is None:
             source_df = report.get_raw_dataframe()
-            
+
         if source_df is None:
             return
 
@@ -165,6 +199,49 @@ class ReportDataService:
                 mapping_metadata=report.selection_metadata,
             )
 
+    
+    def _flatten_metrics(self, dataset: FinancialDataset) -> list[dict]:
+        """
+        Flatten dataset.metrics into one-record-per-metric-per-period.
+
+        Expected metrics shape:
+        dataset.metrics.<category> = pd.DataFrame
+        where:
+        - index = metric names
+        - columns = period labels
+        """
+
+        if dataset is None:
+            raise ValueError("dataset must not be None")
+
+        if dataset.metrics is None:
+            return []
+
+        metrics_obj = dataset.metrics
+        records: list[dict] = []
+
+        category_map = {
+            "profitability": getattr(metrics_obj, "profitability", None),
+            "growth": getattr(metrics_obj, "growth", None),
+            "cash_flow": getattr(metrics_obj, "cash_flow", None),
+            "balance_sheet": getattr(metrics_obj, "balance_sheet", None),
+        }
+
+        for category, df in category_map.items():
+            if df is None or df.empty:
+                continue
+
+            for metric_name, row in df.iterrows():
+                for period_label, value in row.items():
+                    records.append({
+                        "ticker": dataset.ticker,
+                        "category": category,
+                        "metric_name": str(metric_name),
+                        "period_label": str(period_label),
+                        "value": None if pd.isna(value) else value,  
+                    })
+        return records
+    
 
     def _validate_report(self, report: FinancialReport) -> None:
         if report is None:

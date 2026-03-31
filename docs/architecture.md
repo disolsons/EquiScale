@@ -2,11 +2,13 @@
 # Architecture
 
 ## High-Level Design
-![mermaid diagram](mermaid-diagram.png)
+Edgar orchestration component diagram:
+![component-view](diagrams/edgar-orchestration-component-view.png)
 
 
-## Data Flow
-
+## Event Flow
+Edgar report generation: 
+![event-flow](diagrams/edgar-orchestration-event-flow.png)
 
 
 ---

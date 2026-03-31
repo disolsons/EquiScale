@@ -114,8 +114,10 @@ class EdgarPipelineOrchestrator:
         metrics = self.metrics_service.calculate_all_metrics(dataset=dataset)
         if metrics is None:
             raise RuntimeError(f"Failed to calculate metrics for ticker {dataset.ticker}")
-        
+
         dataset.metrics = metrics
+        self.report_data_service.persist_metrics_in_dataset(dataset=dataset)
+
         return dataset
 
     def _fetch_income_statement(self, ticker:str, period_mode: str, years: int, annual: bool) -> FinancialReport:

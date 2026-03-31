@@ -213,3 +213,27 @@ class MappedConceptValues(Base):
             name="uq_mapped_concept_value",
         ),
     )
+
+class FinancialMetric(Base):
+    """
+    Persisted financial metric at one-row-per-period grain.
+    """
+    __tablename__ = "financial_metrics"
+
+    id = Column(Integer, primary_key=True)
+
+    ticker = Column(String, nullable=False, index=True)
+    category = Column(String, nullable=False, index=True)
+    metric_name = Column(String, nullable=False, index=True)
+    period_label = Column(String, nullable=False, index=True)
+    value = Column(Float, nullable=True)
+
+    __table_args__ = (
+        UniqueConstraint(
+            "ticker",
+            "category",
+            "metric_name",
+            "period_label",
+            name="uq_metric_value_row",
+        ),
+    )

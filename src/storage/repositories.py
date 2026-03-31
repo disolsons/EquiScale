@@ -11,7 +11,8 @@ from src.storage.models import (
     TagSuggestions,
     MappedConceptSelections,
     MappedConceptValues,
-    RawStatementFact
+    RawStatementFact,
+    FinancialMetric,
 )
 
 def upsert_mapping_validations(session: Session, ticker: str, statement_type: str, report: dict[str, Any]) -> None:
@@ -251,7 +252,7 @@ def replace_raw_statement_facts_for_statement(
                 print(row)
         raise ValueError("Duplicate raw_statement_facts keys detected before insert")
 
-    deleted = session.query(RawStatementFact).filter(
+    session.query(RawStatementFact).filter(
         RawStatementFact.ticker == ticker,
         RawStatementFact.statement_type == statement_type,
     ).delete()
@@ -260,3 +261,25 @@ def replace_raw_statement_facts_for_statement(
         return
 
     session.bulk_insert_mappings(RawStatementFact, records)
+
+
+
+def replace_metric_values_for_ticker(
+    session,
+    ticker: str,
+    records: list[dict],
+) -> None:
+    """
+    Replace all persisted metric values for one ticker.
+
+    Expected grain of `records`:
+    one row per metric_name per period_label.
+    """
+    session.query(FinancialMetric).filter(
+        FinancialMetric.ticker == ticker,
+    ).delete()
+
+    if not records:
+        return
+
+    session.bulk_insert_mappings(FinancialMetric, records)
